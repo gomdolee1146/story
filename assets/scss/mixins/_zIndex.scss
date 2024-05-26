@@ -1,0 +1,9 @@
+$list: (
+    'main-header': 200,
+    'header': 200,
+    'system': 2000,
+);
+
+@function z($layer){
+    @return map-get($list, $layer);
+}

@@ -1,0 +1,58 @@
+
+$brown-base: #f3f3f3;
+$brown-primary: #693413;
+$brown-secondary: #f7e7da;
+
+$yellow-basic: #FFF500;
+
+$base: var(--base-color, #f3f3e9);
+$primary: var(--primary-color, #F6D1D8);
+$secondary: var(--secondary-color, #f0b5be);
+$tertiary: var(--tertiary-color, #fff);
+$point: var(--point-color, #e33529);
+
+$colorList: (
+  "themePink": (
+    "base": #f3f3e9,
+    "primary": #F6D1D8,
+    "secondary": #F0B5BE,
+    "tertiary": #EDE2E2,
+    "point": #e33529,
+  ),
+  "themeBlue": (
+    "base": #f6f6ed,
+    "primary": #afd8fb,
+    "secondary": #5b93b0,
+    "tertiary": #EBF1F0,
+    "point": #2b6786,
+  ),
+);
+
+@function theme-color($key: "pink", $variant: "primary") {
+  $map: map-get($theme-colors, $key);
+  @return map-get($map, $variant);
+}
+
+@function setColor($map, $object, $style) {
+  @if map-has-key($map, $object) {
+    @return map-get(map-get($map, $object), $style);
+  }
+  @warn "The key ´#{$object} is not available in the map.";
+  @return null;
+}
+
+@mixin setTheme($key) {
+  --base-color: #{setColor($colorList, $key, base)};
+  --primary-color: #{setColor($colorList, $key, primary)};
+  --secondary-color: #{setColor($colorList, $key, secondary)};
+  --tertiary-color: #{setColor($colorList, $key, tertiary)};
+  --point-color: #{setColor($colorList, $key, point)};
+}
+
+$themes: (themePink, themeBlue);
+
+@each $theme in $themes {
+  .#{$theme}-theme {
+    @include setTheme($theme);
+  }
+}
