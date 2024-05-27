@@ -32,8 +32,10 @@
 </template>
 
 <script>
+import { authCheck } from "@/mixins/authCheck";
 export default {
   name: "loginForm",
+  mixins: [authCheck],
   components: {},
   layout: "default",
   props: {},
@@ -44,8 +46,11 @@ export default {
 
       isIdCheck: false,
       idCheckTxt: "",
+      idCheckResult: false,
+
       isPwCheck: false,
       pwCheckTxt: "",
+      pwCheckResult: false,
     };
   },
   methods: {
@@ -55,39 +60,28 @@ export default {
 
     // 로그인 완료
     loginSubmit() {
-      // 로컬스토리지에 저장되어있는 값 비교 필요
-      if (this.checkLoginID && this.checkLoginPW) {
-        // 작성된 id랑 pw랑 어딘가에 저장해야댐
+      if (this.idCheckResult && this.pwCheckResult) {
         this.$router.push("/");
-        console.log("메인페이지로 이동");
+        console.log(this.$store.state.auth.userInfo);
       }
     },
 
     // 아이디 영역 유효성 검사
     checkLoginID() {
-      const idValCheck = /^[a-zA-Z0-9]{4,12}$/;
-      const result = idValCheck.test(this.loginId);
-      if (!result) {
-        this.isIdCheck = true;
-        this.idCheckTxt = "아이디를 정확하게 입력해주세요.";
-      } else {
-        this.isIdCheck = false;
-        return true;
-      }
+      const { idCheck, idCheckTxt, idCheckResult } = this.checkId(this.loginId);
+      this.isIdCheck = idCheck;
+      this.idCheckTxt = idCheckTxt;
+      this.idCheckResult = idCheckResult;
     },
     // PW 영역 유효성 검사
     checkLoginPW() {
-      const pwValCheck =
-        /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-~])(?=.*[0-9]).{8,15}$/;
-      const result = pwValCheck.test(this.loginPw);
-      if (!result) {
-        this.isPwCheck = true;
-        this.pwCheckTxt = "영문,숫자,특문조합 8자리 이상 입력해주세요.";
-      } else {
-        this.isPwCheck = false;
-        return true;
-      }
+      const { pwCheck, pwCheckTxt, pwCheckResult } = this.checkPw(this.loginPw);
+      this.isPwCheck = pwCheck;
+      this.pwCheckTxt = pwCheckTxt;
+      this.pwCheckResult = pwCheckResult;
     },
+  },
+  mounted() {
   },
 };
 </script>

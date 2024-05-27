@@ -7,7 +7,7 @@
           v-model="joinId"
           type="text"
           class="txt__input"
-          @input="checkJoinID"
+          @input="checkJoinId"
         />
         <label class="txt__label">아이디</label>
         <span v-if="isIdCheck" class="txt__desc">{{ idCheckTxt }}</span>
@@ -50,8 +50,10 @@
 </template>
 
 <script>
+import { authCheck } from "@/mixins/authCheck";
 export default {
   name: "joinForm",
+  mixins: [authCheck],
   data() {
     return {
       joinId: "",
@@ -59,91 +61,80 @@ export default {
       joinPw: "",
       joinPwCheck: "",
       userInfo: {},
+
       isIdCheck: false,
       idCheckTxt: "",
+      idCheckResult: false,
+
       isNickCheck: false,
       nickCheckTxt: "",
+      nickCheckResult: false,
+
       isPwCheck: false,
       pwCheckTxt: "",
+      pwCheckResult: false,
+
       isPwValidateCheck: false,
       pwValidCheckTxt: "",
+      pwCheckValidResult: false,
     };
   },
   computed: {
     test() {},
   },
   methods: {
-    goToLogin() {
-      this.$router.push("/auth/login");
-    },
-
     // 회원가입 완료
     joinSubmit() {
-      this.$router.push("/auth/login");
-
-      // const userInfo = {};
-      // userInfo.id = this.joinId;
-      // userInfo.nick = this.joinNick;
-      // userInfo.pw = this.joinPw;
-      // console.log(userInfo);
-      // if (
-      //   this.checkJoinID &&
-      //   this.checkJoinNick &&
-      //   this.checkJoinPW &&
-      //   this.checkJoinPwValid
-      // ) {
-      //   this.$store.commit("auth/addUserInfo", userInfo);
-      // }
+      const userInfo = {};
+      userInfo.id = this.joinId;
+      userInfo.nick = this.joinNick;
+      userInfo.pw = this.joinPw;
+      if (
+        this.idCheckResult &&
+        this.nickCheckResult &&
+        this.pwCheckResult &&
+        this.pwCheckValidResult
+      ) {
+        this.$router.push("/auth/login");
+        this.$store.commit("auth/addUserInfo", userInfo);
+      } else {
+        console.log('안내창 띄우기')
+      }
     },
 
     // 아이디 영역 유효성 검사
-    checkJoinID() {
-      const idValCheck = /^[a-zA-Z0-9]{4,12}$/;
-      const result = idValCheck.test(this.joinId);
-      if (!result) {
-        this.isIdCheck = true;
-        this.idCheckTxt = "숫자, 영문 조합으로 아이디를 만들어주세요.";
-      } else {
-        this.isIdCheck = false;
-        return true;
-      }
+    checkJoinId() {
+      const { idCheck, idCheckTxt, idCheckResult } = this.checkId(this.joinId);
+      this.isIdCheck = idCheck;
+      this.idCheckTxt = idCheckTxt;
+      this.idCheckResult = idCheckResult;
     },
 
     // 닉네임 영역 유효성 검사
     checkJoinNick() {
-      const nickValCheck = /^[가-힣0-9]+$/;
-      const result = nickValCheck.test(this.joinNick);
-      if (!result) {
-        this.isNickCheck = true;
-        this.nickCheckTxt = "닉네임은 한글 + 숫자 조합으로 입력 가능합니다";
-      } else {
-        this.isNickCheck = false;
-        return true;
-      }
+      const { nickCheck, nickCheckTxt, nickCheckResult } = this.checkNick(this.joinNick);
+      this.isNickCheck = nickCheck;
+      this.nickCheckTxt = nickCheckTxt;
+      this.nickCheckResult = nickCheckResult;
     },
 
     // PW 영역 유효성 검사
     checkJoinPW() {
-      // const pwValCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-~])(?=.*[0-9]).{8,15}$/;
-      const pwValCheck = /^[0-9]*$/;
-      const result = pwValCheck.test(this.joinPw);
-      if (!result) {
-        this.isPwCheck = true;
-        // this.pwCheckTxt = '영문,숫자,특문조합 8자리 이상 입력해주세요.';
-        this.pwCheckTxt = "숫자만 입력해주세요.";
-      } else {
-        this.isPwCheck = false;
-        return true;
-      }
+      const { pwCheck, pwCheckTxt, pwCheckResult } = this.checkPw(this.joinPw);
+      this.isPwCheck = pwCheck;
+      this.pwCheckTxt = pwCheckTxt;
+      this.pwCheckResult = pwCheckResult;
     },
 
     checkJoinPwValid() {
       if (this.joinPw !== this.joinPwCheck) {
         this.isPwValidateCheck = true;
         this.pwValidCheckTxt = "동일한 비밀번호를 입력해주세요.";
+        this.pwCheckValidResult = false;
       } else {
         this.isPwValidateCheck = false;
-        return true;
+        this.pwValidCheckTxt = "";
+        this.pwCheckValidResult = true;
       }
     },
   },

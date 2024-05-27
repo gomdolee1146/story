@@ -1,43 +1,47 @@
+import nuxtStorage from "nuxt-storage";
+
 const storage = {
   fetch() {
-    if (typeof window !== 'undefined'){
-      const arr = [];
-      if (localStorage.length > 0) {
-        for (let i = 0; i < localStorage.length; i++) {
-          if (localStorage.Key !== 'loglevel:webpack-dev-server') {
-            arr.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-          }
+    const arr = [];
+    if (nuxtStorage.localStorage.length > 0) {
+      for (let i = 0; i < nuxtStorage.localStorage.length; i++) {
+        if (nuxtStorage.localStorage.Key !== "loglevel:webpack-dev-server") {
+          arr.push(
+            JSON.parse(
+              nuxtStorage.localStorage.getItem(nuxtStorage.localStorage.key(i))
+            )
+          );
         }
       }
-      return arr;
     }
+    return arr;
   },
 };
 
 export const state = () => ({
-  userInfo: storage.fetch()
-})
+  userInfo: storage.fetch(),
+});
 
 export const mutations = {
-  addUserInfo(state, userInfo){
-    const userObj = {user:userInfo};
-    localStorage.setItem('userInfo', JSON.stringify(userObj))
-    state.userInfo.push(userObj)
+  addUserInfo(state, userInfo) {
+    let userData = { user: userInfo };
+    let userList = _.cloneDeep(state.userInfo);
+
+    userList.push(userData);
+
+    nuxtStorage.localStorage.setData("userInfo", JSON.stringify(userList));
+    state.userInfo = userList;
   },
-  removeUserInfo(state,payload){
+  removeUserInfo(state, payload) {
     localStorage.removeItem(payload.userInfo);
     state.userInfo.splice(payload.index, 1);
-  }
-}
+  },
+};
 
-
-export const actions = {
- 
-}
+export const actions = {};
 
 export const getters = {
-  getUserInfo(state){
+  getUserInfo(state) {
     return state.userInfo;
-  }
-}
- 
+  },
+};
