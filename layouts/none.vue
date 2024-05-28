@@ -12,5 +12,8 @@ export default {
     return {};
   },
   methods: {},
+  mounted(){
+    this.$store.commit("auth/test");
+  }
 };
 </script>

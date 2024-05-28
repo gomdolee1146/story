@@ -98,7 +98,7 @@ export default {
         this.$router.push("/auth/login");
         this.$store.commit("auth/addUserInfo", userInfo);
       } else {
-        console.log('안내창 띄우기')
+        console.log("안내창 띄우기");
       }
     },
 
@@ -112,7 +112,9 @@ export default {
 
     // 닉네임 영역 유효성 검사
     checkJoinNick() {
-      const { nickCheck, nickCheckTxt, nickCheckResult } = this.checkNick(this.joinNick);
+      const { nickCheck, nickCheckTxt, nickCheckResult } = this.checkNick(
+        this.joinNick
+      );
       this.isNickCheck = nickCheck;
       this.nickCheckTxt = nickCheckTxt;
       this.nickCheckResult = nickCheckResult;
@@ -137,6 +139,8 @@ export default {
         this.pwCheckValidResult = true;
       }
     },
+  },
+  mounted() {
   },
 };
 </script>
