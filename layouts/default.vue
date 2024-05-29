@@ -10,6 +10,7 @@ import MainFooter from "../components/layouts/mainFooter.vue";
 export default {
   name: "default",
   components: { MainFooter },
+  middleware: ["auth"],
   props: {},
   data() {
     return {};

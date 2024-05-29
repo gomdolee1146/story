@@ -12,8 +12,8 @@ export default {
     return {};
   },
   methods: {},
-  mounted(){
-    this.$store.commit("auth/test");
+  created(){
+    this.$store.commit("auth/getUserInfo");
   }
 };
 </script>

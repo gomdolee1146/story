@@ -1,4 +1,4 @@
-// 이미지 중앙배치
+// 이미지 배치
 @mixin img-cover($w, $h, $br: 50%, $border-color: transparent, $border: 1px) {
   width: $w;
   height: $h;

@@ -1,29 +1,28 @@
 import nuxtStorage from "nuxt-storage";
 
 const storage = {
-  fetch() {
-    const arr = [];
+  userInfoFetch() {
     if (process.client) {
-      arr.push(JSON.parse(localStorage.getItem("userInfo")));
+      if (localStorage.length > 0) {
+        let data = JSON.parse(localStorage.getItem("userInfo"));
+        return data
+      }
     }
-    return arr;
   },
 };
 
 export const state = () => ({
-  userInfo: storage.fetch(),
+  userInfo: storage.userInfoFetch() || [],
 });
 
 export const mutations = {
-  getUserInfo(state){
-    const userList = storage.fetch()
-    state.userInfo = userList
+  getUserInfo(state) {
+    const userList = storage.userInfoFetch() || [];
+    state.userInfo = userList;
   },
   addUserInfo(state, userInfo) {
-    let userData = { user: userInfo };
     let userList = _.cloneDeep(state.userInfo);
-
-    userList.push(userData);
+    userList.push(userInfo);
 
     nuxtStorage.localStorage.setData("userInfo", userList);
     state.userInfo = userList;

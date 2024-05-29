@@ -8,5 +8,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@use '@/assets/scss/components/test';
+@use "@/assets/scss/components/test";
 </style>

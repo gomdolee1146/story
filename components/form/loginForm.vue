@@ -7,17 +7,14 @@
           v-model="loginId"
           type="text"
           class="txt__input"
-          @input="checkLoginID"
         />
         <label class="txt__label">아이디</label>
-        <span v-if="isIdCheck" class="txt__label">{{ idCheckTxt }}</span>
       </div>
       <div class="txt__box">
         <input
           v-model="loginPw"
           type="password"
           class="txt__input"
-          @input="checkLoginPW"
         />
         <label class="txt__label">비밀번호</label>
       </div>
@@ -44,45 +41,39 @@ export default {
       loginId: "",
       loginPw: "",
 
-      isIdCheck: false,
-      idCheckTxt: "",
       idCheckResult: false,
-
-      isPwCheck: false,
-      pwCheckTxt: "",
       pwCheckResult: false,
     };
+  },
+  computed: {
+    userInfo() {
+      return this.$store.state.auth.userInfo;
+    },
   },
   methods: {
     goToJoin() {
       this.$router.push("/auth/join");
     },
 
-    // 로그인 완료
     loginSubmit() {
+      let checkIdx = _.findIndex(this.userInfo.value, (o) => {
+        return o.id === this.loginId;
+      });
+
+      this.idCheckResult =
+        this.userInfo.value[checkIdx].id === this.loginId ? true : false;
+      this.pwCheckResult =
+        this.userInfo.value[checkIdx].pw === this.loginPw ? true : false;
+
       if (this.idCheckResult && this.pwCheckResult) {
+        this.$store.dispatch('LOGIN', this.userInfo.value[checkIdx])
         this.$router.push("/");
-        console.log(this.$store.state.auth.userInfo);
+      } else {
+        console.log("에러메시지 보이는 경우의수 확인해서 작성하기");
       }
     },
-
-    // 아이디 영역 유효성 검사
-    checkLoginID() {
-      const { idCheck, idCheckTxt, idCheckResult } = this.checkId(this.loginId);
-      this.isIdCheck = idCheck;
-      this.idCheckTxt = idCheckTxt;
-      this.idCheckResult = idCheckResult;
-    },
-    // PW 영역 유효성 검사
-    checkLoginPW() {
-      const { pwCheck, pwCheckTxt, pwCheckResult } = this.checkPw(this.loginPw);
-      this.isPwCheck = pwCheck;
-      this.pwCheckTxt = pwCheckTxt;
-      this.pwCheckResult = pwCheckResult;
-    },
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>

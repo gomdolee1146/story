@@ -1,4 +1,4 @@
-<template> 
+<template>
   <div class="pc__bg">
     <div class="pc__wrap">
       <mainHeader />
@@ -10,19 +10,18 @@
 </template>
 
 <script>
-import mainHeader from '@/components/layouts/mainHeader.vue'
+import mainHeader from "@/components/layouts/mainHeader.vue";
 
 export default {
-  name:'mainLayout',
-  components:{ mainHeader },
-  props:{},
-  data(){
-    return{
-    }
+  name: "mainLayout",
+  components: { mainHeader },
+  middleware: ["auth"],
+  props: {},
+  data() {
+    return {};
   },
-  methods:{
-  }
-}
+  methods: {},
+};
 </script>
 <style lang="scss" scoped>
 // @import '@/assets/scss/layouts/mainLayout.scss';

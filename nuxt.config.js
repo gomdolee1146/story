@@ -29,7 +29,6 @@ export default {
   components: true,
 
   buildModules: ["@nuxtjs/style-resources", "@nuxt/postcss8"],
-
   modules: ['nuxt-vuex-localstorage'],
   build: {
     extractCSS: false,

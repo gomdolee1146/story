@@ -80,7 +80,6 @@ export default {
     };
   },
   computed: {
-    test() {},
   },
   methods: {
     // 회원가입 완료

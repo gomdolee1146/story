@@ -1,17 +1,21 @@
 export const state = () => ({
-  user: 'gg'
-})
+  user: "",
+});
 
 export const mutations = {
   setUser(state, user) {
     state.user = user;
-  }
-}
+  },
+  updateUserInfo(state, userInfo) {
+    state.user = userInfo;
+  },
+};
 
 export const actions = {
-  async fetchUser(context) {
-    const response = await axios.get('users/1');
-    context.commit('setUser', response.data);
-  }
-}
- 
+  LOGIN({ commit }, userInfo) {
+    commit("updateUserInfo", userInfo);
+  },
+  LOGOUT({ commit }) {
+    commit("updateUserInfo", "");
+  },
+};
