@@ -1,5 +1,8 @@
 export const state = () => ({
-  user: "",
+  user: {
+    id: 'aaa123',
+    nick: '곰돌곰돌'
+  },
 });
 
 export const mutations = {

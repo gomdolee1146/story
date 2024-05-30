@@ -1,7 +1,7 @@
 <template>
   <div class="pc__bg">
     <div class="pc__wrap">
-      <mainHeader />
+      <main-header />
       <div class="header_fix">
         <nuxt />
       </div>

@@ -24,6 +24,7 @@ export default {
     "@/plugins/vue-awesome-swiper.js",
     "@/plugins/lodash.js",
     "@/plugins/lottie.js",
+    "@/plugins/globalComponent.js"
   ],
 
   components: true,

@@ -11,7 +11,9 @@
 
   &__wrap {
     @include position-center;
+    position: absolute;
     width: 260px;
+    padding: 24px 20px;
     border-radius: 20px;
     background-color: $gray1;
     z-index: 2;
@@ -21,13 +23,17 @@
     width: 100%;
     padding: 36px 0;
   }
+  &__text {
+    text-align: center;
+  }
+
   &__btm {
     @include flex-box(center, center);
     button {
       @include flex-box(center, center);
       flex: 1 1 auto;
       width: 100%;
-      height: 48px;
+      height: 40px;
       border-radius: 24px;
     }
   }

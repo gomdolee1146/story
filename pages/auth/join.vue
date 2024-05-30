@@ -3,14 +3,12 @@
 </template>
 
 <script>
-import joinForm from '@/components/form/joinForm.vue'
+import joinForm from "@/components/form/joinForm.vue";
 export default {
-  name: 'authJoin',
-  layout: 'none',
+  name: "authJoin",
+  layout: "none",
   components: { joinForm },
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

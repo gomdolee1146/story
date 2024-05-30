@@ -1,12 +1,16 @@
 <template>
   <div class="confirm">
-    <div class="g_modal"></div>
+    <div class="g_modal" @click="hideConfirm"></div>
     <div class="confirm__wrap">
       <div class="confirm__top">
         <p class="body_default confirm__text">{{ confirm.text }}</p>
       </div>
       <div class="confirm__btm">
-        <button class="confirm__btn-cancel body_default" @click="hideConfirm">
+        <button
+          class="confirm__btn-cancel body_default"
+          :class="confirm.cancelClass"
+          @click="hideConfirm"
+        >
           {{ confirm.cancelTxt }}
         </button>
         <button
@@ -25,7 +29,12 @@
 export default {
   name: "systemConfirm",
   props: {
-    confirm: { type: Object, default: () => {} },
+    confirm: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
   },
   methods: {
     hideConfirm() {
