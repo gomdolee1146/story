@@ -16,21 +16,19 @@ export default {
   css: ["./assets/scss/style.scss"],
 
   styleResources: {
-    scss: [
-        './assets/scss/style.scss',
-    ],
-},
+    scss: ["./assets/scss/style.scss"],
+  },
   plugins: [
     "@/plugins/vue-awesome-swiper.js",
     "@/plugins/lodash.js",
     "@/plugins/lottie.js",
-    "@/plugins/globalComponent.js"
+    "@/plugins/globalComponent.js",
   ],
 
   components: true,
 
   buildModules: ["@nuxtjs/style-resources", "@nuxt/postcss8"],
-  modules: ['nuxt-vuex-localstorage'],
+  modules: ["nuxt-vuex-localstorage"],
   build: {
     extractCSS: false,
     postcss: {

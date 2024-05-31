@@ -13,14 +13,6 @@
 
     <!-- 카드영역 -->
     <div class="card__content">
-      <div class="card__photo">
-        <!-- <swiper :options="cardPhoto" class="card__photo_box">
-				<swiper-slide v-for="(photoCont, idx) in photoList" :key="idx">
-					<img :src="photoCont" />
-				</swiper-slide>
-			</swiper> -->
-        <div class="card__photo_pagination"></div>
-      </div>
       <div class="card__title">타이틀 영역입니다</div>
       <div class="card__txt">글내용이 길게길게 들어가지 않을까여</div>
       <div class="card__info">
@@ -55,13 +47,6 @@ export default {
   props: {},
   data() {
     return {
-      cardPhoto: {
-        freeMode: true,
-        slidesPerView: "auto",
-        pagination: {
-          el: "card__photo_pagination",
-        },
-      },
       photoList: [
         // require(`~/assets/imgs/bg_travel01.png`),
         // require(`~/assets/imgs/bg_travel02.png`),

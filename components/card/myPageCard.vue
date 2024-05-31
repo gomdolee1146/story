@@ -30,5 +30,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/components/card/myPageCard.scss";
+@use "@/assets/scss/components/card/myPageCard.scss";
 </style>

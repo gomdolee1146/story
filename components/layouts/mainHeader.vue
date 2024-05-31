@@ -1,9 +1,9 @@
 <template> 
-  <div class="main_header">
-    <div class="main_header__logo" @click="goToMain">
+  <div class="header">
+    <div class="header__logo" @click="goToMain">
     </div>
-    <div class="main_header__btn_wrap">
-      <button class="main_header__btn main_header__btn-alarm">알람버튼</button>
+    <div class="header__btn_wrap">
+      <button class="header__btn header__btn-alarm">알람버튼</button>
     </div>
   </div>
 </template>
@@ -12,7 +12,6 @@
 export default {
   name:'mainHeader',
   components:{},
-  layout:'default',  
   props:{},
   data(){
     return{
@@ -27,5 +26,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '@/assets/scss/components/layouts/mainHeader.scss';
+@use '@/assets/scss/components/layouts/mainHeader.scss';
 </style>

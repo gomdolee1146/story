@@ -26,5 +26,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import '@/assets/scss/components/list/boardList.scss';
+@use '@/assets/scss/components/list/boardList.scss';
 </style>

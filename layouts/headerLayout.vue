@@ -13,7 +13,7 @@
 import mainHeader from "@/components/layouts/mainHeader.vue";
 
 export default {
-  name: "mainLayout",
+  name: "headerLayout",
   components: { mainHeader },
   middleware: ["auth"],
   props: {},
@@ -24,6 +24,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-// @import '@/assets/scss/layouts/mainLayout.scss';
-// @import '@/assets/scss/layouts/pcLayout.scss';
+// @use '@/assets/scss/layouts/mainLayout.scss';
+// @use '@/assets/scss/layouts/pcLayout.scss';
 </style>

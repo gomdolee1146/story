@@ -48,5 +48,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/components/system/systemConfirm.scss";
+@use "@/assets/scss/components/system/systemConfirm.scss";
 </style>

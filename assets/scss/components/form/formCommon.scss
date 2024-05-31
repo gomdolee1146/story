@@ -1,0 +1,43 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.form {
+  &__title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 18px;
+    @include font_default(16px, 500, $primary);
+
+    i {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-left: 4px;
+      background: icon-img("airplane", $svg_primary) center / auto 100%;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border: 1px solid $gray3;
+    border-radius: 8px;
+    background: $gray2;
+    @include font_default(13px, 500, $gray8);
+    box-sizing: border-box;
+  }
+}
+
+input.form__input {
+  height: 44px;
+}
+textarea.form__input {
+  height: 280px;
+  line-height: 1.4em;
+}
+
+.form__input::placeholder {
+  @include font_default(14px, 400, $gray5, -0.05em);
+}

@@ -18,21 +18,10 @@
   transform: translateX(-50%);
   z-index: z('main-header');
 
-  &__logo {
-    img {
-      width: auto;
-      height: 24px;
-    }
-  }
-
   &__btn {
     display: block;
     width: 40px;
     height: 40px;
-
-    &-alarm {
-      background: iconImg(bell, $svg_gray6) no-repeat center / 24px auto;
-      text-indent: -9999px; 
-    }
+    background-color: $gray3;
   }
 }

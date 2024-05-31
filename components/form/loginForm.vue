@@ -87,6 +87,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "@/assets/scss/components/input/textarea.scss";
-@import "@/assets/scss/components/form/loginForm.scss";
+@use "@/assets/scss/components/input/textarea.scss";
+@use "@/assets/scss/components/form/loginForm.scss";
 </style>

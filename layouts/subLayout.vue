@@ -1,17 +1,17 @@
 <template>
   <div class="pc">
-    <main-header />
+    <sub-header />
     <nuxt />
     <main-footer />
   </div>
 </template>
 
 <script>
-import MainHeader from "@/components/layouts/mainHeader.vue";
+import SubHeader from "@/components/layouts/subHeader.vue";
 import MainFooter from "@/components/layouts/mainFooter.vue";
 export default {
-  name: "mainLayout",
-  components: { MainHeader, MainFooter },
+  name: "subLayout",
+  components: { SubHeader, MainFooter },
   middleware: ["auth"],
   props: {},
   data() {

@@ -1,6 +1,11 @@
 @use "@/assets/scss/abstracts" as *;
 @use "@/assets/scss/mixins" as *;
 
+.header + div,
+.header + ul {
+  padding-top: 72px;
+}
+
 .g_modal {
   display: block;
   position: fixed;
@@ -11,7 +16,6 @@
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
-
 
 // 회원정보영역
 .user {
