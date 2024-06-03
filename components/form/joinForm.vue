@@ -79,8 +79,7 @@ export default {
       pwCheckValidResult: false,
     };
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     // 회원가입 완료
     joinSubmit() {
@@ -139,8 +138,7 @@ export default {
       }
     },
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>

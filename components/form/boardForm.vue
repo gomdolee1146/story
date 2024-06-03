@@ -32,15 +32,15 @@ export default {
   name: "boardForm",
   data() {
     return {
-      boardTitle: '',
-      boardContent: '',
+      boardTitle: "",
+      boardContent: "",
     };
   },
-  computed:{
-    myInfo(){
-      return this.$store.state.user
-    }
-  }
+  computed: {
+    myInfo() {
+      return this.$store.state.user;
+    },
+  },
 };
 </script>
 
