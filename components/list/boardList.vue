@@ -1,13 +1,7 @@
 <template>
   <ul class="board__list">
-    <li class="board__lst">
-      <!-- 
-         카드에 넘겨야할 data 
-         1. 게시글 정보 자체
-         2. 작성자 정보
-         3. 댓글정보 + 좋아요 갯수
-       -->
-      <boardCard />
+    <li class="board__lst" v-for="(board, idx) in boardList" :key="idx">
+      <boardCard :board="board" :idx="idx" />
     </li>
   </ul>
 </template>
@@ -22,9 +16,14 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    boardList() {
+      return this.$store.state.board.boardInfo;
+    },
+  },
   methods: {},
 };
 </script>
 <style lang="scss" scoped>
-@use '@/assets/scss/components/list/boardList.scss';
+@use "@/assets/scss/components/list/boardList.scss";
 </style>

@@ -13,6 +13,10 @@ export default {
   layout: "mainLayout",
   components: { boardList, createButton },
   methods: {},
+  computed: {
+  },
+  mounted() {
+  },
 };
 </script>
 <style lang="scss" scoped>

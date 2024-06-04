@@ -1,13 +1,12 @@
 <template>
-  <div>마이페이지 수정하자</div>
+  <div class="edit">
+    <!-- 마이페이지 수정용 -->
+
+  </div>
 </template>
 
 <script>
 export default {
-
+  name: 'mypageEdit'
 }
 </script>
-
-<style>
-
-</style>

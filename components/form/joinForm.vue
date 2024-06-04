@@ -79,15 +79,14 @@ export default {
       pwCheckValidResult: false,
     };
   },
-  computed: {
-  },
   methods: {
     // 회원가입 완료
     joinSubmit() {
       const userInfo = {};
-      userInfo.id = this.joinId;
+      userInfo.id = Date.now();
+      userInfo.userId = this.joinId;
       userInfo.nick = this.joinNick;
-      userInfo.pw = this.joinPw;
+      userInfo.password = this.joinPw;
       if (
         this.idCheckResult &&
         this.nickCheckResult &&
@@ -139,8 +138,7 @@ export default {
       }
     },
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>

@@ -12,8 +12,8 @@ export default {
     return {};
   },
   methods: {},
-  created(){
+  created() {
     this.$store.commit("auth/getUserInfo");
-  }
+  },
 };
 </script>
