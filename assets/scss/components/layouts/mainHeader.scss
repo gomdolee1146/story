@@ -12,9 +12,9 @@
   max-width: $pc_breakpoint;
   height: 60px;
   padding: 0 12px 0 16px;
-  border-bottom: 1px solid $gray4;
   background: $gray1;
   box-sizing: border-box;
+  @include shadow-opt('bottom', 1);
   transform: translateX(-50%);
   z-index: z('main-header');
 

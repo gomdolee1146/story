@@ -69,8 +69,6 @@ export default {
   },
   methods: {
     saveBoardForm() {
-      const boardData = {};
-
       if (!this.boardTitle) {
         this.isShowConfirm = true;
         this.confirm.text = "제목을 입력해주세요.";
@@ -78,11 +76,14 @@ export default {
         this.isShowConfirm = true;
         this.confirm.text = "내용을 입력해주세요.";
       } else {
-        boardData.id = Date.now();
-        boardData.title = this.boardTitle;
-        boardData.content = this.boardContent;
-        boardData.writer = this.myInfo.nick;
-
+        const boardData = {
+          id: Date.now(),
+          date: Date.now(),
+          title: this.boardTitle,
+          content: this.boardContent,
+          writer: this.myInfo.nick,
+          writerThumb: require(`${this.myInfo.photoList[0]}`), // 확인필요함
+        };
         this.$store.commit("board/saveBoardInfo", boardData);
         this.$router.push("/");
       }

@@ -3,7 +3,7 @@
     <!-- 회원정보 영역 -->
     <div class="user card__user">
       <div class="user__thumb">
-        <!-- <img src="@/assets/imgs/img_profile_f01.png" /> -->
+        <img :src="board.writerThumb" />
       </div>
       <div class="user__info">
         <p class="user__nick">{{ board.writer }}</p>
@@ -13,11 +13,18 @@
 
     <!-- 카드영역 -->
     <div class="card__content">
-      <div class="card__title">{{ board.title }}</div>
-      <div class="card__txt">{{ board.content }}</div>
-      <div class="card__info" v-if="board.commentList !== ''">
-        <p class="card__info-cmt">{{ board.commentList.length }}개의 댓글</p>
-      </div>
+      <!-- <nuxt-link :to="`/board/:${idx}`"> -->
+        <div class="card__content_box" @click="goToDetail(idx)">
+          <div class="card__title">{{ board.title }}</div>
+          <div class="card__txt">{{ board.content }}</div>
+          <div class="card__info" v-if="board.commentList !== ''">
+            <p class="card__info-cmt">
+              {{ '0' }}개의 댓글
+            </p>
+          </div>
+        </div>
+      <!-- </nuxt-link> -->
+
       <div class="card__like">
         <ul class="card__like_list">
           <li
@@ -55,6 +62,7 @@ export default {
       },
     },
     idx: { type: Number, default: null },
+    isDetail: { type: Boolean, default: false },
   },
   data() {
     return {
@@ -68,6 +76,15 @@ export default {
 
       this.isLikeOn = true;
       this.$store.commit("board/addLikeCount", this.idx);
+    },
+    goToDetail(idx) {
+      if (this.isDetail) return;
+      this.$router.push({
+        path: '/board/' + idx,
+        params: {
+          idx: idx
+        }
+      });
     },
   },
 };

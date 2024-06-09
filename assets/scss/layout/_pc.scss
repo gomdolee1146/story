@@ -1,20 +1,28 @@
-@use '@/assets/scss/abstracts' as *;
-@use '@/assets/scss/mixins' as *;
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
 
-@media screen and (min-width:520px) {
+.pc {
+  position: relative;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 520px) {
   body {
-      position: relative;
-      width: 100%;
-      background: $pc_bg !important;
-      overflow-y: scroll;
+    position: relative;
+    width: 100%;
+    background: $pc_bg !important;
+    overflow-y: scroll;
   }
   .pc {
-      position: relative;
-      width: $pc_breakpoint;
-      min-height: 100vh;
-      margin: 0 auto;
-      border-left: 1px solid $pc_border;
-      border-right: 1px solid $pc_border;
-      background-color: #fff;
+    width: $pc_breakpoint;
+    margin: 0 auto;
+    border-left: 1px solid $pc_border;
+    border-right: 1px solid $pc_border;
+  }
+
+  .btn-create {
+    right: 50%;
+    transform: translateX(calc($pc_breakpoint / 2 - 24px));
   }
 }

@@ -1,6 +1,10 @@
 @use "@/assets/scss/abstracts" as *;
 @use "@/assets/scss/mixins" as *;
 
+::placeholder {
+  color: $gray5;
+}
+
 .header + div,
 .header + ul {
   padding-top: 72px;

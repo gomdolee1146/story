@@ -10,7 +10,7 @@
   height: 48px;
   border-radius: 50%;
   background-color: $gray2;
-  box-shadow: shadow-opt(center, 1);
+  @include shadow-opt(center, 2);
   z-index: 100;
 
   i {
