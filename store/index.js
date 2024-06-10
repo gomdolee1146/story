@@ -1,7 +1,7 @@
 export const state = () => ({
   user: {
     id: 'aaa123',
-    nick: '곰돌곰돌'
+    nick: '곰돌곰돌',
   },
 });
 

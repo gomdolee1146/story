@@ -24,10 +24,13 @@ export const mutations = {
     state.boardInfo[idx].likeCount = state.boardInfo[idx].likeCount + 1;
   },
   saveCommentInfo(state, commentInfo) {
-    // state.boardInfo[commentInfo.boardIdx].commentList.push(
-    //   commentInfo.commentContent
-    // );
+    state.boardInfo[commentInfo.boardIdx].commentList.push(
+      commentInfo.commentContent
+    );
   },
+  deleteCommentList(state, deleteList) {
+    
+  }
 };
 
 export const actions = {

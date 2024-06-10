@@ -4,7 +4,6 @@
     <comment-card
       :commentInfo="boardList.commentList"
       :writerInfo="boardList.writer"
-      :idxInfo="idx"
     />
   </div>
 </template>

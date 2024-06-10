@@ -82,11 +82,13 @@ export default {
   methods: {
     // 회원가입 완료
     joinSubmit() {
-      const userInfo = {};
-      userInfo.id = Date.now();
-      userInfo.userId = this.joinId;
-      userInfo.nick = this.joinNick;
-      userInfo.password = this.joinPw;
+      const userInfo = {
+        id: Date.now(),
+        userId: this.joinId,
+        nick: this.joinNick,
+        password: this.joinPw,
+        photoList: require(`@/assets/imgs/profile/profile_${_.padStart(_.random(0, 12), 2, '0')}.png`)
+      };
       if (
         this.idCheckResult &&
         this.nickCheckResult &&

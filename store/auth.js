@@ -18,7 +18,6 @@ const storage = {
 
       let userData = [];
       data ? (userData = _.concat(user, data.value)) : userData.push(user);
-      console.log("storage", userData);
       return userData;
     }
   },

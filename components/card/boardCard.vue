@@ -13,7 +13,6 @@
 
     <!-- 카드영역 -->
     <div class="card__content">
-      <!-- <nuxt-link :to="`/board/:${idx}`"> -->
         <div class="card__content_box" @click="goToDetail(idx)">
           <div class="card__title">{{ board.title }}</div>
           <div class="card__txt">{{ board.content }}</div>
@@ -23,7 +22,6 @@
             </p>
           </div>
         </div>
-      <!-- </nuxt-link> -->
 
       <div class="card__like">
         <ul class="card__like_list">
@@ -45,7 +43,7 @@
       <button class="card__btn card__btn-active" @click="addCount">
         좋아요
       </button>
-      <button class="card__btn card__btn-inactive">댓글달기</button>
+      <button class="card__btn card__btn-inactive" @click="goToDetail(idx)">댓글달기</button>
     </div>
   </div>
 </template>

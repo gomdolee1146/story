@@ -31,11 +31,9 @@ export default {
   methods: {
     goToHome() {
       this.$router.push("/");
-      console.log("홈으로 이동함니당");
     },
     goToMypage() {
       this.$router.push("/mypage/");
-      console.log("마이페이지로 이동합니다.");
     },
   },
 };
