@@ -11,10 +11,10 @@
       <button
         class="comment__btn-edit"
         @click="editCommentList"
+        v-if="myInfo.nick === writerInfo"
       >
         댓글 편집하기
       </button>
-      <!-- v-if="myInfo.nick === writerInfo" -->
     </div>
 
     <ul class="comment__list">
@@ -42,7 +42,14 @@
                 {{ comment.commentContent }}
               </div>
             </div>
-            <span class="body_small comment__time">{{ "12분 전" }}</span>
+            <div class="comment__option">
+              <span class="body_small comment__time">{{ "12분 전" }}</span>
+              <button
+                class="comment__btn-del"
+                v-if="comment.writer === myInfo.nick"
+                @click="deleteMyComment(idx)"
+              ></button>
+            </div>
           </div>
         </li>
       </template>
@@ -107,7 +114,6 @@ export default {
   },
   methods: {
     saveCommentInfo() {
-     
       if (this.commentContent === "") {
         this.isShowConfirm = true;
         this.confirm.text = "댓글 내용을 입력해주세요.";
@@ -130,9 +136,8 @@ export default {
       }
     },
     editCommentList() {
-      this.isShowEdit = true;
+      this.isShowEdit = !this.isShowEdit;
     },
-
     saveNumber(el, idx) {
       if (el.target.checked) {
         this.checkNum.push(idx);
@@ -141,10 +146,21 @@ export default {
           return n === idx;
         });
       }
-      console.log(this.checkNum);
+    },
+    deleteMyComment(idx){
+      const myCommentInfo = {
+        boardIdx: this.idxNum,
+        myCommentNum: idx
+      }
+      this.$store.commit('board/deleteMyComment', myCommentInfo);
     },
     deleteComment() {
-      console.log();
+      const deleteList = {
+        boardIdx: this.idxNum,
+        deleteNum: this.checkNum,
+      };
+      this.$store.commit("board/deleteCommentList", deleteList);
+      this.isShowEdit = false;
     },
     cancelEditComment() {
       this.isShowEdit = false;
@@ -154,9 +170,6 @@ export default {
       this.isShowConfirm = isShow;
     },
   },
-  mounted(){
-  
-  }
 };
 </script>
 

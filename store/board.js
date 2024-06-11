@@ -20,6 +20,9 @@ export const mutations = {
   saveBoardInfo(state, board) {
     state.boardInfo.push(board);
   },
+  deleteBoardInfo(state, board) {
+    state.boardInfo.splice(board.boardIdx, 1);
+  },
   addLikeCount(state, idx) {
     state.boardInfo[idx].likeCount = state.boardInfo[idx].likeCount + 1;
   },
@@ -28,9 +31,20 @@ export const mutations = {
       commentInfo.commentContent
     );
   },
+  deleteMyComment(state, myCommentInfo) {
+    state.boardInfo[myCommentInfo.boardIdx].commentList.splice(
+      myCommentInfo.myCommentNum,
+      1
+    );
+  },
   deleteCommentList(state, deleteList) {
-    
-  }
+    let deleteComment = _.cloneDeep(
+      state.boardInfo[deleteList.boardIdx].commentList
+    );
+
+    _.pullAt(deleteComment, deleteList.deleteNum);
+    state.boardInfo[deleteList.boardIdx].commentList = deleteComment;
+  },
 };
 
 export const actions = {

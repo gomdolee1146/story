@@ -1,5 +1,9 @@
 <template>
-  <board-form />
+  <div>
+    <board-form />
+    {{ $route.params.isEdit }}
+    {{ $route.params.boardIdx }}
+  </div>
 </template>
 
 <script>

@@ -37,7 +37,7 @@
     display: inline-block;
     position: absolute;
     bottom: 100%;
-    right: 0;
+    right: 12px;
     height: 28px;
     line-height: 26px;
     margin-bottom: 4px;
@@ -84,6 +84,7 @@
   &__wrap {
     @include flex-box(flex-start, center);
     position: relative;
+    width: 100%;
     padding: 16px 24px;
   }
   &__thumb {
@@ -100,10 +101,47 @@
   &__content {
     color: $gray8;
   }
-  &__time {
+
+  &__option {
+    @include flex-box(flex-end, center);
+    gap: 4px;
     position: absolute;
-    top: 12px;
-    right: 16px;
+    top: 4px;
+    right: 12px;
+  }
+  &__time {
+    flex: 0 0 auto;
     color: $gray5;
+  }
+  &__btn-del {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-color: $gray2;
+  }
+
+  &__edit {
+    @include flex-box(flex-end, center);
+    gap: 4px;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+
+    button {
+      @include flex-box(center, center);
+      height: 32px;
+      padding: 0 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    &-done {
+      background-color: $primary;
+      color: $gray1;
+    }
+    &-cancel {
+      background: $gray3;
+      color: $gray6;
+    }
   }
 }

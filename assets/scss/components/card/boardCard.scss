@@ -1,11 +1,25 @@
 @use "@/assets/scss/abstracts" as *;
 @use "@/assets/scss/mixins" as *;
 
+.detail {
+  position: relative;
+
+  .btn-delete {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    background: $gray4;
+  }
+}
+
 .card {
-  padding: 0 20px; 
+  padding: 0 20px;
   background: #fff;
 
-  &__content {  
+  &__content {
     margin-bottom: 12px;
   }
   &__photo {
@@ -24,7 +38,7 @@
   }
   &__txt {
     @include font_default(14px, 500, $gray6);
-    
+
     &-cut {
       width: 100%;
       @include ellipsis;
@@ -50,7 +64,7 @@
     margin-top: 20px;
 
     &_list {
-      @include flex_box(flex-start, center); 
+      @include flex_box(flex-start, center);
     }
     &_lst {
       margin-right: -8px;
@@ -73,7 +87,7 @@
   }
   &__btn {
     flex: 0 0 calc(50% - 4px);
-    height: 40px; 
+    height: 40px;
     line-height: 40px;
     border-radius: 20px;
     box-sizing: border-box;
@@ -87,7 +101,6 @@
       @include font_default(14px, 700, $primary6);
     }
     &-disabled {
-      
       background: $gray2;
       @include font_default(14px, 700, $gray5);
     }
@@ -102,7 +115,7 @@
     width: 30px;
     height: 30px;
   }
-  
+
   .user__info {
     padding-left: 8px;
     @include font_default(16px, 700, $primary);
