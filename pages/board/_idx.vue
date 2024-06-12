@@ -36,7 +36,8 @@ export default {
   methods: {
     editBoardInfo() {
       this.$router.push({
-        path: "/board/create",
+        // path: "/board/create",
+        name: "board-create",
         params: {
           isEdit: true,
           boardIdx: this.idx,
@@ -45,7 +46,7 @@ export default {
     },
     deleteBoardInfo() {
       this.$commit("board/deleteBoardInfo", this.idx);
-      this.$router.push("/")
+      this.$router.push("/");
     },
   },
 };

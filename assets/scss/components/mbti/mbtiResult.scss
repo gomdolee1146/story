@@ -1,0 +1,142 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.result {
+  padding: 60px;
+  box-sizing: border-box;
+
+  &__header {
+    width: 100%;
+
+    &_box {
+      display: block;
+      position: relative;
+      width: 120px;
+      height: 48px;
+      line-height: 48px;
+      padding: 0 12px;
+      margin: 0 auto;
+      border: 2px solid $gray6;
+      border-left: 0;
+      border-right: 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: $gray8;
+      text-align: center;
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 160px;
+        height: 2px;
+        background: $gray6;
+      }
+
+      &:before {
+        right: 100%;
+        margin-right: 16px;
+      }
+      &:after {
+        left: 100%;
+        margin-left: 16px;
+      }
+    }
+  }
+  &__thumb {
+    width: 190px;
+    margin: 36px auto 20px;
+
+    img {
+      width: 100%;
+    }
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $gray7;
+    text-align: center;
+  }
+  &__wrap {
+    height: 400px;
+    margin: 16px 0 36px;
+    overflow-y: auto;
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  &__box {
+    padding-bottom: 36px;
+    box-sizing: border-box;
+    &:last-child {
+      grid-column: 1 / span 2;
+    }
+  }
+  &__lst {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 2px;
+    font-size: 14px;
+    color: $gray7;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 2px;
+      top: 5px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: $gray7;
+      z-index: 1;
+    }
+
+    .result__footer {
+      display: flex;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      background: $gray8;
+      box-sizing: border-box;
+    }
+  }
+  &__footer_box {
+    @include flex-column(center, center);
+    flex: 1 2 auto;
+    padding: 16px 10px;
+    box-sizing: border-box;
+
+    &:first-child {
+      flex: 1 1 50%;
+      padding: 16px 0;
+    }
+
+    h4 {
+      align-self: flex-start;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    p {
+      width: 100%;
+      padding: 6px 0;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #fff;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    span {
+      font-size: 24px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+}

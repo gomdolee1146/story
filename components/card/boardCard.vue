@@ -13,15 +13,13 @@
 
     <!-- 카드영역 -->
     <div class="card__content">
-        <div class="card__content_box" @click="goToDetail(idx)">
-          <div class="card__title">{{ board.title }}</div>
-          <div class="card__txt">{{ board.content }}</div>
-          <div class="card__info" v-if="board.commentList !== ''">
-            <p class="card__info-cmt">
-              {{ '0' }}개의 댓글
-            </p>
-          </div>
+      <div class="card__content_box" @click="goToDetail(idx)">
+        <div class="card__title">{{ board.title }}</div>
+        <div class="card__txt">{{ board.content }}</div>
+        <div class="card__info" v-if="board.commentList !== ''">
+          <p class="card__info-cmt">{{ "0" }}개의 댓글</p>
         </div>
+      </div>
 
       <div class="card__like">
         <ul class="card__like_list">
@@ -43,7 +41,9 @@
       <button class="card__btn card__btn-active" @click="addCount">
         좋아요
       </button>
-      <button class="card__btn card__btn-inactive" @click="goToDetail(idx)">댓글달기</button>
+      <button class="card__btn card__btn-inactive" @click="goToDetail(idx)">
+        댓글달기
+      </button>
     </div>
   </div>
 </template>
@@ -78,10 +78,10 @@ export default {
     goToDetail(idx) {
       if (this.isDetail) return;
       this.$router.push({
-        path: '/board/' + idx,
+        path: "/board/" + idx,
         params: {
-          idx: idx
-        }
+          idx: idx,
+        },
       });
     },
   },

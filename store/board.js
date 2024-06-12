@@ -17,8 +17,13 @@ export const state = () => ({
 });
 
 export const mutations = {
-  saveBoardInfo(state, board) {
-    state.boardInfo.push(board);
+  saveBoardInfo(state, boardData) {
+    const { idx, board } = boardData;
+    if (idx !== "") {
+      _.assign(state.boardInfo[idx], board);
+    } else {
+      state.boardInfo.push(board);
+    }
   },
   deleteBoardInfo(state, board) {
     state.boardInfo.splice(board.boardIdx, 1);

@@ -47,9 +47,14 @@ export const mutations = {
     nuxtStorage.localStorage.setData("userInfo", userList);
     state.userInfo = userList;
   },
-  removeUserInfo(state, payload) {
-    localStorage.removeData(payload.userInfo);
-    state.userInfo.splice(payload.index, 1);
+  removeUserInfo(state, userInfo) {
+    let userList = _.cloneDeep(state.userInfo);
+    _.remove(userList, function (n) {
+      return (n.userId = userInfo.userId);
+    });
+
+    nuxtStorage.localStorage.setData("userInfo", userList);
+    state.userInfo = userList;
   },
 };
 

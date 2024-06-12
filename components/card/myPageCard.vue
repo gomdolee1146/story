@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card__wrap">
       <div class="card__thumb">
-        <!-- <img /> -->
+        <img :src="myInfo.photoList[0]" />
       </div>
       <div class="card__info">
         <p class="body_medium">안녕하세요!</p>

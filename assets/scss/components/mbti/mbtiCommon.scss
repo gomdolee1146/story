@@ -1,0 +1,51 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.intro,
+.question,
+.result {
+  width: 100%;
+  height: 100vh;
+}
+
+.question,
+.result {
+  opacity: 0;
+}
+
+.btn-start {
+  background: $primary;
+}
+
+.btn-start:hover,
+.btn-start:active {
+  background: $primary4;
+}
+
+.btn-reload {
+  background: $gray6;
+}
+
+.btn-reload:hover,
+.btn-reload:active {
+  background: $gray4;
+}
+
+@media screen and (max-width: 520px) {
+  .intro,
+  .question {
+    padding: 60px 20px;
+  }
+
+  .result {
+    padding: 36px 20px;
+  }
+
+  .intro__wrap {
+    padding: 24px 20px;
+  }
+
+  .result__wrap {
+    height: 240px;
+  }
+}

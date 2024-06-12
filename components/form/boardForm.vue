@@ -62,12 +62,34 @@ export default {
       },
     };
   },
+  props: {
+    editInfo: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+  },
   computed: {
     myInfo() {
       return this.$store.state.user;
     },
+    boardInfo() {
+      if (this.editInfo) {
+        return this.$store.state.board.boardInfo[this.editInfo.boardIdx];
+      }
+    },
+  },
+  created() {
+    this.setEditInfo();
   },
   methods: {
+    setEditInfo() {
+      if (this.boardInfo) {
+        this.boardTitle = this.boardInfo.title;
+        this.boardContent = this.boardInfo.content;
+      }
+    },
     saveBoardForm() {
       if (!this.boardTitle) {
         this.isShowConfirm = true;
@@ -75,14 +97,18 @@ export default {
       } else if (!this.boardContent) {
         this.isShowConfirm = true;
         this.confirm.text = "내용을 입력해주세요.";
+        dhk;
       } else {
         const boardData = {
-          id: Date.now(),
-          date: Date.now(),
-          title: this.boardTitle,
-          content: this.boardContent,
-          writer: this.myInfo.nick,
-          writerThumb: require(`${this.myInfo.photoList[0]}`), // 확인필요함
+          idx: this.editInfo.boardIdx || "",
+          board: {
+            id: this.boardInfo.id || Date.now(),
+            date: this.boardInfo.date || Date.now(),
+            title: this.boardTitle,
+            content: this.boardContent,
+            writer: this.myInfo.nick,
+            writerThumb: this.myInfo.photoList[0] || "", // 확인필요함
+          },
         };
         this.$store.commit("board/saveBoardInfo", boardData);
         this.$router.push("/");

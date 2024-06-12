@@ -8,7 +8,13 @@
     >
       <i></i>홈
     </button>
-    <button class="main_footer__btn main_footer__btn-etc"><i></i>메뉴2</button>
+    <button
+      class="main_footer__btn main_footer__btn-game"
+      :class="$route.path == '/game/' ? 'on' : ''"
+      @click="goToGame"
+    >
+      <i></i>미니게임
+    </button>
     <button
       class="main_footer__btn main_footer__btn-mypage"
       :class="$route.path == '/mypage/' ? 'on' : ''"
@@ -31,6 +37,9 @@ export default {
   methods: {
     goToHome() {
       this.$router.push("/");
+    },
+    goToGame() {
+      this.$router.push("/game/");
     },
     goToMypage() {
       this.$router.push("/mypage/");

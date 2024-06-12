@@ -1,0 +1,39 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.intro {
+  @include flex-column(center, center);
+  gap: 60px;
+  padding: 60px;
+  box-sizing: border-box;
+
+  &__wrap {
+    @include flex-column(center, center);
+    width: 100%;
+    padding: 20px 36px;
+    border: 1px solid $primary4;
+    border-radius: 4px;
+    background: $primary6;
+    box-sizing: border-box;
+  }
+
+  &__title {
+    text-align: center;
+  }
+  &__txt {
+    font-size: 28px;
+    font-weight: bold;
+    color: $gray6;
+  }
+  &__title_txt {
+    margin-top: 4px;
+    font-size: 40px;
+    font-weight: bold;
+    color: $gray6;
+    text-decoration: underline;
+  }
+  &__box {
+    width: 100%;
+    margin-top: 36px;
+  }
+}

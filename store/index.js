@@ -2,6 +2,7 @@ export const state = () => ({
   user: {
     id: 'aaa123',
     nick: '곰돌곰돌',
+    photoList: [require('@/assets/imgs/profile/profile_01.png')]
   },
 });
 

@@ -147,12 +147,12 @@ export default {
         });
       }
     },
-    deleteMyComment(idx){
+    deleteMyComment(idx) {
       const myCommentInfo = {
         boardIdx: this.idxNum,
-        myCommentNum: idx
-      }
-      this.$store.commit('board/deleteMyComment', myCommentInfo);
+        myCommentNum: idx,
+      };
+      this.$store.commit("board/deleteMyComment", myCommentInfo);
     },
     deleteComment() {
       const deleteList = {

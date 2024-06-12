@@ -1,8 +1,6 @@
 <template>
   <div>
-    <board-form />
-    {{ $route.params.isEdit }}
-    {{ $route.params.boardIdx }}
+    <board-form :editInfo="$route.params" />
   </div>
 </template>
 
