@@ -1,22 +1,17 @@
 <template>
   <div class="main">
-    <board-list />
     <create-button />
+    <board-list />
   </div>
 </template>
 
 <script>
-import boardList from "@/components/list/boardList.vue";
 import createButton from "@/components/button/createButton.vue";
+import boardList from "@/components/list/boardList.vue";
 export default {
   name: "IndexPage",
   layout: "mainLayout",
   components: { boardList, createButton },
-  methods: {},
-  computed: {
-  },
-  mounted() {
-  },
 };
 </script>
 <style lang="scss" scoped>

@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <button class="btn-start" @click="startMBTI">시작하기</button>
+    <button class="btn-start" @click="showMBTI">시작하기</button>
   </section>
 </template>
 
@@ -28,14 +28,14 @@
 export default {
   name: 'mbtiIntro',
   methods:{
-    startMBTI(){
-      this.$emit('startMBTI');
+    showMBTI(){
+      this.$emit('showMBTI');
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/components/mbti/mbtiCommon.scss';
-@use '@/assets/scss/components/mbti/mbtiIntro.scss';
+@use '@/assets/scss/components/game/mbtiCommon.scss';
+@use '@/assets/scss/components/game/mbtiIntro.scss';
 </style>

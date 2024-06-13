@@ -7,7 +7,6 @@ const questionList = [
       "안될게 뭐 있어?! 빨리 오라고 해!",
       "으응…?(싫어 불편해 안된다고 해)",
     ],
-    userAnswer: "",
   },
   {
     type: "ns",
@@ -16,7 +15,6 @@ const questionList = [
       "나 이러다 죽는 거 아닌가.. 아직 해보고<br /> 싶은거 많은데... 다들 슬퍼하겠지..?",
       "와 40도네.. 어쩐지 너무 아프더라",
     ],
-    userAnswer: "",
   },
   {
     type: "tf",
@@ -25,7 +23,6 @@ const questionList = [
       "왜그래? 뭐때문에 힘든거야? 라며 <br />힘들어하는 이유를 묻는다.",
       "5초 만에 감정 이입 완료... <br />같이 슬퍼진다.",
     ],
-    userAnswer: "",
   },
   {
     type: "pj",
@@ -35,13 +32,11 @@ const questionList = [
       "친구가 말도 없이 놀러 온 상황 자체가 <br />재밌고 짜릿하다",
       "영화가 중간에 끊겨서 짜증난다",
     ],
-    userAnswer: "",
   },
   {
     type: "ei",
     question: "데이트 중 길에서 <br /> 연인의 친구를 마주친다면 나는..",
     answer: ["자연스럽게 웃으며 대한다", "무생물이 되어 조용히 있는다"],
-    userAnswer: "",
   },
   {
     type: "ns",
@@ -50,7 +45,6 @@ const questionList = [
       "주인공 사람들 살리겠다고 좀비랑 <br />혼자 싸우는데 진짜 멋지더라 소름돋았어.",
       "주인공이 좀비 바이러스가 퍼진 세상에서<br /> 살아남는 영화야~",
     ],
-    userAnswer: "",
   },
   {
     type: "tf",
@@ -60,7 +54,6 @@ const questionList = [
       "열심히 안 했다니..? <br />어떻게 그런 심한 말을??",
       "다른 사람들 눈에는 내가 덜 노력하고<br />점수 잘 나오는 사람으로 보이겠군!",
     ],
-    userAnswer: "",
   },
   {
     type: "pj",
@@ -69,26 +62,22 @@ const questionList = [
       "비행기 표만 끊어두고 <br />계획의 80%가 끝난다고 생각한다.",
       "할 거면 제대로! <br /> 일별로 세부 일정을 정리한다",
     ],
-    userAnswer: "",
   },
   {
     type: "ei",
     question: "우울할 때 집에 있으면 나는",
     answer: ["더 우울해진다", "우울함이 해소되어 사라진다"],
-    userAnswer: "",
   },
   {
     type: "ns",
     question: "과제의 기한을 놓쳤을 때 드는 생각은?",
     answer: ["하.. 난 왜 이리 게으르지?", "아오... 점수 깎이겠네..."],
-    userAnswer: "",
   },
   {
     type: "tf",
     question:
       "친구가 갑자기 [난 네가 너무좋아!] <br /> 라고 했을 때 드는 생각은?",
     answer: ["속으로 나한테 뭐 잘못했나 생각듬", "속으로 뿌듯하고 감동받음"],
-    userAnswer: "",
   },
   {
     type: "pj",
@@ -97,14 +86,13 @@ const questionList = [
       "눈에 보이는 곳만 급하게 치워둔다",
       "휴지통 비우기, 침구 정리, 화장실 청소 등<br /> 모든 공간을 청소한다.",
     ],
-    userAnswer: "",
   },
 ];
 
 const resultList = [
   {
     type: "enfp",
-    thumb: require(`@/assets/imgs/games/mbti/enfp.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/enfp.png`),
     title: "",
     character: [
       "받은 게 있으면 배로 돌려주려고 함",
@@ -129,7 +117,7 @@ const resultList = [
   },
   {
     type: "enfj",
-    thumb: require(`@/assets/imgs/games/mbti/enfj.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/enfj.png`),
     title: "",
     character: [
       "이 세상에 믿을 사람은 오직 나 하나임",
@@ -149,7 +137,7 @@ const resultList = [
   },
   {
     type: "entp",
-    thumb: require(`@/assets/imgs/games/mbti/entp.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/entp.png`),
     title: "",
     character: [
       "일 크게 만들고 싫증나서 냅다 모른척 잘함",
@@ -174,7 +162,7 @@ const resultList = [
   },
   {
     type: "entj",
-    thumb: require(`@/assets/imgs/games/mbti/entj.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/entj.png`),
     title: "",
     character: [
       "본인 스스로를 잘 알고 있음",
@@ -199,7 +187,7 @@ const resultList = [
   },
   {
     type: "estp",
-    thumb: require(`@/assets/imgs/games/mbti/estp.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/estp.png`),
     title: "",
     character: [
       "오지랖으로는 어디가서 안 꿀림",
@@ -224,7 +212,7 @@ const resultList = [
   },
   {
     type: "estj",
-    thumb: require(`@/assets/imgs/games/mbti/estj.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/estj.png`),
     title: "",
     character: [
       "남의 마음을 어느정도 꿰뚤어봄",
@@ -249,7 +237,7 @@ const resultList = [
   },
   {
     type: "esfp",
-    thumb: require(`@/assets/imgs/games/mbti/esfp.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/esfp.png`),
     title: "",
     character: [
       "걍 될 대로 되라 마인드",
@@ -274,7 +262,7 @@ const resultList = [
   },
   {
     type: "esfj",
-    thumb: require(`@/assets/imgs/games/mbti/esfj.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/esfj.png`),
     title: "",
     character: [
       "사람들이 아는 내 성격이랑 혼자 있을 때랑 조금 다름",
@@ -299,7 +287,7 @@ const resultList = [
   },
   {
     type: "infp",
-    thumb: require(`@/assets/imgs/games/mbti/infp.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/infp.png`),
     title: "",
     character: [
       "친할수록 해결방안 제시하고 안 친할수록 성의없는 위로함",
@@ -324,7 +312,7 @@ const resultList = [
   },
   {
     type: "infj",
-    thumb: require(`@/assets/imgs/games/mbti/infj.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/infj.png`),
     title: "",
     character: [
       "친구가 고민 상담하면 관심있는 척함",
@@ -349,7 +337,7 @@ const resultList = [
   },
   {
     type: "intp",
-    thumb: require(`@/assets/imgs/games/mbti/intp.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/intp.png`),
     title: "",
     character: [
       "관종인데 막상 관심 주면 어쩔줄 모름",
@@ -374,7 +362,7 @@ const resultList = [
   },
   {
     type: "intj",
-    thumb: require(`@/assets/imgs/games/mbti/intj.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/intj.png`),
     title: "",
     character: [
       "할 일 있음 미리미리 끝냄",
@@ -399,7 +387,7 @@ const resultList = [
   },
   {
     type: "istp",
-    thumb: require(`@/assets/imgs/games/mbti/istp.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/istp.png`),
     title: "",
     character: [
       "사람 만나는거 좋은데 싫음",
@@ -424,7 +412,7 @@ const resultList = [
   },
   {
     type: "istj",
-    thumb: require(`@/assets/imgs/games/mbti/istj.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/istj.png`),
     title: "",
     character: [
       "성격이 왔다갔다 해서 나도 내 성격을 잘 모름",
@@ -449,7 +437,7 @@ const resultList = [
   },
   {
     type: "isfp",
-    thumb: require(`@/assets/imgs/games/mbti/isfp.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/isfp.png`),
     title: "",
     character: [
       "발등에 불 떨어지건 말건 신경 안 쓰다가 타들어갈때쯤 시작함(하면 또 잘함)",
@@ -474,7 +462,7 @@ const resultList = [
   },
   {
     type: "isfj",
-    thumb: require(`@/assets/imgs/games/mbti/isfj.png`),
+    // thumb: require(`@/assets/imgs/games/mbti/isfj.png`),
     title: "",
     character: [
       "친한 사람일수록 직설적으로 표현함",

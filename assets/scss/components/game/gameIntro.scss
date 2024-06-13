@@ -1,0 +1,34 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.game__list {
+  @include flex-wrap(space-between, center);
+  gap: 8px;
+  width: 100%;
+  padding: 0 20px;
+}
+.game__lst {
+  flex: 0 0 calc(50% - 4px);
+  border-radius: 12px;
+  background-color: $gray1;
+  box-shadow: shadow-opt("center", 2);
+  overflow: hidden;
+}
+.game__wrap {
+  width: 100%;
+  padding: 16px;
+}
+.game__thumb {
+  width: 100%;
+  margin-bottom: 4px;
+  border: 1px solid $gray2;
+  border-radius: 12px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+.game__title {
+  font-size: 13px;
+  font-weight: 500;
+  color: $gray6;
+  text-align: center;
+}

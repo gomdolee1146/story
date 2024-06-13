@@ -1,13 +1,11 @@
 <template>
-  <div>게임리스트 보여달라!</div>
+  <game-intro />
 </template>
 
 <script>
+import gameIntro from "@/components/game/gameIntro.vue";
 export default {
-  name: 'gameIndex',
-}
+  components: { gameIntro },
+  name: "gameIndex",
+};
 </script>
-
-<style>
-
-</style>

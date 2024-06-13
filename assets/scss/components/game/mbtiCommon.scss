@@ -14,12 +14,19 @@
 }
 
 .btn-start {
-  background: $primary;
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 8px;
+  border-radius: 20px;
+  background: $primary2;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .btn-start:hover,
 .btn-start:active {
-  background: $primary4;
+  background: $primary3;
 }
 
 .btn-reload {

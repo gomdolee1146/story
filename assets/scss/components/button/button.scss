@@ -2,21 +2,23 @@
 @use "@/assets/scss/mixins" as *;
 
 .btn-create {
-  @include flex-box(center, center);
-  position: fixed;
-  right: 16px;
-  bottom: 120px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: $gray2;
-  @include shadow-opt(center, 2);
-  z-index: 100;
+  position: relative;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: $gradient;
+  color: $gray1;
+  box-shadow: shadow-opt("bottom", 1);
+  text-align: left;
 
   i {
     display: block;
-    width: 32px;
-    height: 32px;
-    background-color: $gray6;
+    width: 16px;
+    height: 16px;
+    @include position-centerY;
+    position: absolute;
+    right: 12px;
+    background: icon-img("check", $svg-gray1);
+    z-index: 1;
   }
 }
