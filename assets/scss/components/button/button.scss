@@ -13,12 +13,12 @@
 
   i {
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     @include position-centerY;
     position: absolute;
     right: 12px;
-    background: icon-img("check", $svg-gray1);
+    background: icon-img("check", $svg-gray1) no-repeat center / auto 16px;
     z-index: 1;
   }
 }

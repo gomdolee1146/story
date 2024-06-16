@@ -1,0 +1,27 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 8px;
+  width: max-content;
+  margin: 0 auto;
+
+  &__block {
+    @include flex-box(center, center);
+    width: 80px;
+    height: 80px;
+    border: 1px solid #000;
+
+    &-dog {
+      background: #ffe9e9 icon-img('dog', '%23eed9d9') no-repeat center / auto 100%;
+      pointer-events: none;
+    }
+    &-cat {
+      background: #e9ffe9 icon-img('cat', '%23d9eed9') no-repeat center / auto 100%;
+      pointer-events: none;
+    }
+  }
+}

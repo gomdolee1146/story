@@ -1,9 +1,11 @@
 <template>
-  <div>틱택토</div>
+  <tictactoePage />
 </template>
 
 <script>
+import tictactoePage from "@/components/game/tictactoePage.vue";
 export default {
-  name: 'tictactoe'
-}
+  name: "tictactoe",
+  components: { tictactoePage },
+};
 </script>
