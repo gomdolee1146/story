@@ -1,20 +1,40 @@
 <template>
   <div class="tictactoe">
-    <div class="selectPlayer">
-      <button class="select-dog" @click="setFirstPlayer('dog')"></button>
-      <button class="select-cat" @click="setFirstPlayer('cat')"></button>
-    </div>
-
-    <div class="table">
-      <div
-        class="table__block"
-        :class="`table__block-${nameList[idx]}`"
-        v-for="(block, idx) in nameList"
-        :key="idx"
-        @click="checkTable(idx)"
-      ></div>
-    </div>
-    {{ winner }}
+    <transition name="fade">
+      <div class="select__wrap" v-if="step === 1">
+        <h4 class="select__title">댕냥 틱택토!</h4>
+        <p class="select__sub">처음 플레이 할 캐릭터를 선택해주세요!</p>
+        <div class="select__btn">
+          <button
+            class="select__btn-dog"
+            @click="setFirstPlayer('dog')"
+          ></button>
+          <button
+            class="select__btn-cat"
+            @click="setFirstPlayer('cat')"
+          ></button>
+        </div>
+      </div>
+    </transition>
+    <transition name="fade">
+      <div class="table__wrap">
+        <div class="table" v-if="step === 2">
+          <div
+            class="table__block"
+            :class="`table__block-${nameList[idx]}`"
+            v-for="(block, idx) in nameList"
+            :key="idx"
+            @click="checkTable(idx)"
+          ></div>
+        </div>
+      </div>
+    </transition>
+    <transition name="fade">
+      <div class="result" v-if="step === 3">
+        <h4 class="result__txt">{{ winner }}가 승리했습니다!</h4>
+        <button class="btn-reload" @click="resetGame">다시 게임하기</button>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -23,9 +43,11 @@ export default {
   name: "tictactoePage",
   data() {
     return {
+      step: 1,
+
       nameList: [],
       playerList: ["dog", "cat"],
-      player: "cat",
+      player: "",
       nowPlaying: "",
       checkNum: 0,
       winner: "",
@@ -53,7 +75,6 @@ export default {
           this.boardArray[hNum][vNum] = secondPlayer;
           this.nowPlaying = firstPlayer;
         }
-        console.log(this.boardArray);
         this.checkNum++;
       }
       if (this.checkNum >= 5) {
@@ -92,16 +113,19 @@ export default {
 
     setResult() {
       this.gameOver = true;
+      this.step = 3;
     },
     setFirstPlayer(player) {
       this.player = player;
+      this.step = 2;
     },
     resetGame() {
-      this.player = '';
+      this.player = "";
       this.checkNum = 0;
       this.boardArray = [[], [], []];
       this.nameList = _.times(9, _.stubString);
       this.gameOver = false;
+      this.step = 1;
     },
   },
   mounted() {

@@ -140,3 +140,18 @@
     }
   }
 }
+
+.btn-reload {
+  @include position-centerY;
+  display: inline-block;
+  position: relative;
+  height: 48px;
+  line-height: 46px;
+  padding: 0 16px;
+  border: 2px solid $mbti1;
+  background-color: #ffffe9;
+  font-size: 20px;
+  font-weight: 700;
+  color: $mbti1;
+  text-align: center;
+}

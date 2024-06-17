@@ -1,8 +1,14 @@
 <template>
   <div class="mbti">
-    <mbti-intro v-if="isShowIntro" @showMBTI="showMBTI" />
-    <mbti-question v-if="isShowQuestion" @showResult="showResult" />
-    <mbti-result v-if="isShowResult" :result="result" />
+    <transition name="fade">
+      <mbti-intro v-if="isShowIntro" @showMBTI="showMBTI" />
+    </transition>
+    <transition name="fade">
+      <mbti-question v-if="isShowQuestion" @showResult="showResult" />
+    </transition>
+    <transition name="fade">
+      <mbti-result v-if="isShowResult" :result="mbtiResult" />
+    </transition>
   </div>
 </template>
 
@@ -37,6 +43,7 @@ export default {
     },
 
     showResult(result) {
+      console.log("showResult", result);
       this.isShowIntro = false;
       this.isShowQuestion = false;
       this.isShowResult = true;

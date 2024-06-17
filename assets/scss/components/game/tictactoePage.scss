@@ -1,6 +1,47 @@
 @use "@/assets/scss/abstracts" as *;
 @use "@/assets/scss/mixins" as *;
 
+.select__wrap {
+  @include flex-column(center, center);
+  width: 100%;
+  height: 100vh;
+}
+.select__title {
+  margin-bottom: 4px;
+  font-size: 32px;
+  font-weight: 700;
+  color: $gray8;
+  text-align: center;
+}
+.select__sub {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: $gray6;
+  text-align: center;
+}
+.select__btn {
+  @include flex-box(center, center);
+  gap: 8px;
+
+  button {
+    width: 56px;
+    height: 56px;
+    border: 2px solid #000;
+    border-radius: 8px;
+  }
+  &-dog {
+    background: #ffe9e9 icon-img("dog", "%23c9aac9") no-repeat center / auto 80%;
+  }
+  &-cat {
+    background: #e9ffe9 icon-img("cat", "%23aac9c9") no-repeat center / auto 80%;
+  }
+}
+.table__wrap {
+  @include flex-box(center, center);
+  width: 100%;
+  height: 100vh;
+}
 .table {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -16,12 +57,41 @@
     border: 1px solid #000;
 
     &-dog {
-      background: #ffe9e9 icon-img('dog', '%23eed9d9') no-repeat center / auto 100%;
+      background: #ffe9e9 icon-img("dog", "%23eed9d9") no-repeat center / auto
+        80%;
       pointer-events: none;
     }
     &-cat {
-      background: #e9ffe9 icon-img('cat', '%23d9eed9') no-repeat center / auto 100%;
+      background: #e9ffe9 icon-img("cat", "%23c9aac9") no-repeat center / auto
+        80%;
       pointer-events: none;
     }
   }
+}
+.result {
+  @include flex-column(center, center);
+  @include position-centerX;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+
+  &__txt {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 700;
+    color: $gray8;
+  }
+}
+.btn-reload {
+  display: inline-block;
+  height: 48px;
+  line-height: 46px;
+  padding: 0 16px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  background-color: #ffffe9;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
 }

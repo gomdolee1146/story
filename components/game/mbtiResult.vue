@@ -94,7 +94,7 @@ export default {
       this.$emit("showIntro");
     },
     getResultInfo() {
-      let idx = _.findIndex(this.resultList, function (o) {
+      let idx = _.findIndex(this.resultList, (o) => {
         return o.type === this.result;
       });
 

@@ -2,11 +2,13 @@
   <section class="question">
     <div class="question__progress">
       <div class="question__progress_bg"></div>
-      <div class="question__progress_bar" :style="setProgress"></div>
+      <div class="question__progress_bar" :style="`width: ${progress}%`"></div>
     </div>
 
     <template v-for="(question, idx) in questionList">
       <div class="question__wrap" v-if="questionNum === idx" :key="idx">
+        {{ idx }}
+        {{ questionNum }}
         <div class="question__title">{{ question.question }}</div>
         <div class="question__btn_wrap">
           <button
@@ -36,17 +38,17 @@ export default {
       questionList: questionList,
       questionNum: 0,
       answerList: [],
+      progress: "",
     };
   },
   methods: {
     setProgress() {
-      return `width:  ${
-        (100 / (this.questionList.length + 1)) * (this.questionNum + 1)
-      }%`;
+      this.progress =
+        (100 / (this.questionList.length + 1)) * (this.questionNum + 1);
     },
 
     getAnswer(idx, type, answer) {
-      if (idx === this.questionList.length) {
+      if (idx === this.questionList.length - 1) {
         this.countPoint();
       } else {
         this.answerList[idx] = {
@@ -54,6 +56,7 @@ export default {
           answer: answer,
         };
         this.questionNum++;
+        this.setProgress();
       }
     },
     countPoint() {
