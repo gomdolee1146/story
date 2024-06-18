@@ -1,6 +1,111 @@
 @use "@/assets/scss/abstracts" as *;
 @use "@/assets/scss/mixins" as *;
 
-.card {
-  
+.card_list {
+  @include flex-wrap(center, center);
+  gap: 4px;
+  width: 300px;
+}
+.card_lst {
+  @include flex-box(center, center);
+  width: 64px;
+  height: 80px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.card__wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+.card__check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
+  &:checked {
+    pointer-events: none;
+  }
+  &:checked ~ .card__label {
+    transform: rotateY(180deg);
+    pointer-events: none;
+  }
+}
+
+.card__label {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+.card__front,
+.card__back {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.card__front {
+  background: #ffe9e9;
+}
+.card__back {
+  transform: rotateY(180deg);
+
+  &-1 {
+    background: url("@/assets/imgs/games/card/card_01.png") no-repeat center /
+      auto 100%;
+  }
+  &-2 {
+    background: url("@/assets/imgs/games/card/card_02.png") no-repeat center /
+      auto 100%;
+  }
+  &-3 {
+    background: url("@/assets/imgs/games/card/card_03.png") no-repeat center /
+      auto 100%;
+  }
+  &-4 {
+    background: url("@/assets/imgs/games/card/card_04.png") no-repeat center /
+      auto 100%;
+  }
+  &-5 {
+    background: url("@/assets/imgs/games/card/card_05.png") no-repeat center /
+      auto 100%;
+  }
+  &-6 {
+    background: url("@/assets/imgs/games/card/card_06.png") no-repeat center /
+      auto 100%;
+  }
+  &-7 {
+    background: url("@/assets/imgs/games/card/card_07.png") no-repeat center /
+      auto 100%;
+  }
+  &-8 {
+    background: url("@/assets/imgs/games/card/card_08.png") no-repeat center /
+      auto 100%;
+  }
+  &-9 {
+    background: url("@/assets/imgs/games/card/card_09.png") no-repeat center /
+      auto 100%;
+  }
+  &-10 {
+    background: url("@/assets/imgs/games/card/card_10.png") no-repeat center /
+      auto 100%;
+  }
+  &-11 {
+    background: url("@/assets/imgs/games/card/card_11.png") no-repeat center /
+      auto 100%;
+  }
+  &-12 {
+    background: url("@/assets/imgs/games/card/card_12.png") no-repeat center /
+      auto 100%;
+  }
 }

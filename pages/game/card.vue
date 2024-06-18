@@ -1,10 +1,13 @@
 <template>
-  <div>카드게임을 해봅시당</div>
+  <div><card-page /></div>
 </template>
 
 <script>
+import cardPage from "@/components/game/cardPage.vue";
+
 export default {
   name: "card",
   layouts: "game",
+  components: { cardPage },
 };
 </script>
