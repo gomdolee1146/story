@@ -7,5 +7,6 @@ import gameIntro from "@/components/game/gameIntro.vue";
 export default {
   components: { gameIntro },
   name: "gameIndex",
+  layout: "mainLayout",
 };
 </script>

@@ -1,12 +1,16 @@
 <template>
-  <ul class="game__list">
-    <li class="game__lst" v-for="(game, idx) in gameList" :key="idx">
-      <div class="game__wrap" @click="goToPage(game.path)">
-        <img :src="game.thumb" class="game__thumb" />
-        <p class="game__title">{{ game.name }}</p>
-      </div>
-    </li>
-  </ul>
+  <div class="game">
+    <h4 class="game__title">미니게임</h4>
+
+    <ul class="game__list">
+      <li class="game__lst" v-for="(game, idx) in gameList" :key="idx">
+        <div class="game__wrap" @click="goToPage(game.path)">
+          <img :src="game.thumb" class="game__thumb" />
+          <p class="game__name">{{ game.name }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>

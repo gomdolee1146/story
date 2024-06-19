@@ -7,7 +7,7 @@ import cardPage from "@/components/game/cardPage.vue";
 
 export default {
   name: "card",
-  layouts: "game",
+  layout: "game",
   components: { cardPage },
 };
 </script>

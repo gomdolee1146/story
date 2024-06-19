@@ -7,8 +7,6 @@
 
     <template v-for="(question, idx) in questionList">
       <div class="question__wrap" v-if="questionNum === idx" :key="idx">
-        {{ idx }}
-        {{ questionNum }}
         <div class="question__title">{{ question.question }}</div>
         <div class="question__btn_wrap">
           <button

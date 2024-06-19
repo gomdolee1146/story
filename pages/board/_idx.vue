@@ -1,10 +1,5 @@
 <template>
   <div class="detail">
-    <!-- v-if="boardList.writer === myInfo.nick" -->
-    <div class="detail__btn_wrap">
-      <button class="btn-edit" @click="editBoardInfo">수정</button>
-      <button class="btn-delete" @click="deleteBoardInfo">삭제</button>
-    </div>
     <board-card :isDetail="true" :board="boardList" />
     <comment-card
       :commentInfo="boardList.commentList"
@@ -23,7 +18,7 @@ export default {
       idx: this.$route.params.idx,
     };
   },
-  layout: "mainLayout",
+  layout: "subLayout",
   components: { boardCard, commentCard },
   computed: {
     myInfo() {
@@ -34,20 +29,7 @@ export default {
     },
   },
   methods: {
-    editBoardInfo() {
-      this.$router.push({
-        // path: "/board/create",
-        name: "board-create",
-        params: {
-          isEdit: true,
-          boardIdx: this.idx,
-        },
-      });
-    },
-    deleteBoardInfo() {
-      this.$commit("board/deleteBoardInfo", this.idx);
-      this.$router.push("/");
-    },
+   
   },
 };
 </script>

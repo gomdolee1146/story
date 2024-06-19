@@ -4,13 +4,13 @@
 .intro {
   @include flex-column(center, center);
   gap: 60px;
-  padding: 60px;
+  padding: 48px;
   box-sizing: border-box;
 
   &__wrap {
     @include flex-column(center, center);
     width: 100%;
-    padding: 20px 36px;
+    padding: 20px 32px;
     border: 1px solid $primary4;
     border-radius: 4px;
     background: $primary2;
@@ -21,7 +21,7 @@
     text-align: center;
   }
   &__txt {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     color: $mbti2;
   }

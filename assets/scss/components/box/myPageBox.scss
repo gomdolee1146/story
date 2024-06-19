@@ -1,0 +1,17 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.btn__wrap {
+  @include flex-box(center, center);
+  padding: 0 20px;
+
+  button {
+    flex: 1 1 50%;
+    height: 40px;
+    border-right: 1px solid $gray5;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}

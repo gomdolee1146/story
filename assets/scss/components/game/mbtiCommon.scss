@@ -8,11 +8,6 @@
   height: 100vh;
 }
 
-// .question,
-// .result {
-//   opacity: 0;
-// }
-
 .btn-start {
   display: inline-block;
   height: 32px;
@@ -55,4 +50,26 @@
   .result__wrap {
     height: 240px;
   }
+}
+.mbti__desc {
+  position: relative;
+  padding: 4px 0;
+
+  i {
+    @include position-centerY;
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 32px;
+    height: 32px;
+  }
+}
+.ico-like {
+  background: icon-img("mbtiHeart", "%235b4a42") no-repeat center / auto 16px;
+}
+.ico-xmark {
+  background: icon-img("mbtiXmark", "%235b4a42") no-repeat center / auto 16px;
+}
+.ico-check {
+  background: icon-img("mbtiCheck", "%235b4a42") no-repeat center / auto 16px;
 }

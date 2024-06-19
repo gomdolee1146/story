@@ -18,7 +18,7 @@ import mbtiQuestion from "@/components/game/mbtiQuestion.vue";
 import mbtiResult from "@/components/game/mbtiResult.vue";
 export default {
   name: "mbti",
-  layouts: "game",
+  layout: "game",
   components: { mbtiIntro, mbtiQuestion, mbtiResult },
   data() {
     return {

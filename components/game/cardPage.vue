@@ -10,11 +10,9 @@
           @change="checkCard"
         />
         <label class="card__label">
-          <div class="card__front">{{ card }} 앞</div>
+          <div class="card__front"></div>
 
-          <div class="card__back" :class="`card__back-${card}`">
-            {{ card }}뒤
-          </div>
+          <div class="card__back" :class="`card__back-${card}`"></div>
         </label>
       </div>
     </li>

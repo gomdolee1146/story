@@ -8,7 +8,7 @@
         <p class="body_medium">안녕하세요!</p>
         <p class="title_small">{{ myInfo.nick }} 님!</p>
       </div>
-      <button class="card__btn" @click="goToEdit"><i></i></button>
+      <button class="card__btn btn-edit" @click="goToEdit"><i></i></button>
     </div>
   </div>
 </template>

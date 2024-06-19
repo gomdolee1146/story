@@ -16,6 +16,7 @@ import myPageCard from "@/components/card/myPageCard.vue";
 import myPageBox from "@/components/box/myPageBox.vue";
 export default {
   name: "myPage",
+  layout: "mainLayout",
   components: { myPageCard, myPageBox },
   data() {
     return {

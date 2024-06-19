@@ -1,34 +1,44 @@
 @use "@/assets/scss/abstracts" as *;
 @use "@/assets/scss/mixins" as *;
 
-.game__list {
-  @include flex-wrap(space-between, center);
-  gap: 8px;
-  width: 100%;
-  padding: 0 20px;
-}
-.game__lst {
-  flex: 0 0 calc(50% - 4px);
-  border-radius: 12px;
-  background-color: $gray1;
-  box-shadow: shadow-opt("center", 2);
-  overflow: hidden;
-}
-.game__wrap {
-  width: 100%;
-  padding: 16px;
-}
-.game__thumb {
-  width: 100%;
-  margin-bottom: 4px;
-  border: 1px solid $gray2;
-  border-radius: 12px;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-.game__title {
-  font-size: 13px;
-  font-weight: 500;
-  color: $gray6;
-  text-align: center;
+.game {
+  padding: 16px 20px;
+
+  &__title {
+    padding: 0 8px;
+    margin: 12px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: $gray7;
+  }
+  &__list {
+    @include flex-wrap(space-between, center);
+    gap: 8px;
+    width: 100%;
+  }
+  &__lst {
+    flex: 0 0 calc(50% - 4px);
+    border-radius: 12px;
+    background-color: $gray1;
+    box-shadow: shadow-opt("center", 2);
+    overflow: hidden;
+  }
+  &__wrap {
+    width: 100%;
+    padding: 16px;
+  }
+  &__thumb {
+    width: 100%;
+    margin-bottom: 4px;
+    border: 1px solid $gray2;
+    border-radius: 12px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  &__name {
+    font-size: 13px;
+    font-weight: 500;
+    color: $gray6;
+    text-align: center;
+  }
 }

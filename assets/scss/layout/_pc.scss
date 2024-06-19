@@ -20,4 +20,10 @@
     border-left: 1px solid $pc_border;
     border-right: 1px solid $pc_border;
   }
+
+  .detail__btn_wrap {
+    position: absolute;
+    right: 50%;
+    transform: translateX(calc(($pc_breakpoint / 2) - 50% + 20px));
+  }
 }

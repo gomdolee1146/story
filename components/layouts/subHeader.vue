@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <button class="btn-back" @click="goToBack"><i></i></button>
+    <div class="header__btn">
+      <button class="btn-back" @click="goToBack"><i></i></button>
+    </div>
   </div>
 </template>
 

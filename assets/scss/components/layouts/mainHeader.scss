@@ -1,5 +1,5 @@
-@use '@/assets/scss/abstracts' as *;
-@use '@/assets/scss/mixins' as *;
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
 
 .header {
   display: flex;
@@ -14,14 +14,16 @@
   padding: 0 12px 0 16px;
   background: $gray1;
   box-sizing: border-box;
-  @include shadow-opt('bottom', 1);
+  @include shadow-opt("bottom", 1);
   transform: translateX(-50%);
-  z-index: z('main-header');
+  z-index: z("main-header");
 
   &__logo {
-    img {
-      width: auto;
+    &_el {
+      display: block;
+      width: 100px;
       height: 24px;
+      background: icon-img("logo", $svg_primary) no-repeat center / auto 100%;
     }
   }
 
@@ -32,7 +34,7 @@
 
     &-alarm {
       background: iconImg(bell, $svg_gray6) no-repeat center / 24px auto;
-      text-indent: -9999px; 
+      text-indent: -9999px;
     }
   }
 }

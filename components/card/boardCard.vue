@@ -41,9 +41,21 @@
       <button class="card__btn card__btn-active" @click="addCount">
         좋아요
       </button>
-      <button class="card__btn card__btn-inactive" @click="goToDetail(idx)">
+      <button
+        class="card__btn card__btn-inactive"
+        @click="goToDetail(idx)"
+        v-if="$route.name !== 'board-idx'"
+      >
         댓글달기
       </button>
+      <template v-if="board.writer == myInfo.nick">
+        <button class="card__btn card__btn-inactive" @click="editBoardInfo">
+          수정하기
+        </button>
+        <button class="card__btn card__btn-inactive" @click="deleteBoardInfo">
+          삭제하기
+        </button>
+      </template>
     </div>
   </div>
 </template>
@@ -68,6 +80,11 @@ export default {
       likeList: [],
     };
   },
+  computed: {
+    myInfo() {
+      return this.$store.state.user;
+    },
+  },
   methods: {
     addCount() {
       if (this.isLikeOn) return;
@@ -83,6 +100,20 @@ export default {
           idx: idx,
         },
       });
+    },
+    editBoardInfo() {
+      this.$router.push({
+        // path: "/board/create",
+        name: "board-create",
+        params: {
+          isEdit: true,
+          boardIdx: this.idx,
+        },
+      });
+    },
+    deleteBoardInfo() {
+      this.$commit("board/deleteBoardInfo", this.idx);
+      this.$router.push("/");
     },
   },
 };
