@@ -1,5 +1,6 @@
 <template>
   <div class="join">
+    <div class="join__logo"></div>
     <h4 class="join__title">회원가입</h4>
     <div class="join__wrap">
       <div class="txt__box">
@@ -87,7 +88,11 @@ export default {
         userId: this.joinId,
         nick: this.joinNick,
         password: this.joinPw,
-        photoList: require(`@/assets/imgs/profile/profile_${_.padStart(_.random(0, 12), 2, '0')}.png`)
+        photoList: require(`@/assets/imgs/profile/profile_${_.padStart(
+          _.random(0, 12),
+          2,
+          "0"
+        )}.png`),
       };
       if (
         this.idCheckResult &&

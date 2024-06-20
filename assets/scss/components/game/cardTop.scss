@@ -1,0 +1,37 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.card__top {
+  width: 100%;
+  position: relative;
+  min-height: 36px;
+  padding: 4px 0;
+}
+
+.card__timer {
+  @include flex-box(flex-start, center);
+  font-size: 16px;
+  font-weight: 500;
+
+  i {
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin-right: 2px;
+    background: icon-img('clock', $gray8) no-repeat center / auto 100%;
+  }
+}
+.card__btn{
+  display: inline-block;
+  @include position-centerY;
+  position: absolute;
+  right: 0;
+  height: 36px;
+  line-height: 34px;
+  padding: 0 8px;
+  border: 1px solid $gray6;
+  border-radius: 4px;
+  background: $gray7;
+  font-size: 14px;
+  text-align: center;
+}

@@ -11,7 +11,6 @@
         />
         <label class="card__label">
           <div class="card__front"></div>
-
           <div class="card__back" :class="`card__back-${card}`"></div>
         </label>
       </div>

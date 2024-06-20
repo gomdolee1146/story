@@ -70,8 +70,9 @@
         </div>
       </div>
     </div>
-
-    <button class="btn-reload" @click="showIntro">다시 시작하기</button>
+    <div class="result__btn_wrap">
+      <button class="btn-reload" @click="showIntro">다시 시작하기</button>
+    </div>
   </section>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h4 class="login__logo">SSSTORY</h4>
+    <h4 class="login__logo"></h4>
     <div class="login__wrap">
       <div class="txt__box">
         <input v-model="loginId" type="text" class="txt__input" />

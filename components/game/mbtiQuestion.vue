@@ -7,20 +7,18 @@
 
     <template v-for="(question, idx) in questionList">
       <div class="question__wrap" v-if="questionNum === idx" :key="idx">
-        <div class="question__title">{{ question.question }}</div>
+        <div class="question__title" v-html="question.question"></div>
         <div class="question__btn_wrap">
           <button
             class="question__btn-a"
             @click="getAnswer(idx, question.type, 0)"
-          >
-            {{ question.answer[0] }}
-          </button>
+            v-html="question.answer[0]"
+          ></button>
           <button
             class="question__btn-b"
             @click="getAnswer(idx, question.type, 1)"
-          >
-            {{ question.answer[1] }}
-          </button>
+            v-html="question.answer[1]"
+          ></button>
         </div>
       </div>
     </template>
