@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     boardList() {
-      return this.$store.state.board.boardInfo;
+      return [...this.$store.state.board.boardInfo].reverse();
     },
   },
   methods: {},

@@ -37,6 +37,11 @@ export default {
       this.isStopTimer = val;
       this.gameState = "start";
     },
+    resumeGame(val){
+      this.isShowIntro = val;
+      this.isStopTimer = val;
+      this.gameState = "resume";
+    },
     pauseGame(val) {
       this.isShowIntro = val;
       this.isStopTimer = val;

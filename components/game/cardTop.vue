@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       count: 60,
-      timer: "",
+      timer: null,
       intervalId: "",
     };
   },
@@ -25,16 +25,19 @@ export default {
       if (!this.isStopTimer) {
         this.intervalId = setInterval(() => {
           this.count--;
+
+          if ((this.count < 0)) {
+            clearInterval(this.intervalId);
+            this.$emit("endGame", true);
+            this.count = 60;
+            this.timer = null
+          }
         }, 1000);
-        if (this.count <= 0) {
-          clearInterval();
-          this.$emit("endGame", true);
-          this.count = 60;
-        }
       }
     },
     gamePause() {
       clearInterval(this.intervalId);
+      this.timer = this.count;
       this.$emit("pauseGame", true);
     },
   },
@@ -45,10 +48,17 @@ export default {
         this.startTimer();
       },
     },
+    count: {
+      handler() {
+        if (this.handler < 0) {
+          console.log('실패!')
+        }
+      }
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@use "@/assets/scss/components/game/cardIntro.scss";
+@use "@/assets/scss/components/game/cardTop.scss";
 </style>

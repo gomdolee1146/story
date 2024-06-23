@@ -90,7 +90,12 @@ export default {
       if (this.isLikeOn) return;
 
       this.isLikeOn = true;
-      this.$store.commit("board/addLikeCount", this.idx);
+      let likeInfo = {
+        idx: this.idx,
+        likeUserInfo : this.myInfo
+      }
+
+      this.$store.commit("board/addLikeCount", likeInfo);
     },
     goToDetail(idx) {
       if (this.isDetail) return;
@@ -103,7 +108,6 @@ export default {
     },
     editBoardInfo() {
       this.$router.push({
-        // path: "/board/create",
         name: "board-create",
         params: {
           isEdit: true,

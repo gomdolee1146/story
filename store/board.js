@@ -8,7 +8,7 @@ import { boardInfo } from "@/data/board";
  * @param {string} writer
  * @param {string} writerThumb
  * @param {number} likeCount
- * @param {array} likeUsers
+ * @param {array<{id: number, userId: string, nick: string, photoList: String } >} likeUsers
  * @param {array<{id: number, date:number, writer: string, writerThumb: string, commentContent: string }>} commentList
  */
 
@@ -28,8 +28,10 @@ export const mutations = {
   deleteBoardInfo(state, board) {
     state.boardInfo.splice(board.boardIdx, 1);
   },
-  addLikeCount(state, idx) {
+  addLikeCount(state, likeInfo) {
+    let { idx, likeUser } = likeInfo;
     state.boardInfo[idx].likeCount = state.boardInfo[idx].likeCount + 1;
+    state.boardInfo[idx].likeUsers.push(likeUser);
   },
   saveCommentInfo(state, commentInfo) {
     state.boardInfo[commentInfo.boardIdx].commentList.push(

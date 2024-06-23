@@ -3,7 +3,7 @@
     <div class="g_modal"></div>
     <div class="card__intro_box" v-if="gameState === 'pause'">
       <h4 class="card__title">일시정지</h4>
-      <button class="card__btn-play" @click="startCardGame">
+      <button class="card__btn-play" @click="resumeCardGame">
         <i></i>계속하기
       </button>
       <button class="card__btn-restart" @click="startCardGame">
@@ -13,6 +13,12 @@
     <div class="card__intro_box" v-if="gameState === 'start'">
       <h4 class="card__title">준비하세요</h4>
       <p class="card__count">{{ count }}</p>
+    </div>
+    <div class="card__intro_box" v-if="gameState === 'end'">
+      <h4 class="card__title">GAME OVER!</h4>
+      <button class="card__btn-restart" @click="startCardGame">
+        <i></i>다시하기
+      </button>
     </div>
   </div>
 </template>
@@ -44,10 +50,25 @@ export default {
         this.count = 3;
       }
     },
+    startCardGame() {
+      this.$emit("startGame", false);
+      this.count = 3;
+    },
+    resumeCardGame() {
+      this.$emit("resumeGame", false);
+    },
   },
   mounted() {
-    console.log(this.gameState);
     this.checkCount();
+  },
+  watch: {
+    gameState: {
+      handler() {
+        if (this.gameState !== "start") {
+          this.count = 200;
+        }
+      },
+    },
   },
 };
 </script>

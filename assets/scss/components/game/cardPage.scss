@@ -5,6 +5,7 @@
   @include flex-wrap(center, center);
   gap: 4px;
   width: 300px;
+  margin: 0 auto
 }
 .card_lst {
   @include flex-box(center, center);
