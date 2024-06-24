@@ -1,21 +1,30 @@
 <template>
-  <ul class="card_list">
-    <li class="card_lst" v-for="(card, idx) in cardList" :key="idx">
-      <div class="card__wrap">
-        <input
-          type="checkbox"
-          class="card__check"
-          :value="`${card}_${idx}`"
-          v-model="checkedCard"
-          @change="checkCard"
-        />
-        <label class="card__label">
-          <div class="card__front"></div>
-          <div class="card__back" :class="`card__back-${card}`"></div>
-        </label>
+  <div class="card__page">
+    <div class="card__top">
+      <div class="card__timer"><i></i>{{ count }}초</div>
+      <div class="card__btn">
+        <button @click="gamePause">일시정지</button>
+        <button @click="endGame">나가기</button>
       </div>
-    </li>
-  </ul>
+    </div>
+    <ul class="card_list">
+      <li class="card_lst" v-for="(card, idx) in cardList" :key="idx">
+        <div class="card__wrap">
+          <input
+            type="checkbox"
+            class="card__check"
+            :value="`${card}_${idx}`"
+            v-model="checkedCard"
+            @change="checkCard"
+          />
+          <label class="card__label">
+            <div class="card__front"></div>
+            <div class="card__back" :class="`card__back-${card}`"></div>
+          </label>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -25,9 +34,16 @@ export default {
   name: "cardPage",
   data() {
     return {
+      control: {},
       cardList: [],
       checkedCard: [],
+      count: 60,
+      timer: null,
+      intervalId: "",
     };
+  },
+  props: {
+    isStopTimer: { type: Boolean, default: true },
   },
   methods: {
     getCardList() {
@@ -67,9 +83,65 @@ export default {
         );
       }, 500);
     },
+    startTimer() {
+      if (!this.isStopTimer) {
+        this.intervalId = setInterval(() => {
+          this.count--;
+
+          if (this.count < 0) {
+            clearInterval(this.intervalId);
+            this.control.value = true;
+            this.control.state = "end";
+
+            this.$emit("controlGameState", this.control);
+            this.count = 60;
+            this.timer = null;
+            this.resetGame()
+          }
+        }, 1000);
+      }
+    },
+    resetGame(){
+      this.checkedCard = [];
+      this.count = 60;
+      this.intervalId = '';
+    },
+    endGame() {
+      this.$router.push("/game/");
+    },
+    gamePause() {
+      clearInterval(this.intervalId);
+      this.timer = this.count;
+      this.control.value = true;
+      this.control.state = "pause";
+
+      this.$emit("controlGameState", this.control);
+    },
   },
   mounted() {
     this.getCardList();
+    this.resetGame();
+  },
+  watch: {
+    isStopTimer: {
+      handler() {
+        this.startTimer();
+      },
+    },
+    checkedCard: {
+      handler() {
+        if (this.checkedCard.length === 12) {
+          this.control.state = "win";
+        } else if (this.checkedCard.length < 12 && this.count < 0) {
+          this.control.state = "lose";
+        } else {
+          return;
+        }
+        this.control.value = true;
+        this.$emit("controlGameState", this.control);
+        this.resetGame();
+      },
+    },
   },
 };
 </script>

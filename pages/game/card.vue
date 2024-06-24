@@ -3,22 +3,18 @@
     <card-intro
       :isShowIntro="isShowIntro"
       :gameState="gameState"
-      @startGame="startGame"
+      @controlGameState="controlGameState"
     />
-
-    <card-top
+    <card-page
       :isStopTimer="isStopTimer"
-      @endGame="endGame"
-      @pauseGame="pauseGame"
+      @controlGameState="controlGameState"
     />
-    <card-page />
   </div>
 </template>
 
 <script>
 import cardIntro from "@/components/game/cardIntro.vue";
 import cardPage from "@/components/game/cardPage.vue";
-import cardTop from "@/components/game/cardTop.vue";
 
 export default {
   name: "card",
@@ -30,27 +26,12 @@ export default {
       gameState: "start",
     };
   },
-  components: { cardIntro, cardPage, cardTop },
+  components: { cardIntro, cardPage },
   methods: {
-    startGame(val) {
-      this.isShowIntro = val;
-      this.isStopTimer = val;
-      this.gameState = "start";
-    },
-    resumeGame(val){
-      this.isShowIntro = val;
-      this.isStopTimer = val;
-      this.gameState = "resume";
-    },
-    pauseGame(val) {
-      this.isShowIntro = val;
-      this.isStopTimer = val;
-      this.gameState = "pause";
-    },
-    endGame(val) {
-      this.isShowIntro = val;
-      this.isStopTimer = val;
-      this.gameState = "end";
+    controlGameState(val) {
+      this.isShowIntro = val.value;
+      this.isStopTimer = val.value;
+      this.gameState = val.state;
     },
   },
 };
@@ -59,7 +40,7 @@ export default {
 .card {
   display: flex;
   justify-content: center;
-  align-items:flex-start;
-  flex-direction:column; 
+  align-items: flex-start;
+  flex-direction: column;
 }
 </style>

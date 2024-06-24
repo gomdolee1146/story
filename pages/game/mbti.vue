@@ -7,7 +7,7 @@
       <mbti-question v-if="isShowQuestion" @showResult="showResult" />
     </transition>
     <transition name="fade">
-      <mbti-result v-if="isShowResult" :result="mbtiResult" />
+      <mbti-result v-if="isShowResult" :result="mbtiResult" @showIntro="showIntro" />
     </transition>
   </div>
 </template>

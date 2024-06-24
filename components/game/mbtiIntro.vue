@@ -20,22 +20,29 @@
         </div>
       </div>
     </div>
-    <button class="btn-start" @click="showMBTI">시작하기</button>
+    <div class="mbti__btn_wrap">
+      <button @click="showMBTI">시작하기</button>
+      <button @click="endGame">나가기</button>
+    </div>
+    
   </section>
 </template>
 
 <script>
 export default {
-  name: 'mbtiIntro',
-  methods:{
-    showMBTI(){
-      this.$emit('showMBTI');
-    }
-  }
+  name: "mbtiIntro",
+  methods: {
+    showMBTI() {
+      this.$emit("showMBTI");
+    },
+    endGame() {
+      this.$router.push("/game/");
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/components/game/mbtiCommon.scss';
-@use '@/assets/scss/components/game/mbtiIntro.scss';
+@use "@/assets/scss/components/game/mbtiCommon.scss";
+@use "@/assets/scss/components/game/mbtiIntro.scss";
 </style>

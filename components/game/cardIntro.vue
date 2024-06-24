@@ -14,8 +14,8 @@
       <h4 class="card__title">준비하세요</h4>
       <p class="card__count">{{ count }}</p>
     </div>
-    <div class="card__intro_box" v-if="gameState === 'end'">
-      <h4 class="card__title">GAME OVER!</h4>
+    <div class="card__intro_box" v-else>
+      <h4 class="card__title">{{ endComment }}</h4>
       <button class="card__btn-restart" @click="startCardGame">
         <i></i>다시하기
       </button>
@@ -28,12 +28,23 @@ export default {
   name: "cardIntro",
   data() {
     return {
+      control: {},
       count: 3,
     };
   },
   props: {
     isShowIntro: { type: Boolean, default: true },
     gameState: { type: String, default: "start" },
+  },
+  computed: {
+    endComment() {
+      let comment = {
+        win: "Congratulation!",
+        lose: "게임에 실패하셨습니다!",
+        over: "Game Over!",
+      };
+      return comment[this.gameState];
+    },
   },
   methods: {
     checkCount() {
@@ -42,7 +53,10 @@ export default {
           this.count--;
           if (this.count <= 0) {
             clearInterval;
-            this.$emit("startGame", false);
+            this.control.value = false;
+            this.control.state = "start";
+
+            this.$emit("controlGameState", this.control);
             this.count = 3;
           }
         }, 1000);
@@ -51,11 +65,17 @@ export default {
       }
     },
     startCardGame() {
-      this.$emit("startGame", false);
+      this.control.value = false;
+      this.control.state = "start";
+
+      this.$emit("controlGameState", this.control);
       this.count = 3;
     },
     resumeCardGame() {
-      this.$emit("resumeGame", false);
+      this.control.value = false;
+      this.control.state = "resume";
+
+      this.$emit("controlGameState", this.control);
     },
   },
   mounted() {
