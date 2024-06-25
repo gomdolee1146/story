@@ -7,6 +7,7 @@
     />
     <card-page
       :isStopTimer="isStopTimer"
+      :gameState="gameState"
       @controlGameState="controlGameState"
     />
   </div>

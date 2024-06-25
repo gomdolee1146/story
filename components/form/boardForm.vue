@@ -76,7 +76,13 @@ export default {
     },
     boardInfo() {
       if (this.editInfo) {
-        return this.$store.state.board.boardInfo[this.editInfo.boardIdx];
+        console.log(this.$route.params);
+        
+        let board = this.$store.state.board.boardInfo;
+        let data = board.find((e) => {
+          return e.id.toString() === this.$route.params.boardId.toString();
+        });
+        return data;
       }
     },
   },
@@ -97,10 +103,10 @@ export default {
       } else if (!this.boardContent) {
         this.isShowConfirm = true;
         this.confirm.text = "내용을 입력해주세요.";
-        dhk;
+        
       } else {
         const boardData = {
-          idx: this.editInfo.boardIdx || "",
+          id: this.$route.params.boardId || "",
           board: {
             id: this.boardInfo.id || Date.now(),
             date: this.boardInfo.date || Date.now(),

@@ -83,7 +83,7 @@ export default {
       check: false,
       isShowEdit: false,
       commentContent: "",
-      idxNum: this.$route.params.idx,
+      idNum: this.$route.params.id,
 
       isShowConfirm: false,
       confirm: {
@@ -100,13 +100,18 @@ export default {
       default: () => [],
     },
     writerInfo: { type: String, default: "" },
+    id: { type: String, default: "" },
   },
   computed: {
     myInfo() {
       return this.$store.state.user;
     },
     commentList() {
-      return this.$store.state.board.boardInfo[this.idxNum].commentList;
+      let board = this.$store.state.board.boardInfo;
+      let data = board.find((e) => {
+        return e.id.toString() === this.id.toString();
+      });
+      return data.commentList;
     },
     commentLength() {
       return this.commentList.length || 0;
@@ -119,14 +124,14 @@ export default {
         this.confirm.text = "댓글 내용을 입력해주세요.";
       } else {
         const commentInfo = {
-          boardIdx: this.idxNum,
+          boardId: this.idNum,
           commentContent: {
             id: Date.now(),
             date: Date.now(),
             commentContent: this.commentContent,
             writer: this.myInfo.nick,
             writerThumb: this.myInfo.photoList
-              ? require(`${this.myInfo.photoList[0]}`)
+              ? this.myInfo.photoList[0]
               : "",
           },
         };
@@ -135,40 +140,40 @@ export default {
         this.commentContent = "";
       }
     },
-    editCommentList() {
-      this.isShowEdit = !this.isShowEdit;
-    },
-    saveNumber(el, idx) {
-      if (el.target.checked) {
-        this.checkNum.push(idx);
-      } else {
-        _.remove(this.checkNum, function (n) {
-          return n === idx;
-        });
-      }
-    },
-    deleteMyComment(idx) {
-      const myCommentInfo = {
-        boardIdx: this.idxNum,
-        myCommentNum: idx,
-      };
-      this.$store.commit("board/deleteMyComment", myCommentInfo);
-    },
-    deleteComment() {
-      const deleteList = {
-        boardIdx: this.idxNum,
-        deleteNum: this.checkNum,
-      };
-      this.$store.commit("board/deleteCommentList", deleteList);
-      this.isShowEdit = false;
-    },
-    cancelEditComment() {
-      this.isShowEdit = false;
-      this.check = false; // 확인 필요, 변수 수정
-    },
-    hideConfirm(isShow) {
-      this.isShowConfirm = isShow;
-    },
+      editCommentList() {
+        this.isShowEdit = !this.isShowEdit;
+      },
+    //   saveNumber(el, idx) {
+    //     if (el.target.checked) {
+    //       this.checkNum.push(idx);
+    //     } else {
+    //       _.remove(this.checkNum, function (n) {
+    //         return n === idx;
+    //       });
+    //     }
+    //   },
+      deleteMyComment(idx) {
+        const myCommentInfo = {
+          boardId: this.idNum,
+          myCommentNum: idx,
+        };
+        this.$store.commit("board/deleteMyComment", myCommentInfo);
+      },
+      deleteComment() {
+        const deleteList = {
+          boardId: this.idNum,
+          deleteNum: this.checkNum,
+        };
+        this.$store.commit("board/deleteCommentList", deleteList);
+        this.isShowEdit = false;
+      },
+    //   cancelEditComment() {
+    //     this.isShowEdit = false;
+    //     this.check = false; // 확인 필요, 변수 수정
+    //   },
+    //   hideConfirm(isShow) {
+    //     this.isShowConfirm = isShow;
+    //   },
   },
 };
 </script>

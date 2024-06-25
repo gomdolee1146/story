@@ -18,39 +18,48 @@ export const state = () => ({
 
 export const mutations = {
   saveBoardInfo(state, boardData) {
-    const { idx, board } = boardData;
-    if (idx !== "") {
-      _.assign(state.boardInfo[idx], board);
+    if (boardData.id !== "") {
+      let board = _.find(state.boardInfo, (o) => {
+        return o.id.toString() === boardData.id.toString();
+      });
+      _.assign(board, boardData.board);
     } else {
-      state.boardInfo.push(board);
+      state.boardInfo.push(boardData.board);
     }
   },
-  deleteBoardInfo(state, board) {
-    state.boardInfo.splice(board.boardIdx, 1);
+  deleteBoardInfo(state, boardData) {
+    _.remove(state.boardInfo, (o) => {
+      return o.id.toString() === boardData.toString();
+    });
   },
+
   addLikeCount(state, likeInfo) {
-    let { idx, likeUser } = likeInfo;
-    state.boardInfo[idx].likeCount = state.boardInfo[idx].likeCount + 1;
-    state.boardInfo[idx].likeUsers.push(likeUser);
+    // let { id, likeUser } = likeInfo;
+    // state.boardInfo[id].likeCount = state.boardInfo[id].likeCount + 1;
+    // state.boardInfo[id].likeUsers.push(likeUser);
   },
   saveCommentInfo(state, commentInfo) {
-    state.boardInfo[commentInfo.boardIdx].commentList.push(
-      commentInfo.commentContent
-    );
+    let board = _.find(state.boardInfo, (o) => {
+      return o.id.toString() === commentInfo.boardId.toString();
+    });
+    board.commentList.push(commentInfo.commentContent);
   },
   deleteMyComment(state, myCommentInfo) {
-    state.boardInfo[myCommentInfo.boardIdx].commentList.splice(
-      myCommentInfo.myCommentNum,
-      1
-    );
+    _.remove(state.boardInfo, (o) => {
+      return o.id.toString() === myCommentInfo.boardId.toString();
+    });
+
+    // state.boardInfo[myCommentInfo.boardId].commentList.splice(
+    //   myCommentInfo.myCommentNum,
+    //   1
+    // );
   },
   deleteCommentList(state, deleteList) {
-    let deleteComment = _.cloneDeep(
-      state.boardInfo[deleteList.boardIdx].commentList
-    );
-
+    let deleteComment = _.cloneDeep(_.find(state.boardInfo), (o) => {
+      return o.id.toString() === deleteList.boardId.toString()
+    });
     _.pullAt(deleteComment, deleteList.deleteNum);
-    state.boardInfo[deleteList.boardIdx].commentList = deleteComment;
+    deleteComment.commentList = deleteComment;
   },
 };
 

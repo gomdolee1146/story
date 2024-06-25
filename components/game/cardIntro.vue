@@ -1,22 +1,22 @@
 <template>
   <div class="card__intro" v-if="isShowIntro">
     <div class="g_modal"></div>
-    <div class="card__intro_box" v-if="gameState === 'pause'">
-      <h4 class="card__title">일시정지</h4>
-      <button class="card__btn-play" @click="resumeCardGame">
+    <div class="card__intro_box">
+      <span class="card__title">{{ gameState }}</span>
+      <h4 class="card__title">{{ endComment }}</h4>
+      <p class="card__count" v-if="gameState === 'start'">{{ count }}</p>
+      <button
+        class="card__btn-play"
+        @click="resumeCardGame"
+        v-if="gameState === 'pause'"
+      >
         <i></i>계속하기
       </button>
-      <button class="card__btn-restart" @click="startCardGame">
-        <i></i>다시하기
-      </button>
-    </div>
-    <div class="card__intro_box" v-if="gameState === 'start'">
-      <h4 class="card__title">준비하세요</h4>
-      <p class="card__count">{{ count }}</p>
-    </div>
-    <div class="card__intro_box" v-else>
-      <h4 class="card__title">{{ endComment }}</h4>
-      <button class="card__btn-restart" @click="startCardGame">
+      <button
+        class="card__btn-restart"
+        @click="startCardGame"
+        v-if="gameState !== 'start'"
+      >
         <i></i>다시하기
       </button>
     </div>
@@ -39,6 +39,8 @@ export default {
   computed: {
     endComment() {
       let comment = {
+        pause: "일시정지",
+        start: "준비하세요!",
         win: "Congratulation!",
         lose: "게임에 실패하셨습니다!",
         over: "Game Over!",

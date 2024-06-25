@@ -13,7 +13,7 @@
 
     <!-- 카드영역 -->
     <div class="card__content">
-      <div class="card__content_box" @click="goToDetail(idx)">
+      <div class="card__content_box" @click="goToDetail(board.id)">
         <div class="card__title">{{ board.title }}</div>
         <div class="card__txt">{{ board.content }}</div>
         <div class="card__info" v-if="board.commentList !== ''">
@@ -43,8 +43,8 @@
       </button>
       <button
         class="card__btn card__btn-inactive"
-        @click="goToDetail(idx)"
-        v-if="$route.name !== 'board-idx'"
+        @click="goToDetail(board.id)"
+        v-if="$route.name !== 'board-id'"
       >
         댓글달기
       </button>
@@ -91,18 +91,18 @@ export default {
 
       this.isLikeOn = true;
       let likeInfo = {
-        idx: this.idx,
-        likeUserInfo : this.myInfo
-      }
+        id: this.board.id,
+        likeUserInfo: this.myInfo,
+      };
 
       this.$store.commit("board/addLikeCount", likeInfo);
     },
-    goToDetail(idx) {
+    goToDetail(id) {
       if (this.isDetail) return;
       this.$router.push({
-        path: "/board/" + idx,
+        path: "/board/" + id,
         params: {
-          idx: idx,
+          id: id,
         },
       });
     },
@@ -111,12 +111,12 @@ export default {
         name: "board-create",
         params: {
           isEdit: true,
-          boardIdx: this.idx,
+          boardId: this.board.id,
         },
       });
     },
     deleteBoardInfo() {
-      this.$commit("board/deleteBoardInfo", this.idx);
+      this.$commit("board/deleteBoardInfo", this.board.id);
       this.$router.push("/");
     },
   },

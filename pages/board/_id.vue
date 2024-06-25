@@ -4,6 +4,7 @@
     <comment-card
       :commentInfo="boardList.commentList"
       :writerInfo="boardList.writer"
+      :id="id"
     />
   </div>
 </template>
@@ -15,7 +16,7 @@ export default {
   name: "boardDetail",
   data() {
     return {
-      idx: this.$route.params.idx,
+      id: this.$route.params.id,
     };
   },
   layout: "subLayout",
@@ -25,11 +26,16 @@ export default {
       return this.$store.state.user;
     },
     boardList() {
-      return this.$store.state.board.boardInfo[this.idx];
+      let board = this.$store.state.board.boardInfo;
+      let data = board.find((e) => {
+        return e.id.toString() === this.id.toString();
+      });
+      return data;
     },
   },
-  methods: {
-   
+  methods: {},
+  mounted() {
+    console.log(this.boardList.commentList);
   },
 };
 </script>

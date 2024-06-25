@@ -44,6 +44,7 @@ export default {
   },
   props: {
     isStopTimer: { type: Boolean, default: true },
+    gameState: { type: String, default: "start" },
   },
   methods: {
     getCardList() {
@@ -85,6 +86,9 @@ export default {
     },
     startTimer() {
       if (!this.isStopTimer) {
+        if (this.gameState === 'start') {
+          this.resetGame();
+        }
         this.intervalId = setInterval(() => {
           this.count--;
 
@@ -94,17 +98,16 @@ export default {
             this.control.state = "end";
 
             this.$emit("controlGameState", this.control);
-            this.count = 60;
             this.timer = null;
-            this.resetGame()
+            this.resetGame();
           }
         }, 1000);
       }
     },
-    resetGame(){
+    resetGame() {
       this.checkedCard = [];
       this.count = 60;
-      this.intervalId = '';
+      this.intervalId = "";
     },
     endGame() {
       this.$router.push("/game/");
