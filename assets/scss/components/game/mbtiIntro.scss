@@ -36,27 +36,25 @@
     width: 100%;
     margin-top: 36px;
   }
+}
 
-  &__btn_wrap {
-    @include flex-box(center, center);
-    gap: 4px;
+.mbti__btn_wrap {
+  @include flex-box(center, center);
+  gap: 4px;
 
-    button {
-      display: inline-block;
-      height: 32px;
-      line-height: 32px;
-      padding: 0 8px;
-      border-radius: 20px;
-      background: $primary2;
-      font-size: 13px;
-      font-weight: 500;
+  button {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 8px;
+    border-radius: 20px;
+    background: $primary2;
+    font-size: 13px;
+    font-weight: 500;
 
-      &:hover,
-      &:active {
-  background: $primary3;
-
-      }
-
+    &:hover,
+    &:active {
+      background: $primary3;
     }
   }
 }

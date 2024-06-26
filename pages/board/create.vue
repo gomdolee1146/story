@@ -8,7 +8,6 @@ export default {
   components: { boardForm },
   layout: "subLayout",
   mounted() {
-    console.log(this.$route.params);
   },
 };
 </script>

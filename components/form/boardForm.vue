@@ -76,8 +76,6 @@ export default {
     },
     boardInfo() {
       if (this.editInfo) {
-        console.log(this.$route.params);
-        
         let board = this.$store.state.board.boardInfo;
         let data = board.find((e) => {
           return e.id.toString() === this.$route.params.boardId.toString();

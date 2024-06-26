@@ -1,11 +1,7 @@
 <template>
   <div class="detail">
     <board-card :isDetail="true" :board="boardList" />
-    <comment-card
-      :commentInfo="boardList.commentList"
-      :writerInfo="boardList.writer"
-      :id="id"
-    />
+    <comment-card :writerInfo="boardList.writer" :id="id" />
   </div>
 </template>
 
@@ -35,7 +31,6 @@ export default {
   },
   methods: {},
   mounted() {
-    console.log(this.boardList.commentList);
   },
 };
 </script>

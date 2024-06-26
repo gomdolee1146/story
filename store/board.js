@@ -32,11 +32,14 @@ export const mutations = {
       return o.id.toString() === boardData.toString();
     });
   },
-
   addLikeCount(state, likeInfo) {
-    // let { id, likeUser } = likeInfo;
-    // state.boardInfo[id].likeCount = state.boardInfo[id].likeCount + 1;
-    // state.boardInfo[id].likeUsers.push(likeUser);
+    let { id, likeUser } = likeInfo;
+    let board = _.find(state.boardInfo, (o) => {
+      return o.id.toString() === id.toString();
+    })
+
+    board.likeCount = board.likeCount + 1;
+    board.likeUsers.push(likeUser);
   },
   saveCommentInfo(state, commentInfo) {
     let board = _.find(state.boardInfo, (o) => {
@@ -45,21 +48,16 @@ export const mutations = {
     board.commentList.push(commentInfo.commentContent);
   },
   deleteMyComment(state, myCommentInfo) {
-    _.remove(state.boardInfo, (o) => {
+    let board = _.find(state.boardInfo, (o) => {
       return o.id.toString() === myCommentInfo.boardId.toString();
     });
-
-    // state.boardInfo[myCommentInfo.boardId].commentList.splice(
-    //   myCommentInfo.myCommentNum,
-    //   1
-    // );
+    board.commentList.splice(myCommentInfo.myCommentNum, 1);
   },
   deleteCommentList(state, deleteList) {
-    let deleteComment = _.cloneDeep(_.find(state.boardInfo), (o) => {
-      return o.id.toString() === deleteList.boardId.toString()
+    let board = _.find(state.boardInfo, (o) => {
+      return o.id.toString() === deleteList.boardId.toString();
     });
-    _.pullAt(deleteComment, deleteList.deleteNum);
-    deleteComment.commentList = deleteComment;
+    _.pullAt(board.commentList, deleteList.deleteNum);
   },
 };
 

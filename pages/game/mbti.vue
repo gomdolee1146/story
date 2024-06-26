@@ -43,7 +43,6 @@ export default {
     },
 
     showResult(result) {
-      console.log("showResult", result);
       this.isShowIntro = false;
       this.isShowQuestion = false;
       this.isShowResult = true;

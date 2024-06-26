@@ -1,6 +1,7 @@
 <template>
   <div>
     <my-page-card />
+    <my-history-card />
     <my-page-box @leaveStory="leaveStory" />
     <system-confirm
       v-if="isShowConfirm"
@@ -14,10 +15,11 @@
 <script>
 import myPageCard from "@/components/card/myPageCard.vue";
 import myPageBox from "@/components/box/myPageBox.vue";
+import myHistoryCard from "@/components/card/myHistoryCard.vue";
 export default {
   name: "myPage",
   layout: "mainLayout",
-  components: { myPageCard, myPageBox },
+  components: { myPageCard, myPageBox, myHistoryCard },
   data() {
     return {
       isShowConfirm: false,

@@ -117,7 +117,7 @@
     display: block;
     width: 32px;
     height: 32px;
-    background-color: $gray2;
+    background: icon-img('trash', $svg-gray6) no-repeat center / auto 16px;
   }
 
   &__edit {
