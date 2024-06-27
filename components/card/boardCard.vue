@@ -8,7 +8,7 @@
       <div class="user__info">
         <p class="user__nick">{{ board.writer }}</p>
       </div>
-      <div class="card__date">{{ "2 weeks ago" }}</div>
+      <div class="card__date">{{ timeFormat(board.date) }}</div>
     </div>
 
     <!-- 카드영역 -->
@@ -17,7 +17,9 @@
         <div class="card__title">{{ board.title }}</div>
         <div class="card__txt">{{ board.content }}</div>
         <div class="card__info" v-if="board.commentList !== ''">
-          <p class="card__info-cmt">{{ "0" }}개의 댓글</p>
+          <p class="card__info-cmt">
+            {{ board.commentList.length || 0 }}개의 댓글
+          </p>
         </div>
       </div>
 
@@ -61,8 +63,10 @@
 </template>
 
 <script>
+import { timeFormat } from "@/mixins/timeFormat";
 export default {
   name: "boardCard",
+  mixins: [timeFormat],
   components: {},
   props: {
     board: {

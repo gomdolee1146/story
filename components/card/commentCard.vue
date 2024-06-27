@@ -43,7 +43,9 @@
               </div>
             </div>
             <div class="comment__option">
-              <span class="body_small comment__time">{{ "12분 전" }}</span>
+              <span class="body_small comment__time">
+                {{ timeFormat(comment.date) }}
+              </span>
               <button
                 class="comment__btn-del"
                 v-if="comment.writer === myInfo.nick"
@@ -74,9 +76,11 @@
 
 <script>
 import { _ } from "core-js";
+import { timeFormat } from "@/mixins/timeFormat";
 
 export default {
   name: "commentCard",
+  mixins: [timeFormat],
   data() {
     return {
       checkNum: [],

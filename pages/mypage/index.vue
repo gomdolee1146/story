@@ -14,8 +14,9 @@
 
 <script>
 import myPageCard from "@/components/card/myPageCard.vue";
-import myPageBox from "@/components/box/myPageBox.vue";
 import myHistoryCard from "@/components/card/myHistoryCard.vue";
+import myPageBox from "@/components/box/myPageBox.vue";
+
 export default {
   name: "myPage",
   layout: "mainLayout",

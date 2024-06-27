@@ -28,7 +28,7 @@ export default {
   components: true,
 
   buildModules: ["@nuxtjs/style-resources", "@nuxt/postcss8"],
-  modules: ["nuxt-vuex-localstorage"],
+  modules: ["nuxt-vuex-localstorage", "@nuxtjs/dayjs"],
   build: {
     extractCSS: false,
     postcss: {
@@ -37,5 +37,10 @@ export default {
         preset: {},
       },
     },
+  },
+  dayjs: {
+    locales: ["ko"],
+    defaultLocale: ["ko"],
+    plugins: ["relativeTime"],
   },
 };

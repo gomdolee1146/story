@@ -1,7 +1,9 @@
 <template>
   <div class="join">
     <div class="join__logo"></div>
-    <h4 class="join__title">회원가입</h4>
+    <h4 class="join__title">
+      {{ editInfo.isEdit ? "회원정보수정" : "회원가입" }}
+    </h4>
     <div class="join__wrap">
       <div class="txt__box">
         <input
@@ -46,7 +48,9 @@
         </span>
       </div>
     </div>
-    <button class="join__btn-done" @click="joinSubmit">회원가입완료</button>
+    <button class="join__btn-done" @click="joinSubmit">
+      {{ editInfo.isEdit ? "회원정보 수정완료" : "회원가입완료" }}
+    </button>
   </div>
 </template>
 
@@ -55,6 +59,21 @@ import { authCheck } from "@/mixins/authCheck";
 export default {
   name: "joinForm",
   mixins: [authCheck],
+  props: {
+    editInfo: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+  },
+  computed: {
+    myInfo() {
+      if (this.editInfo) {
+        return this.$store.state.user;
+      }
+    },
+  },
   data() {
     return {
       joinId: "",
@@ -81,11 +100,17 @@ export default {
     };
   },
   methods: {
+    setEditInfo() {
+      if (this.myInfo) {
+        this.joinId = this.myInfo.userId;
+        this.joinNick = this.myInfo.nick;
+      }
+    },
     // 회원가입 완료
     joinSubmit() {
       const userInfo = {
-        id: Date.now(),
-        userId: this.joinId,
+        id: this.myInfo.id || Date.now(),
+        userId: this.myInfo.userId || this.joinId,
         nick: this.joinNick,
         password: this.joinPw,
         photoList: require(`@/assets/imgs/profile/profile_${_.padStart(

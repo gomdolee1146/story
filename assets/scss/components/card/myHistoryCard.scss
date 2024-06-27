@@ -1,0 +1,12 @@
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
+
+.my_game {
+  padding: 16px 20px;
+  &__title {
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: $gray8;
+  }
+}

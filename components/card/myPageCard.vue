@@ -23,7 +23,13 @@ export default {
   },
   methods: {
     goToEdit() {
-      this.$router.push("/mypage/edit");
+      this.$router.push({
+        name: 'mypage-edit',
+        params:{
+          isEdit: true,
+          userId: this.myInfo.id
+        }
+      });
     },
   },
 };
