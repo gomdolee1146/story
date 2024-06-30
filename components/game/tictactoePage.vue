@@ -92,19 +92,19 @@ export default {
         this.boardArray[hNum][0] === this.boardArray[hNum][1] &&
         this.boardArray[hNum][0] === this.boardArray[hNum][2]
       ) {
-        winner = this.boardArray[hNum][0] === "dog" ? "dog" : "cat";
+        winner = this.boardArray[hNum][0] === "dog" ? "고먐미" : "댕댕이";
       } else if (
         this.boardArray[0][vNum] === this.boardArray[1][vNum] &&
         this.boardArray[0][vNum] === this.boardArray[2][vNum]
       ) {
-        winner = this.boardArray[0][vNum] === "dog" ? "dog" : "cat";
+        winner = this.boardArray[0][vNum] === "dog" ? "고먐미" : "댕댕이";
       } else if (
         (this.boardArray[0][0] == this.boardArray[1][1] &&
           this.boardArray[0][0] == this.boardArray[2][2]) ||
         (this.boardArray[0][2] == this.boardArray[1][1] &&
           this.boardArray[2][0] == this.boardArray[1][1])
       ) {
-        winner = this.boardArray[0][0] == "dog" ? "dog" : "cat";
+        winner = this.boardArray[0][0] == "dog" ? "고먐미" : "댕댕이";
       } else {
         winner = "";
       }

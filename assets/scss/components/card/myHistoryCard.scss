@@ -1,12 +1,44 @@
 @use "@/assets/scss/abstracts" as *;
 @use "@/assets/scss/mixins" as *;
 
-.my_game {
-  padding: 16px 20px;
+.history {
+  &__box {
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+
   &__title {
     margin-bottom: 16px;
     font-size: 18px;
     font-weight: 700;
     color: $gray8;
+  }
+
+  &__info {
+    @include flex-wrap(flex-start, center);
+
+    &_box {
+      @include flex-column(flex-start, center);
+      flex: 0 0 50%;
+      padding: 12px 0;
+
+      p {
+        line-height: 1.6;
+      }
+    }
+  }
+
+  &__btn {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px;
+    margin-top: 4px;
+    border-radius: 20px;
+    background-color: $primary;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
   }
 }

@@ -3,11 +3,12 @@
 
 .btn__wrap {
   @include flex-box(center, center);
-  padding: 0 20px;
+  padding: 16px 20px;
+  margin-bottom: 40px;
 
   button {
     flex: 1 1 50%;
-    height: 40px;
+    height: 32px;
     border-right: 1px solid $gray5;
 
     &:last-child {

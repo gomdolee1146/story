@@ -1,6 +1,7 @@
 <template>
   <div class="join">
-    <div class="join__logo"></div>
+    <button class="btn-back" @click="goToBack"><i></i></button>
+    <div class="join__logo" v-if="!editInfo.isEdit"></div>
     <h4 class="join__title">
       {{ editInfo.isEdit ? "회원정보수정" : "회원가입" }}
     </h4>
@@ -100,6 +101,9 @@ export default {
     };
   },
   methods: {
+    goToBack() {
+      this.$router.go(-1);
+    },
     setEditInfo() {
       if (this.myInfo) {
         this.joinId = this.myInfo.userId;

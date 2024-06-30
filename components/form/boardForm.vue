@@ -101,7 +101,6 @@ export default {
       } else if (!this.boardContent) {
         this.isShowConfirm = true;
         this.confirm.text = "내용을 입력해주세요.";
-        
       } else {
         const boardData = {
           id: this.$route.params.boardId || "",
