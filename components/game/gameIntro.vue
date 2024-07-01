@@ -22,17 +22,17 @@ export default {
         {
           name: "MBTI 테스트",
           path: "/game/mbti",
-          thumb: require(`@/assets/imgs/default/profile_01.png`), //  게임썸네일 확인하기
+          thumb: require(`@/assets/imgs/default/profile_01.png`), 
         },
         {
           name: "카드 짝맞추기",
           path: "/game/card",
-          thumb: require(`@/assets/imgs/default/profile_02.png`), //  게임썸네일 확인하기
+          thumb: require(`@/assets/imgs/default/profile_02.png`),
         },
         {
           name: "댕냥 틱택토",
           path: "/game/tictactoe",
-          thumb: require(`@/assets/imgs/default/profile_03.png`), //  게임썸네일 확인하기
+          thumb: require(`@/assets/imgs/default/profile_03.png`), 
         },
       ],
     };

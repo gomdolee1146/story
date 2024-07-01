@@ -35,13 +35,11 @@ export default {
       this.isShowQuestion = false;
       this.isShowResult = false;
     },
-
     showMBTI() {
       this.isShowIntro = false;
       this.isShowQuestion = true;
       this.isShowResult = false;
     },
-
     showResult(result) {
       this.isShowIntro = false;
       this.isShowQuestion = false;

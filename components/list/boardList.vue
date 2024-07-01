@@ -12,16 +12,11 @@ import boardCard from "@/components/card/boardCard.vue";
 export default {
   name: "boardList",
   components: { boardCard },
-  props: {},
-  data() {
-    return {};
-  },
   computed: {
     boardList() {
       return [...this.$store.state.board.boardInfo].reverse();
     },
   },
-  methods: {},
 };
 </script>
 <style lang="scss" scoped>

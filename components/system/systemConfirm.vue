@@ -28,9 +28,6 @@
 <script>
 export default {
   name: "systemConfirm",
-  data() {
-    return {};
-  },
   props: {
     confirm: {
       type: Object,

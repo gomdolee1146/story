@@ -67,7 +67,6 @@ import { timeFormat } from "@/mixins/timeFormat";
 export default {
   name: "boardCard",
   mixins: [timeFormat],
-  components: {},
   props: {
     board: {
       type: Object,

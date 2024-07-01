@@ -8,9 +8,6 @@
 export default {
   name: "game",
   props: {},
-  data() {
-    return {};
-  },
-  methods: {},
+  middleware: ["auth"],
 };
 </script>

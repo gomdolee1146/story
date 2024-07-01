@@ -11,10 +11,5 @@ export default {
   name: "default",
   components: { MainFooter },
   middleware: ["auth"],
-  props: {},
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>

@@ -13,10 +13,5 @@ export default {
   name: "subLayout",
   components: { SubHeader, MainFooter },
   middleware: ["auth"],
-  props: {},
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>

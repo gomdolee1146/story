@@ -28,12 +28,6 @@
 <script>
 export default {
   name: "mainFooter",
-  components: {},
-  layout: "default",
-  props: {},
-  data() {
-    return {};
-  },
   methods: {
     goToHome() {
       this.$router.push("/");

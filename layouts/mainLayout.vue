@@ -13,10 +13,5 @@ export default {
   name: "mainLayout",
   components: { MainHeader, MainFooter },
   middleware: ["auth"],
-  props: {},
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>

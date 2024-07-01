@@ -10,5 +10,3 @@ export default {
   components: { joinForm },
 };
 </script>
-
-<style></style>

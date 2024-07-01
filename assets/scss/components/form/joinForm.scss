@@ -2,26 +2,25 @@
 @use "@/assets/scss/mixins" as *;
 
 .join {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+  @include flex-column(center, flex-start);
   width: 100%;
   height: 100vh;
-  padding: 0 24px;
   box-sizing: border-box;
+
+  &__container {
+    width: 100%;
+    height: 100vh;
+    padding: 80px 24px 0;
+    overflow-y: auto;
+  }
   &__logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 32px;
-    margin-bottom: 24px;
-    background: icon-img("logo", $svg-primary) no-repeat center / auto 100%;
+    margin-bottom: 36px;
+    background: icon-img("logo", $svg-primary) no-repeat left center / auto 100%;
   }
   &__title {
     margin-bottom: 16px;
-
     @include font_default(18px, 500, $gray8);
   }
 
@@ -30,16 +29,26 @@
     margin-top: 24px;
   }
 
-  &__btn-done {
-    display: inline-block;
-    width: 100%;
-    height: 44px;
-    line-height: 44px;
-    border-radius: 22px;
-    background: $primary;
-    @include font_default(14px, 700, $gray1);
-    text-align: center;
+  &__btn_wrap {
+    @include flex-box(space-between, center);
+    position: relative;
+    height: 48px;
+    margin-top: 48px;
   }
+  &__btn-done {
+    height: 48px;
+    line-height: 48px;
+    padding: 0 16px;
+    border-radius: 12px;
+    background: $gray5;
+    @include font_default(16px, 700, $gray1);
+    text-align: center;
+
+    &.on {
+      background: $primary;
+    }
+  }
+  
 }
 
 .btn-back {
@@ -48,8 +57,7 @@
   height: 40px;
   position: fixed;
   top: 20px;
-  left: 0;
-  transform: translateX(50%);
+  left: 0px;
   cursor: pointer;
 
   i {

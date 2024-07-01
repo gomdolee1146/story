@@ -1,9 +1,9 @@
 export const state = () => ({
   user: {
-    id: 1717461165810,
-    userId: 'aaa123',
-    nick: '곰돌곰돌',
-    photoList: [require('@/assets/imgs/profile/profile_01.png')]
+    // id: 1717461165810,
+    // userId: 'aaa123',
+    // nick: '곰돌곰돌',
+    // photoList: [require('@/assets/imgs/profile/profile_01.png')]
   },
 });
 

@@ -12,12 +12,6 @@
 <script>
 export default {
   name:'mainHeader',
-  components:{},
-  props:{},
-  data(){
-    return{
-    }
-  },
   methods:{
     goToMain(){
       this.$router.push('/');

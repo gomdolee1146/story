@@ -1,57 +1,74 @@
 <template>
   <div class="join">
     <button class="btn-back" @click="goToBack"><i></i></button>
-    <div class="join__logo" v-if="!editInfo.isEdit"></div>
-    <h4 class="join__title">
-      {{ editInfo.isEdit ? "회원정보수정" : "회원가입" }}
-    </h4>
-    <div class="join__wrap">
-      <div class="txt__box">
-        <input
-          v-model="joinId"
-          type="text"
-          class="txt__input"
-          @input="checkJoinId"
-        />
-        <label class="txt__label">아이디</label>
-        <span v-if="isIdCheck" class="txt__desc">{{ idCheckTxt }}</span>
+    <div class="join__container">
+      <div class="join__logo" v-if="!editInfo.isEdit"></div>
+      <h4 class="join__title">
+        {{ editInfo.isEdit ? "회원정보수정" : "회원가입" }}
+      </h4>
+      <div class="join__wrap">
+        <div class="txt__box">
+          <input
+            v-model="joinId"
+            type="text"
+            class="txt__input"
+            @input="checkJoinId"
+            required
+          />
+          <label class="txt__label">아이디</label>
+          <span v-if="isIdCheck" class="txt__desc">{{ idCheckTxt }}</span>
+        </div>
+        <div class="txt__box">
+          <input
+            v-model="joinNick"
+            type="text"
+            class="txt__input"
+            @input="checkJoinNick"
+            required
+          />
+          <label class="txt__label">닉네임</label>
+          <span v-if="isNickCheck" class="txt__desc">{{ nickCheckTxt }}</span>
+        </div>
+        <div class="txt__box">
+          <input
+            v-model="joinPw"
+            type="password"
+            class="txt__input"
+            @input="checkJoinPW"
+            required
+          />
+          <label class="txt__label">비밀번호</label>
+          <span v-if="isPwCheck" class="txt__desc">{{ pwCheckTxt }}</span>
+        </div>
+        <div class="txt__box">
+          <input
+            v-model="joinPwCheck"
+            type="password"
+            class="txt__input"
+            @input="checkJoinPwValid"
+            required
+          />
+          <label class="txt__label">비밀번호확인</label>
+          <span v-if="isPwValidateCheck" class="txt__desc">
+            {{ pwValidCheckTxt }}
+          </span>
+        </div>
       </div>
-      <div class="txt__box">
-        <input
-          v-model="joinNick"
-          type="text"
-          class="txt__input"
-          @input="checkJoinNick"
-        />
-        <label class="txt__label">닉네임</label>
-        <span v-if="isNickCheck" class="txt__desc">{{ nickCheckTxt }}</span>
-      </div>
-      <div class="txt__box">
-        <input
-          v-model="joinPw"
-          type="password"
-          class="txt__input"
-          @input="checkJoinPW"
-        />
-        <label class="txt__label">비밀번호</label>
-        <span v-if="isPwCheck" class="txt__desc">{{ pwCheckTxt }}</span>
-      </div>
-      <div class="txt__box">
-        <input
-          v-model="joinPwCheck"
-          type="password"
-          class="txt__input"
-          @input="checkJoinPwValid"
-        />
-        <label class="txt__label">비밀번호확인</label>
-        <span v-if="isPwValidateCheck" class="txt__desc">
-          {{ pwValidCheckTxt }}
-        </span>
+      <div class="join__btn_wrap">
+        <p class="form__check">
+          <input type="checkbox" v-model="joinCheck" />
+          <label><i></i><span>약관 내용에 동의합니다</span></label>
+        </p>
+
+        <button
+          class="join__btn-done"
+          :class="isActive ? 'on' : ''"
+          @click="joinSubmit"
+        >
+          {{ editInfo.isEdit ? "회원정보 수정완료" : "회원가입완료" }}
+        </button>
       </div>
     </div>
-    <button class="join__btn-done" @click="joinSubmit">
-      {{ editInfo.isEdit ? "회원정보 수정완료" : "회원가입완료" }}
-    </button>
   </div>
 </template>
 
@@ -72,6 +89,18 @@ export default {
     myInfo() {
       if (this.editInfo) {
         return this.$store.state.user;
+      }
+    },
+    isActive() {
+      if (
+        this.idCheckResult &&
+        this.nickCheckResult &&
+        this.pwCheckResult &&
+        this.pwCheckValidResult
+      ) {
+        return true;
+      } else {
+        return false;
       }
     },
   },
@@ -132,7 +161,7 @@ export default {
         this.$router.push("/auth/login");
         this.$store.commit("auth/addUserInfo", userInfo);
       } else {
-        console.log("안내창 띄우기");
+        return;
       }
     },
 
@@ -174,10 +203,10 @@ export default {
       }
     },
   },
-  mounted() {},
 };
 </script>
 <style lang="scss" scoped>
+@use "@/assets/scss/components/form/formCommon.scss";
 @use "@/assets/scss/components/input/textarea.scss";
 @use "@/assets/scss/components/form/joinForm.scss";
 </style>

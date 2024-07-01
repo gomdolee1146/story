@@ -28,10 +28,7 @@ export default {
       });
       return data;
     },
-  },
-  methods: {},
-  mounted() {
-  },
+  },ㅌ
 };
 </script>
 <style lang="scss" scoped>

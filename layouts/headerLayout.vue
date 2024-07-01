@@ -16,14 +16,7 @@ export default {
   name: "headerLayout",
   components: { mainHeader },
   middleware: ["auth"],
-  props: {},
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>
 <style lang="scss" scoped>
-// @use '@/assets/scss/layouts/mainLayout.scss';
-// @use '@/assets/scss/layouts/pcLayout.scss';
 </style>

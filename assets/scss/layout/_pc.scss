@@ -19,11 +19,16 @@
     margin: 0 auto;
     border-left: 1px solid $pc_border;
     border-right: 1px solid $pc_border;
-  }
 
-  .detail__btn_wrap {
-    position: absolute;
-    right: 50%;
-    transform: translateX(calc(($pc_breakpoint / 2) - 50% + 20px));
+    .detail__btn_wrap {
+      position: absolute;
+      right: 50%;
+      transform: translateX(calc(($pc_breakpoint / 2) - 50% + 20px));
+    }
+
+    .join .btn-back {
+      left: 50%;
+      transform: translateX(calc(50% - ($pc_breakpoint / 2) - 20px));
+    }
   }
 }

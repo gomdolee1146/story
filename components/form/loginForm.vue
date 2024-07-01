@@ -3,15 +3,19 @@
     <h4 class="login__logo"></h4>
     <div class="login__wrap">
       <div class="txt__box">
-        <input v-model="loginId" type="text" class="txt__input" />
+        <input v-model="loginId" type="text" class="txt__input" required />
         <label class="txt__label">아이디</label>
       </div>
       <div class="txt__box">
-        <input v-model="loginPw" type="password" class="txt__input" />
+        <input v-model="loginPw" type="password" class="txt__input" required />
         <label class="txt__label">비밀번호</label>
       </div>
     </div>
-    <button class="login__btn login__btn-login" @click="loginSubmit">
+    <button
+      class="login__btn login__btn-login"
+      :class="isActive ? 'on' : ''"
+      @click="loginSubmit"
+    >
       로그인하기
     </button>
     <button class="login__btn login__btn-join" @click="goToJoin">
@@ -30,9 +34,7 @@ import { authCheck } from "@/mixins/authCheck";
 export default {
   name: "loginForm",
   mixins: [authCheck],
-  components: {},
   layout: "default",
-  props: {},
   data() {
     return {
       loginId: "",
@@ -54,6 +56,13 @@ export default {
     userInfo() {
       return this.$store.state.auth.userInfo;
     },
+    isActive() {
+      if (this.idCheckResult && this.pwCheckResult) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   methods: {
     goToJoin() {
@@ -71,6 +80,7 @@ export default {
           this.userInfo.value[checkIdx].pw === this.loginPw ? true : false;
 
         if (this.idCheckResult && this.pwCheckResult) {
+          console.log(this.userInfo.value[checkIdx]);
           this.$store.dispatch("LOGIN", this.userInfo.value[checkIdx]);
           this.$router.push("/");
         }

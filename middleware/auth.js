@@ -1,5 +1,5 @@
 export default function({store, redirect}){
-  if (!store.state.user) {
+  if (Object.keys(store.state.user).length < 1) {
     return redirect('/auth/login')
   }
 }

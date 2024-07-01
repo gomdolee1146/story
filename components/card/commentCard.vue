@@ -168,7 +168,7 @@ export default {
     },
     cancelEditComment() {
       this.isShowEdit = false;
-      this.check = false; // 확인 필요, 변수 수정
+      this.check = false; 
     },
     hideConfirm(isShow) {
       this.isShowConfirm = isShow;
