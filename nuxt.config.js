@@ -28,7 +28,12 @@ export default {
   components: true,
 
   buildModules: ["@nuxtjs/style-resources", "@nuxt/postcss8"],
-  modules: ["nuxt-vuex-localstorage", "@nuxtjs/dayjs"],
+  modules: [
+    "nuxt-vuex-localstorage",
+    "@nuxtjs/dayjs",
+    "cookie-universal-nuxt",
+    ["cookie-universal-nuxt", { alias: "cookiz" }],
+  ],
   build: {
     extractCSS: false,
     postcss: {

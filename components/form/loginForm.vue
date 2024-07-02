@@ -11,16 +11,18 @@
         <label class="txt__label">비밀번호</label>
       </div>
     </div>
-    <button
-      class="login__btn login__btn-login"
-      :class="isActive ? 'on' : ''"
-      @click="loginSubmit"
-    >
-      로그인하기
-    </button>
-    <button class="login__btn login__btn-join" @click="goToJoin">
-      회원가입
-    </button>
+    <div class="login__btn_wrap">
+      <button
+        class="login__btn login__btn-login"
+        :class="isActive ? 'on' : ''"
+        @click="loginSubmit"
+      >
+        로그인하기
+      </button>
+      <button class="login__btn login__btn-join" @click="goToJoin">
+        회원가입
+      </button>
+    </div>
     <system-confirm
       v-if="isShowConfirm"
       :confirm="confirm"
@@ -57,7 +59,7 @@ export default {
       return this.$store.state.auth.userInfo;
     },
     isActive() {
-      if (this.idCheckResult && this.pwCheckResult) {
+      if (this.loginId && this.loginPw) {
         return true;
       } else {
         return false;
@@ -70,19 +72,22 @@ export default {
     },
 
     loginSubmit() {
-      let checkIdx = _.findIndex(this.userInfo.value, (o) => {
-        return o.id === this.loginId;
+      let checkIdx = _.findIndex(this.userInfo, (o) => {
+        return o.userId === this.loginId;
       });
+
       if (checkIdx >= 0) {
         this.idCheckResult =
-          this.userInfo.value[checkIdx].id === this.loginId ? true : false;
+          this.userInfo[checkIdx].userId === this.loginId ? true : false;
         this.pwCheckResult =
-          this.userInfo.value[checkIdx].pw === this.loginPw ? true : false;
+          this.userInfo[checkIdx].password === this.loginPw ? true : false;
 
         if (this.idCheckResult && this.pwCheckResult) {
-          console.log(this.userInfo.value[checkIdx]);
-          this.$store.dispatch("LOGIN", this.userInfo.value[checkIdx]);
+          this.$store.dispatch("LOGIN", this.userInfo[checkIdx]);
           this.$router.push("/");
+        } else if (this.idCheckResult || this.pwCheckResult){
+          this.isShowConfirm = true;
+          this.confirm.text = "비밀번호를 확인해주세요";
         }
       } else {
         this.isShowConfirm = true;
@@ -93,7 +98,6 @@ export default {
       this.isShowConfirm = isShow;
     },
   },
-  mounted() {},
 };
 </script>
 <style lang="scss" scoped>

@@ -28,7 +28,7 @@ export default {
       });
       return data;
     },
-  },ㅌ
+  },
 };
 </script>
 <style lang="scss" scoped>

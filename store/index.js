@@ -1,18 +1,23 @@
-export const state = () => ({
-  user: {
-    // id: 1717461165810,
-    // userId: 'aaa123',
-    // nick: '곰돌곰돌',
-    // photoList: [require('@/assets/imgs/profile/profile_01.png')]
+const storage = {
+  myInfoFetch() {
+    if (process.client) {
+      let data = {};
+      if (sessionStorage.length > 0) {
+        data = JSON.parse(sessionStorage.getItem("userInfo"));
+      }
+      return data;
+    }
   },
+};
+
+export const state = () => ({
+  user: storage.myInfoFetch() || {},
 });
 
 export const mutations = {
-  setUser(state, user) {
-    state.user = user;
-  },
   updateUserInfo(state, userInfo) {
     state.user = userInfo;
+    sessionStorage.setItem("userInfo", userInfo);
   },
 };
 

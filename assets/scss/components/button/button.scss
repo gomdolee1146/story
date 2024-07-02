@@ -18,7 +18,7 @@
     @include position-centerY;
     position: absolute;
     right: 12px;
-    background: icon-img("check", $svg-gray1) no-repeat center / auto 16px;
+    background: icon-img("check", $svg-gray1) no-repeat center / auto 20px;
     z-index: 1;
   }
 }

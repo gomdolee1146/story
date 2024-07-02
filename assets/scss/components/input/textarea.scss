@@ -22,13 +22,13 @@
   &:focus {
     border: 2px solid $primary;
     & ~ .txt__label {
-      top: 12px;
+      top: 16px;
       font-size: 12px;
       color: $primary;
     }
   }
   &:valid ~ .txt__label {
-    top: 12px;
+    top: 16px;
     font-size: 12px;
   }
 }
@@ -36,10 +36,10 @@
   order: 1;
   position: absolute;
   top: 50%;
-  left: 8px;
+  left: 12px;
   transform: translateY(-50%);
   width: 100%;
-  @include font_default(14px, 400, $gray4);
+  @include font_default(16px, 400, $gray4);
   transition: all 0.3s ease;
 }
 .txt__desc {
