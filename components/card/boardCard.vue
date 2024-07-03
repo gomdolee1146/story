@@ -18,7 +18,8 @@
         <div class="card__txt">{{ board.content }}</div>
         <div class="card__info" v-if="board.commentList !== ''">
           <p class="card__info-cmt">
-            {{ board.commentList.length || 0 }}개의 댓글
+            <!-- board.commentList.length || -->
+            {{ board.commentList?.length || 0 }}개의 댓글
           </p>
         </div>
       </div>
@@ -46,7 +47,7 @@
       <button
         class="card__btn card__btn-inactive"
         @click="goToDetail(board.id)"
-        v-if="$route.name !== 'board-id'"
+        v-if="($route.name !== 'board-id') && (board.writer !== myInfo.nick)"
       >
         댓글달기
       </button>

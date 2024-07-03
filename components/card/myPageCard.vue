@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card__wrap">
       <div class="card__thumb">
-        <img :src="myInfo.photoList[0]" />
+        <img :src="myInfo.photoList" />
       </div>
       <div class="card__info">
         <p class="body_medium">안녕하세요!</p>
@@ -24,11 +24,11 @@ export default {
   methods: {
     goToEdit() {
       this.$router.push({
-        name: 'mypage-edit',
-        params:{
+        name: "mypage-edit",
+        params: {
           isEdit: true,
-          userId: this.myInfo.id
-        }
+          userId: this.myInfo.id,
+        },
       });
     },
   },

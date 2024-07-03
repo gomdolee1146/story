@@ -131,7 +131,7 @@ export default {
             date: Date.now(),
             commentContent: this.commentContent,
             writer: this.myInfo.nick,
-            writerThumb: this.myInfo.photoList ? this.myInfo.photoList[0] : "",
+            writerThumb: this.myInfo.photoList ? this.myInfo.photoList : "",
           },
         };
 

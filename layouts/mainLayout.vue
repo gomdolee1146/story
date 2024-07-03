@@ -13,5 +13,8 @@ export default {
   name: "mainLayout",
   components: { MainHeader, MainFooter },
   middleware: ["auth"],
+  created() {
+    this.$store.commit("getMyInfo");
+  },
 };
 </script>

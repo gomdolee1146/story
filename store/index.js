@@ -15,9 +15,14 @@ export const state = () => ({
 });
 
 export const mutations = {
+  getMyInfo(state) {
+    const user = storage.myInfoFetch() || {};
+    state.user = user;
+  },
   updateUserInfo(state, userInfo) {
     state.user = userInfo;
-    sessionStorage.setItem("userInfo", userInfo);
+    sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+    this.$cookies.set("userInfo", userInfo);
   },
 };
 
@@ -27,5 +32,6 @@ export const actions = {
   },
   LOGOUT({ commit }) {
     commit("updateUserInfo", "");
+    this.$cookies.remove("userInfo");
   },
 };

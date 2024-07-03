@@ -14,6 +14,7 @@
             class="txt__input"
             @input="checkJoinId"
             required
+            :readonly="editInfo.isEdit ? true : false"
           />
           <label class="txt__label">아이디</label>
           <span v-if="isIdCheck" class="txt__desc">{{ idCheckTxt }}</span>
@@ -55,7 +56,7 @@
         </div>
       </div>
       <div class="join__btn_wrap">
-        <p class="form__check">
+        <p class="form__check" v-if="!editInfo.isEdit">
           <input type="checkbox" v-model="joinCheck" />
           <label><i></i><span>약관 내용에 동의합니다</span></label>
         </p>
@@ -93,7 +94,6 @@ export default {
     },
     isActive() {
       if (
-        this.idCheckResult &&
         this.nickCheckResult &&
         this.pwCheckResult &&
         this.pwCheckValidResult
@@ -106,10 +106,11 @@ export default {
   },
   data() {
     return {
-      joinId: "",
-      joinNick: "",
+      joinId: this.myInfo?.userId || "",
+      joinNick: this.myInfo?.nick || "",
       joinPw: "",
       joinPwCheck: "",
+      joinCheck: false,
       userInfo: {},
 
       isIdCheck: false,
@@ -152,14 +153,19 @@ export default {
           "0"
         )}.png`),
       };
+
       if (
         this.idCheckResult &&
         this.nickCheckResult &&
         this.pwCheckResult &&
         this.pwCheckValidResult
       ) {
+        if (this.editInfo.isEdit) {
+          this.$store.commit("auth/updateUserInfo", userInfo);
+        } else if (this.joinCheck) {
+          this.$store.commit("auth/addUserInfo", userInfo);
+        }
         this.$router.push("/auth/login");
-        this.$store.commit("auth/addUserInfo", userInfo);
       } else {
         return;
       }
@@ -202,6 +208,15 @@ export default {
         this.pwCheckValidResult = true;
       }
     },
+    getEditData() {
+      this.joinId = this.myInfo.userId;
+      this.joinNick = this.myInfo.nick;
+    },
+  },
+  mounted() {
+    if (this.editInfo.isEdit) {
+      this.getEditData();
+    }
   },
 };
 </script>

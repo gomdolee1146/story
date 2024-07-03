@@ -85,7 +85,7 @@ export default {
         if (this.idCheckResult && this.pwCheckResult) {
           this.$store.dispatch("LOGIN", this.userInfo[checkIdx]);
           this.$router.push("/");
-        } else if (this.idCheckResult || this.pwCheckResult){
+        } else if (this.idCheckResult || this.pwCheckResult) {
           this.isShowConfirm = true;
           this.confirm.text = "비밀번호를 확인해주세요";
         }

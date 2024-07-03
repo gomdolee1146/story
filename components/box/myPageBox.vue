@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     logoutStory() {
-      this.$store.commit("logout");
+      this.$store.dispatch("LOGOUT");
       this.$router.push("/");
     },
     leaveStory() {

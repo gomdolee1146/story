@@ -11,5 +11,8 @@ export default {
   name: "default",
   components: { MainFooter },
   middleware: ["auth"],
+  created() {
+    this.$store.commit("getMyInfo");
+  },
 };
 </script>

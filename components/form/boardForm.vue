@@ -75,7 +75,7 @@ export default {
       return this.$store.state.user;
     },
     boardInfo() {
-      if (this.editInfo) {
+      if (this.editInfo.isEdit === true) {
         let board = this.$store.state.board.boardInfo;
         let data = board.find((e) => {
           return e.id.toString() === this.$route.params.boardId.toString();
@@ -105,12 +105,13 @@ export default {
         const boardData = {
           id: this.$route.params.boardId || "",
           board: {
-            id: this.boardInfo.id || Date.now(),
-            date: this.boardInfo.date || Date.now(),
+            id: this.boardInfo?.id || Date.now(),
+            date: this.boardInfo?.date || Date.now(),
             title: this.boardTitle,
             content: this.boardContent,
             writer: this.myInfo.nick,
-            writerThumb: this.myInfo.photoList[0] || "", // 확인필요함
+            writerThumb: this.myInfo.photoList ? this.myInfo.photoList : "",
+            commentList: this.boardInfo?.commentList || [],
           },
         };
         this.$store.commit("board/saveBoardInfo", boardData);

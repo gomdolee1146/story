@@ -16,6 +16,9 @@ export default {
   name: "headerLayout",
   components: { mainHeader },
   middleware: ["auth"],
+  created() {
+    this.$store.commit("getMyInfo");
+  },
 };
 </script>
 <style lang="scss" scoped>

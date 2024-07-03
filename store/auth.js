@@ -49,15 +49,28 @@ export const mutations = {
   },
   removeUserInfo(state, userInfo) {
     let userList = _.cloneDeep(state.userInfo);
-    _.remove(userList, function (n) {
-      return (n.userId = userInfo.userId);
+    _.remove(userList, (o) => {
+      return (o.userId = userInfo.userId);
     });
 
     nuxtStorage.localStorage.setData("userInfo", userList);
     state.userInfo = userList;
   },
-};
+  updateUserInfo(state, userInfo) {
+    let userList = _.cloneDeep(state.userInfo);
+    let myIndex = _.findIndex(userList, (o) => {
+      o.id === userInfo.id;
+    });
+    userList[myIndex] = userInfo;
 
+    // 쿠키에 있는 내 정보도 동일하게 수정되어야 함.
+    // this.$cookie.set('userInfo', userInfo);
+
+    nuxtStorage.localStorage.setData("userInfo", userList);
+    state.userInfo = userList;
+  },
+};
+``;
 export const actions = {};
 
 export const getters = {

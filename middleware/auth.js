@@ -1,5 +1,7 @@
-export default function({store, redirect}){
-  if (Object.keys(store.state.user).length < 1) {
+export default function({app, redirect}){
+  let cookieData = app.$cookies.get('userInfo');
+
+  if (!cookieData) {
     return redirect('/auth/login')
   }
 }

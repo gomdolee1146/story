@@ -6,28 +6,30 @@
     padding: 16px 20px;
     margin-bottom: 20px;
   }
-
   &__title {
     margin-bottom: 16px;
     font-size: 18px;
     font-weight: 700;
     color: $gray8;
   }
-
   &__info {
     @include flex-wrap(flex-start, center);
-
     &_box {
       @include flex-column(flex-start, center);
       flex: 0 0 50%;
       padding: 12px 0;
-
+      border-radius: 12px;
+      background: $gray2;
+      overflow: hidden;
       p {
         line-height: 1.6;
       }
+      &:last-child:nth-child(2n + 1) {
+        flex: 0 0 100%;
+        margin-top: 4px;
+      }
     }
   }
-
   &__btn {
     display: inline-block;
     height: 32px;

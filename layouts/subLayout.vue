@@ -13,5 +13,8 @@ export default {
   name: "subLayout",
   components: { SubHeader, MainFooter },
   middleware: ["auth"],
+  created() {
+    this.$store.commit("getMyInfo");
+  },
 };
 </script>

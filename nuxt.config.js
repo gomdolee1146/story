@@ -32,7 +32,7 @@ export default {
     "nuxt-vuex-localstorage",
     "@nuxtjs/dayjs",
     "cookie-universal-nuxt",
-    ["cookie-universal-nuxt", { alias: "cookiz" }],
+    ["cookie-universal-nuxt", { alias: "cookiz", parseJSON: false  }],
   ],
   build: {
     extractCSS: false,

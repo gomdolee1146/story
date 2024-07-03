@@ -9,6 +9,7 @@ export default {
   name: "none",
   created() {
     this.$store.commit("auth/getUserInfo");
+    this.$store.commit("getMyInfo");
   },
 };
 </script>
