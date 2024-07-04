@@ -120,7 +120,7 @@ export default {
       });
     },
     deleteBoardInfo() {
-      this.$commit("board/deleteBoardInfo", this.board.id);
+      this.$store.commit("board/deleteBoardInfo", this.board.id);
       this.$router.push("/");
     },
   },

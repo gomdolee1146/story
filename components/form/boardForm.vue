@@ -20,12 +20,6 @@
           v-model="boardContent"
         ></textarea>
       </div>
-      <div class="borad_form__chk">
-        <p>
-          <input type="checkbox" v-model="boardCheck" />
-          <label>어떤 내용에 동의합니다</label>
-        </p>
-      </div>
       <div class="board_form__btn_wrap">
         <button
           class="board_form__btn board_form__btn-active"

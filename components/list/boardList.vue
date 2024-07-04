@@ -1,7 +1,10 @@
 <template>
   <ul class="board__list">
     <li class="board__lst" v-for="(board, idx) in boardList" :key="idx">
-      <boardCard :board="board" :idx="idx" />
+      <board-card :board="board" :idx="idx" />
+    </li>
+    <li class="board__lst" v-if="boardList.length === 0">
+      <none-box />
     </li>
   </ul>
 </template>

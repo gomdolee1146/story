@@ -28,9 +28,12 @@ export const mutations = {
     }
   },
   deleteBoardInfo(state, boardData) {
-    _.remove(state.boardInfo, (o) => {
+    let boardClone = _.cloneDeep(state.boardInfo)
+    _.remove(boardClone, (o) => {
       return o.id.toString() === boardData.toString();
     });
+    state.boardInfo = boardClone;
+    
   },
   addLikeCount(state, likeInfo) {
     let { id, likeUser } = likeInfo;
