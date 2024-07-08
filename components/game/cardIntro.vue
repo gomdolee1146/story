@@ -19,6 +19,13 @@
       >
         <i></i>다시하기
       </button>
+      <button
+        class="card__btn-restart"
+        @click="goToGame"
+        v-if="gameState !== 'start'"
+      >
+        <i></i>나가기
+      </button>
     </div>
   </div>
 </template>
@@ -78,6 +85,9 @@ export default {
       this.control.state = "resume";
 
       this.$emit("controlGameState", this.control);
+    },
+    goToGame() {
+      this.$router.push("/game/");
     },
   },
   mounted() {

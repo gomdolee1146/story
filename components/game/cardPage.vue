@@ -86,7 +86,7 @@ export default {
     },
     startTimer() {
       if (!this.isStopTimer) {
-        if (this.gameState === 'start') {
+        if (this.gameState === "start") {
           this.resetGame();
         }
         this.intervalId = setInterval(() => {
@@ -142,7 +142,9 @@ export default {
         }
         this.control.value = true;
         this.$emit("controlGameState", this.control);
-        this.resetGame();
+        this.$nextTick(() => {
+          this.resetGame();
+        }, 100);
       },
     },
   },

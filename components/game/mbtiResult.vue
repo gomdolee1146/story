@@ -3,7 +3,7 @@
     <div class="result__header">
       <div class="result__header_box">MBTI 테스트</div>
       <div class="result__thumb">
-        <!-- <img :src="resultInfo.thumb" /> -->
+        <img :src="resultInfo.thumb" />
       </div>
       <div class="result__title"></div>
     </div>

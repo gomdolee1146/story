@@ -41,7 +41,10 @@ export default {
 .card {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100vh;
 }
 </style>

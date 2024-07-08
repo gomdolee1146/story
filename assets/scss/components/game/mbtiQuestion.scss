@@ -3,7 +3,7 @@
 
 .question {
   @include flex-column(center, center);
-  padding: 40px;
+  padding: 28px;
   box-sizing: border-box;
 
   &__progress {
