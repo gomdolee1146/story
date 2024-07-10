@@ -5,7 +5,7 @@
       <div class="result__thumb">
         <img :src="resultInfo.thumb" />
       </div>
-      <div class="result__title"></div>
+      <div class="result__title">{{ resultInfo.title }}</div>
     </div>
     <div class="result__wrap">
       <div class="result__content">
@@ -57,16 +57,18 @@
         </div>
       </div>
       <div class="result__footer">
-        <div class="result__footer_box">
+        <div class="result__footer_title">
           <h4>나와의 궁합은?</h4>
         </div>
-        <div class="result__footer_box">
-          <p>Good!</p>
-          <span>{{ result.bestType }}</span>
-        </div>
-        <div class="result__footer_box">
-          <p>Bad!</p>
-          <span>{{ result.worstType }}</span>
+        <div class="result__footer_wrap">
+          <div class="result__footer_box">
+            <p>Good!</p>
+            <span>{{ resultInfo.bestType }}</span>
+          </div>
+          <div class="result__footer_box">
+            <p>Bad!</p>
+            <span>{{ resultInfo.worstType }}</span>
+          </div>
         </div>
       </div>
     </div>

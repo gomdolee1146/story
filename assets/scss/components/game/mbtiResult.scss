@@ -11,14 +11,14 @@
     &_box {
       display: block;
       position: relative;
-      width: 120px;
+      min-width: 120px;
+      width: max-content;
       height: 48px;
       line-height: 48px;
       padding: 0 12px;
       margin: 0 auto;
       border: 2px solid $mbti2;
-      border-left: 0;
-      border-right: 0;
+      border-radius: 8px;
       font-size: 18px;
       font-weight: bold;
       color: $mbti1;
@@ -61,83 +61,27 @@
     text-align: center;
   }
   &__wrap {
-    height: 400px;
     margin: 16px 0 36px;
-    padding: 0 24px;
-    overflow-y: auto;
+    padding: 0 8px;
   }
   &__content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
     margin-top: 20px;
   }
   &__box {
-    padding-bottom: 36px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid $mbti3;
     box-sizing: border-box;
-    &:last-child {
-      grid-column: 1 / span 2;
+    span {
+      font-size: 16px;
+      font-weight: 700;
     }
   }
   &__lst {
     position: relative;
-    padding-left: 14px;
     margin-bottom: 2px;
     font-size: 14px;
     color: $mbti2;
-
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      left: 2px;
-      top: 5px;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: $mbti2;
-      z-index: 1;
-    }
-
-    .result__footer {
-      display: flex;
-      padding: 20px 24px;
-      margin-bottom: 40px;
-      background: $mbti1;
-      box-sizing: border-box;
-    }
-  }
-  &__footer_box {
-    @include flex-column(center, center);
-    flex: 1 2 auto;
-    padding: 16px 10px;
-    box-sizing: border-box;
-
-    &:first-child {
-      flex: 1 1 50%;
-      padding: 16px 0;
-    }
-    h4 {
-      align-self: flex-start;
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-    }
-    p {
-      width: 100%;
-      padding: 6px 0;
-      margin-bottom: 8px;
-      border-bottom: 1px solid #fff;
-      font-size: 16px;
-      color: #fff;
-      text-align: center;
-      box-sizing: border-box;
-    }
-    span {
-      font-size: 24px;
-      color: #fff;
-      text-align: center;
-    }
   }
   &__btn_wrap {
     @include flex-box(center, center);
@@ -152,6 +96,55 @@
       font-size: 20px;
       font-weight: 700;
       color: $mbti1;
+      text-align: center;
+    }
+  }
+}
+.result__footer {
+  padding: 20px 16px;
+  margin-bottom: 40px;
+  background: $mbti1;
+  box-sizing: border-box;
+  &_title {
+    padding: 4px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid $gray1;
+    h4 {
+      color: $gray1;
+      text-align: center;
+    }
+  }
+
+  &_wrap {
+    @include flex-box(center, center);
+    gap: 8px;
+  }
+  &_box {
+    position: relative;
+    padding: 16px 10px;
+    box-sizing: border-box;
+    z-index: 5;
+
+    h4 {
+      align-self: flex-start;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+    p {
+      width: 100%;
+      padding: 6px 0;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    span {
+      display: inline-block;
+      height: 40px;
+      font-size: 16px;
+      color: #fff;
       text-align: center;
     }
   }

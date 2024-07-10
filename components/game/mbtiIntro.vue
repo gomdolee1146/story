@@ -24,7 +24,6 @@
       <button @click="showMBTI">시작하기</button>
       <button @click="endGame">나가기</button>
     </div>
-    
   </section>
 </template>
 

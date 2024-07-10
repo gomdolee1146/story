@@ -23,6 +23,9 @@
     width: 40px;
     height: 40px;
   }
+  &-border_none {
+    border-bottom: 0;
+  }
 }
 .btn-back {
   display: block;

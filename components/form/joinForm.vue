@@ -14,10 +14,10 @@
             class="txt__input"
             @input="checkJoinId"
             required
-            :readonly="editInfo.isEdit ? true : false"
           />
           <label class="txt__label">아이디</label>
           <span v-if="isIdCheck" class="txt__desc">{{ idCheckTxt }}</span>
+          <div v-if="editInfo.isEdit" class="input__blind"></div>
         </div>
         <div class="txt__box">
           <input
@@ -94,9 +94,10 @@ export default {
     },
     isActive() {
       if (
-        this.nickCheckResult &&
-        this.pwCheckResult &&
-        this.pwCheckValidResult
+        (this.nickCheckResult &&
+          this.pwCheckResult &&
+          this.pwCheckValidResult) ||
+        (this.editInfo.isEdit && this.pwCheckResult && this.pwCheckValidResult)
       ) {
         return true;
       } else {

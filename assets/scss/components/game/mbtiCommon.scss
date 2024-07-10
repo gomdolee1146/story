@@ -5,7 +5,7 @@
 .question,
 .result {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 @media screen and (max-width: 520px) {
   .intro,
@@ -19,10 +19,6 @@
 
   .intro__wrap {
     padding: 24px 20px;
-  }
-
-  .result__wrap {
-    height: 240px;
   }
 }
 .mbti__desc {

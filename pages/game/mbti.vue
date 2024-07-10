@@ -1,5 +1,5 @@
 <template>
-  <div class="mbti">
+  <article class="mbti">
     <transition name="fade">
       <mbti-intro v-if="isShowIntro" @showMBTI="showMBTI" />
     </transition>
@@ -9,7 +9,7 @@
     <transition name="fade">
       <mbti-result v-if="isShowResult" :result="mbtiResult" @showIntro="showIntro" />
     </transition>
-  </div>
+  </article>
 </template>
 
 <script>

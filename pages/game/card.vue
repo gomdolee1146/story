@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <article class="card">
     <card-intro
       :isShowIntro="isShowIntro"
       :gameState="gameState"
@@ -10,7 +10,7 @@
       :gameState="gameState"
       @controlGameState="controlGameState"
     />
-  </div>
+  </article>
 </template>
 
 <script>
@@ -43,8 +43,10 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
   gap: 8px;
   width: 100%;
   height: 100vh;
+  z-index: 200;
 }
 </style>

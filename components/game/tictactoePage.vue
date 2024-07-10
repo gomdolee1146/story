@@ -1,5 +1,5 @@
 <template>
-  <div class="tictactoe">
+  <article class="tictactoe">
     <transition name="fade">
       <div class="select__wrap" v-if="step === 1">
         <h4 class="select__title">댕냥 틱택토!</h4>
@@ -35,7 +35,7 @@
         <button class="btn-reload" @click="resetGame">다시 게임하기</button>
       </div>
     </transition>
-  </div>
+  </article>
 </template>
 
 <script>
