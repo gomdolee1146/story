@@ -36,16 +36,16 @@
     text-align: center;
 
     &-login {
-      background: $gray5;
       @include font_default(14px, 700, $gray1);
+      background: $gray5;
 
       &.on {
         background: $primary;
       }
     }
     &-join {
-      border: 1px solid $primary;
       @include font_default(14px, 700, $primary);
+      border: 1px solid $primary;
     }
   }
 }

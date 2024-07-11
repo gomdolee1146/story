@@ -4,7 +4,6 @@
 .detail {
   position: relative;
 }
-
 .card {
   padding: 0 20px;
   background: #fff;
@@ -24,15 +23,15 @@
     }
   }
   &__title {
-    margin-bottom: 4px;
     @include font_default(16px, 700, $gray8);
+    margin-bottom: 4px;
   }
   &__txt {
     @include font_default(14px, 500, $gray6);
 
     &-cut {
-      width: 100%;
       @include ellipsis;
+      width: 100%;
     }
   }
 
@@ -44,9 +43,9 @@
       line-height: 22px;
     }
     &-cmt {
+      @include font_default(13px, 500, $gray6);
       padding-left: 22px;
       background: icon-img(msg, $svg_gray6) no-repeat left center / auto 16px;
-      @include font_default(13px, 500, $gray6);
     }
   }
 
@@ -58,9 +57,9 @@
       @include flex_box(flex-start, center);
     }
     &_lst {
+      @include img_cover(32px, 32px);
       margin-right: -8px;
       border: 1px solid $gray1;
-      @include img_cover(32px, 32px);
 
       &:last-child {
         margin-right: 8px;
@@ -72,9 +71,7 @@
   }
 
   &__btn_wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-box(space-between, center);
     gap: 4px;
   }
   &__btn {
@@ -85,43 +82,38 @@
     border-radius: 20px;
     box-sizing: border-box;
     &-active {
-      background: $primary;
       @include font_default(14px, 700, #fff);
+      background: $primary;
     }
     &-inactive {
+      @include font_default(14px, 700, $primary6);
       line-height: 38px;
       border: 1px solid $primary4;
-      @include font_default(14px, 700, $primary6);
     }
     &-disabled {
-      background: $gray2;
       @include font_default(14px, 700, $gray5);
+      background: $gray2;
     }
   }
 }
-
 .card__user {
   position: relative;
   margin-bottom: 16px;
-
   .user__thumb {
     width: 30px;
     height: 30px;
   }
-
   .user__info {
-    padding-left: 8px;
     @include font_default(16px, 700, $primary);
+    padding-left: 8px;
   }
-
   .card__date {
+    @include position-centerY;
+    @include font_default(13px, 500, $gray6);
     display: inline-block;
     height: 30px;
     line-height: 30px;
     position: absolute;
-    top: 50%;
     right: 0;
-    @include font_default(13px, 500, $gray6);
-    transform: translateY(-50%);
   }
 }

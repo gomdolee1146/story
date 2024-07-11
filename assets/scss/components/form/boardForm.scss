@@ -3,28 +3,23 @@
 .board_form {
   padding: 32px 18px;
   box-sizing: border-box;
-
   &__photo {
     margin: 48px 0 36px;
-
     &_title {
-      margin-bottom: 12px;
       @include font_default(13px, 400, $gray5, -0.05em);
+      margin-bottom: 12px;
     }
-
     &_box {
+      @include img_cover(100px, 100px, 12px);
       display: block;
       position: relative;
       margin-right: 8px;
       background: #fff;
-      @include img_cover(100px, 100px, 12px);
     }
   }
-
   &__chk {
     margin-bottom: 48px;
   }
-
   &__btn {
     width: 100%;
     height: 44px;
@@ -33,15 +28,12 @@
     border-radius: 22px;
 
     &-active {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: $primary;
+      @include flex-box(center, center);
       @include font_default(16px, 700, #fff, -0.05em);
+      background: $primary;
       text-align: center;
     }
   }
-
   &__input {
     display: none;
   }

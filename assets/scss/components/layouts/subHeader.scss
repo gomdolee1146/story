@@ -1,13 +1,11 @@
-@use '@/assets/scss/abstracts' as *;
-@use '@/assets/scss/mixins' as *;
+@use "@/assets/scss/abstracts" as *;
+@use "@/assets/scss/mixins" as *;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-box(space-between, center);
+  @include position-centerX;
   position: fixed;
   top: 0;
-  left: 50%;
   width: 100%;
   max-width: $pc_breakpoint;
   height: 60px;
@@ -15,8 +13,7 @@
   border-bottom: 1px solid $gray4;
   background: $gray1;
   box-sizing: border-box;
-  transform: translateX(-50%);
-  z-index: z('main-header');
+  z-index: z("main-header");
 
   &__btn {
     display: block;

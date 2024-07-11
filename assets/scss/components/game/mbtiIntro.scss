@@ -21,15 +21,11 @@
     text-align: center;
   }
   &__txt {
-    font-size: 24px;
-    font-weight: bold;
-    color: $mbti2;
+    @include font_default(24px, 700, $mbti2);
   }
   &__title_txt {
+    @include font_default(40px, 700, $mbti2);
     margin-top: 4px;
-    font-size: 40px;
-    font-weight: bold;
-    color: $mbti2;
     text-decoration: underline;
   }
   &__box {
@@ -43,14 +39,13 @@
   gap: 4px;
 
   button {
+    @include font_default(13px, 500);
     display: inline-block;
     height: 32px;
     line-height: 32px;
     padding: 0 8px;
     border-radius: 20px;
     background: $primary2;
-    font-size: 13px;
-    font-weight: 500;
 
     &:hover,
     &:active {

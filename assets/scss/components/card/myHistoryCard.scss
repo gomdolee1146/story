@@ -31,6 +31,7 @@
     }
   }
   &__btn {
+    @include font_default(14px, 700, $gray1);
     display: inline-block;
     height: 32px;
     line-height: 32px;
@@ -38,9 +39,6 @@
     margin-top: 4px;
     border-radius: 20px;
     background-color: $primary;
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
     text-align: center;
   }
 }

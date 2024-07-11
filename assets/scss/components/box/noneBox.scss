@@ -2,10 +2,7 @@
 @use "@/assets/scss/mixins" as *;
 
 .none {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  @include flex-column(center, center);
   gap: 4px;
   width: 100%;
   margin-top: 40px;

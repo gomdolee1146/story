@@ -2,20 +2,18 @@
 @use "@/assets/scss/mixins" as *;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-box(space-between, center);
+  @include position-centerX;
+  @include shadow-opt("bottom", 1);
+
   position: fixed;
   top: 0;
-  left: 50%;
   width: 100%;
   max-width: $pc_breakpoint;
   height: 60px;
   padding: 0 12px 0 16px;
   background: $gray1;
   box-sizing: border-box;
-  @include shadow-opt("bottom", 1);
-  transform: translateX(-50%);
   z-index: z("main-header");
 
   &__logo {

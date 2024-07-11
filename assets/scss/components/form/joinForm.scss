@@ -20,8 +20,8 @@
     background: icon-img("logo", $svg-primary) no-repeat left center / auto 100%;
   }
   &__title {
-    margin-bottom: 16px;
     @include font_default(18px, 500, $gray8);
+    margin-bottom: 16px;
   }
 
   &__wrap {
@@ -36,13 +36,13 @@
     margin-top: 48px;
   }
   &__btn-done {
+    @include font_default(16px, 700, $gray1);
     height: 48px;
     line-height: 48px;
     padding: 0 16px;
     margin-left: auto;
     border-radius: 12px;
     background: $gray5;
-    @include font_default(16px, 700, $gray1);
     text-align: center;
 
     &.on {

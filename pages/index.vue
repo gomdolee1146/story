@@ -14,6 +14,3 @@ export default {
   components: { boardList, createButton },
 };
 </script>
-<style lang="scss" scoped>
-@use "@/assets/scss/components/test";
-</style>

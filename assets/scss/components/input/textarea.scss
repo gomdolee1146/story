@@ -8,6 +8,7 @@
   margin-bottom: 24px;
 }
 .txt__input {
+  @include font_default(14px, 400, $gray8);
   order: 2;
   display: block;
   width: 100%;
@@ -16,7 +17,6 @@
   border: 2px solid $gray3;
   border-radius: 8px;
   background: #fff;
-  @include font_default(14px, 400, $gray8);
   transition: all 0.3s ease;
 
   &:focus {
@@ -33,20 +33,17 @@
   }
 }
 .txt__label {
+  @include position-centerY;
+  @include font_default(16px, 400, $gray4);
   order: 1;
   position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
   width: 100%;
-  @include font_default(16px, 400, $gray4);
   transition: all 0.3s ease;
 }
 .txt__desc {
+  @include font_default(12px, 400, #e82e2e);
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
   z-index: 1;
-
-  @include font_default(12px, 400, #e82e2e);
 }

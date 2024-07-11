@@ -88,8 +88,8 @@
     padding: 16px 24px;
   }
   &__thumb {
-    flex: 0 0 44px;
     @include img-cover(44px, 44px);
+    flex: 0 0 44px;
   }
   &__info {
     padding-left: 8px;
@@ -101,7 +101,6 @@
   &__content {
     color: $gray8;
   }
-
   &__option {
     @include flex-box(flex-end, center);
     gap: 4px;
@@ -129,11 +128,10 @@
 
     button {
       @include flex-box(center, center);
+      @include font_default(13px, 500);
       height: 32px;
       padding: 0 6px;
       border-radius: 4px;
-      font-size: 13px;
-      font-weight: 500;
     }
     &-done {
       background-color: $primary;

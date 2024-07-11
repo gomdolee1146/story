@@ -10,23 +10,19 @@
   z-index: 10;
 
   &_box {
+    @include position-center;
     width: 100%;
     position: absolute;
-    @include position-center;
     color: $gray8;
     text-align: center;
     z-index: 2;
 
     h4 {
+      @include font_default(20px, 700, $gray1);
       margin-bottom: 16px;
-      font-size: 20px;
-      font-weight: 700;
-      color: $gray1;
     }
     p {
-      font-size: 28px;
-      font-weight: 700;
-      color: $gray1;
+      @include font_default(28px, 700, $gray1);
     }
     button {
       display: inline-block;

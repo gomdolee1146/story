@@ -9,6 +9,7 @@
     width: 100%;
 
     &_box {
+      @include font_default(18px, 700, $mbti1);
       display: block;
       position: relative;
       min-width: 120px;
@@ -19,9 +20,6 @@
       margin: 0 auto;
       border: 2px solid $mbti2;
       border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-      color: $mbti1;
       text-align: center;
 
       &:before,
@@ -55,9 +53,7 @@
     }
   }
   &__title {
-    font-size: 24px;
-    font-weight: 700;
-    color: $mbti1;
+    @include font_default(24px, 700, $mbti1);
     text-align: center;
   }
   &__wrap {
@@ -73,8 +69,7 @@
     border-bottom: 1px solid $mbti3;
     box-sizing: border-box;
     span {
-      font-size: 16px;
-      font-weight: 700;
+      @include font_default(16px, 700);
     }
   }
   &__lst {
@@ -87,15 +82,13 @@
     @include flex-box(center, center);
 
     .btn-reload {
+      @include font_default(20px, 700, $mbti1);
       display: inline-block;
       height: 48px;
       line-height: 46px;
       padding: 0 16px;
       border: 2px solid $mbti1;
       background-color: #ffffe9;
-      font-size: 20px;
-      font-weight: 700;
-      color: $mbti1;
       text-align: center;
     }
   }
@@ -126,10 +119,8 @@
     z-index: 5;
 
     h4 {
+      @include font_default(20px, 700, $gray1);
       align-self: flex-start;
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
     }
     p {
       width: 100%;

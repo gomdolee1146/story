@@ -5,23 +5,23 @@
   padding: 20px 24px;
   &__wrap {
     @include flex-box(flex-start, center);
+    @include shadow-opt(center, 1);
     position: relative;
     width: 100%;
     padding: 12px 16px;
     border-radius: 20px;
     background-color: $gray1;
-    @include shadow-opt(center, 1);
   }
   &__thumb {
+    @include img-cover(48px, 48px, 20px, $gray3);
     display: block;
     margin-right: 8px;
-    @include img-cover(48px, 48px, 20px, $gray3);
   }
   &__btn {
+    @include position-centerY;
     display: block;
     position: absolute;
     right: 16px;
-    @include position-centerY;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -32,7 +32,6 @@
   display: inline-block;
   width: 40px;
   height: 40px;
-
   i {
     display: block;
     width: 100%;

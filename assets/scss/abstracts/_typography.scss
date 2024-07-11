@@ -1,4 +1,4 @@
-@mixin typography($txtType, $fontSize, $fontWeight, $fontColor:$gray_10, $spacing:-0.5px){
+@mixin typography($txtType, $fontSize, $fontWeight, $fontColor:#111, $spacing:-0.05em){
   line-height: calc(1em + 8px);
   font-weight: $fontWeight;
   color: $fontColor;
@@ -16,7 +16,7 @@
 }
 
 // 선언된 variant를 사용하지 않을 때
-@mixin font_default($fontSize, $fontWeight, $fontColor:$gray_10, $spacing:-0.5px){
+@mixin font_default($fontSize, $fontWeight, $fontColor:#111, $spacing:-0.05em){
   font-size: $fontSize;
   font-weight: $fontWeight;
   color: $fontColor;
