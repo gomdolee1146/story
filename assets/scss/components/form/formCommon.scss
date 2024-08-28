@@ -57,14 +57,15 @@ textarea.form__input {
   label {
     @include flex-box(flex-start, center);
     gap: 4px;
+    user-select: none;
     i {
       display: block;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       background: icon-img("check", $svg-gray5) no-repeat center / auto 100%;
     }
     span {
-      @include font_default(13px, 400, $gray6);
+      @include font_default(15px, 400, $gray6);
       line-height: 15px;
     }
   }
