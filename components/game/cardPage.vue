@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     getCardList() {
+      // 카드 리스트  - 랜덤으로 구하기
       let randomNum = [];
       let check = null;
       for (let i = 0; i < 6; i++) {
@@ -69,20 +70,24 @@ export default {
       this.cardList = _.shuffle(_.concat(randomNum, randomNum));
     },
     checkCard() {
+      // 선택한 카드가 0개일때
       if (this.checkedCard.length === 0) return;
+
+      // 선택한 카드가 홀수개 일 때
       if (this.checkedCard.length % 2 !== 0) return;
+
       setTimeout(() => {
         let firstCard = _.toString(_.split(_.last(this.checkedCard), "_", 1));
         let secondCard = _.toString(
           _.split(_.nth(this.checkedCard, -2), "_", 1)
         );
-
+        // 카드 짝이 맞는지 확인
         if (firstCard === secondCard) return;
         this.checkedCard = _.take(
           this.checkedCard,
           this.checkedCard?.length - 2
         );
-      }, 500);
+      }, 10);
     },
     startTimer() {
       if (!this.isStopTimer) {
@@ -144,7 +149,7 @@ export default {
         this.$emit("controlGameState", this.control);
         this.$nextTick(() => {
           this.resetGame();
-        }, 100);
+        });
       },
     },
   },

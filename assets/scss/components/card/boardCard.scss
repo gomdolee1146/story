@@ -24,9 +24,10 @@
   }
   &__title {
     @include font_default(16px, 700, $gray8);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
   &__txt {
+    line-height: 1.5;
     @include font_default(14px, 500, $gray6);
 
     &-cut {
@@ -67,6 +68,10 @@
     }
     &_txt {
       @include font_default(13px, 700, $gray6);
+
+      span {
+        color: $primary5;
+      }
     }
   }
 

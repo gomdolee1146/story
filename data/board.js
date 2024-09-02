@@ -25,7 +25,7 @@ const boardInfo = [
     id: 1717461166950,
     date: 1717461166950,
     title: "눈 오는날 산책",
-    content: "다들 눈이 오는날은 어떻게 산책을 하시나요? 뽀식이는 실외배변을 하는 강아지라서 항상 나가긴해야할 것 같은데, 눈이 많이 오는 날은 조금 걱정이 되어서요...ㅠ",
+    content: "다들 눈이 오는날은 어떻게 산책을 하시나요? \n\n뽀식이는 실외배변을 하는 강아지라서 항상 나가긴해야할 것 같은데, 눈이 많이 오는 날은 조금 걱정이 되어서요...ㅠ",
     writer: "뽀식이네엄마",
     writerThumb: require(`@/assets/imgs/profile/profile_03.png`),
     likeCount: null,

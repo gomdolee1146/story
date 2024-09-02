@@ -35,6 +35,12 @@
         <button class="btn-reload" @click="resetGame">다시 게임하기</button>
       </div>
     </transition>
+    <transition name="fade">
+      <div class="result" v-if="step === 4">
+        <h4 class="result__txt">무승부!</h4>
+        <button class="btn-reload" @click="resetGame">다시 게임하기</button>
+      </div>
+    </transition>
   </article>
 </template>
 
@@ -55,6 +61,11 @@ export default {
       gameOver: false,
     };
   },
+  computed: {
+    myInfo() {
+      return this.$store.state.user;
+    },
+  },
   methods: {
     checkTable(idx) {
       let firstPlayer = this.player;
@@ -68,6 +79,7 @@ export default {
       });
 
       if (this.boardArray[hNum][vNum] !== "") {
+        // 게임 플레이어 변경하기
         if (this.nowPlaying === firstPlayer) {
           this.boardArray[hNum][vNum] = firstPlayer;
           this.nowPlaying = secondPlayer;
@@ -89,25 +101,31 @@ export default {
       let winner = "";
 
       if (
+        // 가로 값이 동일할 때
         this.boardArray[hNum][0] === this.boardArray[hNum][1] &&
         this.boardArray[hNum][0] === this.boardArray[hNum][2]
       ) {
         winner = this.boardArray[hNum][0] === "dog" ? "고먐미" : "댕댕이";
       } else if (
+        // 세로 값이 동일할 때
         this.boardArray[0][vNum] === this.boardArray[1][vNum] &&
         this.boardArray[0][vNum] === this.boardArray[2][vNum]
       ) {
         winner = this.boardArray[0][vNum] === "dog" ? "고먐미" : "댕댕이";
       } else if (
+        // 대각선 값이 동일할 때
         (this.boardArray[0][0] == this.boardArray[1][1] &&
           this.boardArray[0][0] == this.boardArray[2][2]) ||
         (this.boardArray[0][2] == this.boardArray[1][1] &&
           this.boardArray[2][0] == this.boardArray[1][1])
       ) {
-        winner = this.boardArray[0][0] == "dog" ? "고먐미" : "댕댕이";
+        winner = this.boardArray[1][1] == "dog" ? "고먐미" : "댕댕이";
       } else {
+        this.step = 4;
         winner = "";
       }
+
+      this.myInfo.tictactoe++;
       return winner;
     },
 

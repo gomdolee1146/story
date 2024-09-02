@@ -57,6 +57,7 @@ export default {
   },
   methods: {
     checkCount() {
+      // 카드게임 시작전 카운트다운
       if (this.gameState === "start") {
         setInterval(() => {
           this.count--;

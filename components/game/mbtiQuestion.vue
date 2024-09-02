@@ -44,6 +44,7 @@ export default {
     },
 
     getAnswer(idx, type, answer) {
+      // MBTI 선택지 저장하기 + 프로그레스바
       if (idx === this.questionList.length - 1) {
         this.countPoint();
       } else {
@@ -56,6 +57,7 @@ export default {
       }
     },
     countPoint() {
+      // MBTI 점수계산하기
       let eiResult = 0;
       let nsResult = 0;
       let tfResult = 0;

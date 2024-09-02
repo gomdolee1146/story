@@ -17,9 +17,9 @@ export const authCheck = {
       return idResultObj;
     },
     checkPw(pw) {
-      // const pwValCheck =
-      //   /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-~])(?=.*[0-9]).{8,15}$/;
-      const pwValCheck = /^[0-9]*$/;
+      const pwValCheck =
+         /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-~])(?=.*[0-9]).{8,15}$/;
+      // const pwValCheck = /^[0-9]*$/;
       const result = pwValCheck.test(pw);
       const pwResultObj = {};
 

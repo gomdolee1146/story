@@ -11,7 +11,7 @@
       <button
         class="comment__btn-edit"
         @click="editCommentList"
-        v-if="myInfo.nick === writerInfo"
+        v-if="myInfo.nick === writerInfo && commentLength > 0"
       >
         댓글 편집하기
       </button>
@@ -120,6 +120,7 @@ export default {
   },
   methods: {
     saveCommentInfo() {
+      // 댓글 저장하기
       if (this.commentContent === "") {
         this.isShowConfirm = true;
         this.confirm.text = "댓글 내용을 입력해주세요.";

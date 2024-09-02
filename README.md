@@ -19,6 +19,6 @@
 - 사용 언어: Nuxt2, scss 사용
 
 
-![프로젝트 썸네일](./src/assets/thumbnail.png)
+![프로젝트 썸네일](./assets/thumbnail.png)
 
 

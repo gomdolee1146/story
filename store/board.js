@@ -36,13 +36,15 @@ export const mutations = {
     
   },
   addLikeCount(state, likeInfo) {
-    let { id, likeUser } = likeInfo;
+    let { id, likeUserInfo } = likeInfo;
     let board = _.find(state.boardInfo, (o) => {
       return o.id.toString() === id.toString();
     })
 
     board.likeCount = board.likeCount + 1;
-    board.likeUsers.push(likeUser);
+    console.log('board', board)
+    console.log('likeUserInfo', likeUserInfo)
+    board.likeUsers.push(likeUserInfo);
   },
   saveCommentInfo(state, commentInfo) {
     let board = _.find(state.boardInfo, (o) => {

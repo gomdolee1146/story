@@ -6,6 +6,7 @@
     </div>
     <div class="board_form__wrap">
       <div class="board_form__cont">
+        <h4 class="body_large">제목</h4>
         <input
           type="text"
           class="form__input"
@@ -14,6 +15,7 @@
         />
       </div>
       <div class="board_form__cont">
+        <h4 class="body_large">내용</h4>
         <textarea
           class="form__input"
           placeholder="내용"
@@ -69,6 +71,7 @@ export default {
       return this.$store.state.user;
     },
     boardInfo() {
+      // 글 수정 시 데이터 불러오기
       if (this.editInfo.isEdit === true) {
         let board = this.$store.state.board.boardInfo;
         let data = board.find((e) => {
@@ -106,6 +109,8 @@ export default {
             writer: this.myInfo.nick,
             writerThumb: this.myInfo.photoList ? this.myInfo.photoList : "",
             commentList: this.boardInfo?.commentList || [],
+            likeCount: this.boardInfo.likeCount || 0,
+            likeUsers: this.boardInfo.likeUsers || [],
           },
         };
         this.$store.commit("board/saveBoardInfo", boardData);

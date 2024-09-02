@@ -40,6 +40,7 @@
   width: 100%;
   padding: 0 8px;
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 .txt__desc {
   @include font_default(12px, 400, #e82e2e);

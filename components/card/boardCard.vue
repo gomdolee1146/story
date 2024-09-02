@@ -15,10 +15,9 @@
     <div class="card__content">
       <div class="card__content_box" @click="goToDetail(board.id)">
         <div class="card__title">{{ board.title }}</div>
-        <div class="card__txt">{{ board.content }}</div>
+        <div class="card__txt" v-html="escapeToEnter(board.content)"></div>
         <div class="card__info" v-if="board.commentList !== ''">
           <p class="card__info-cmt">
-            <!-- board.commentList.length || -->
             {{ board.commentList?.length || 0 }}개의 댓글
           </p>
         </div>
@@ -31,11 +30,11 @@
             v-for="(likeLst, idx) in board.likeUsers"
             :key="idx"
           >
-            <img class="card__like_thumb" :src="likeLst" />
+            <img class="card__like_thumb" v-if="idx < 3" :src="likeLst.photoList[0]" />
           </li>
         </ul>
         <p class="card__like_txt" v-if="board.likeCount">
-          외 {{ board.likeCount }}명이 좋아해요!
+          <span>{{ board.likeUsers[0].nick }}님</span> 외 {{ board.likeCount }}명이 좋아해요!
         </p>
         <p class="card__like_txt" v-else>첫번째 좋아요를 눌러보세요!</p>
       </div>
@@ -47,7 +46,7 @@
       <button
         class="card__btn card__btn-inactive"
         @click="goToDetail(board.id)"
-        v-if="($route.name !== 'board-id') && (board.writer !== myInfo.nick)"
+        v-if="$route.name !== 'board-id' && board.writer !== myInfo.nick"
       >
         댓글달기
       </button>
@@ -65,9 +64,11 @@
 
 <script>
 import { timeFormat } from "@/mixins/timeFormat";
+import { common } from "@/mixins/common";
+
 export default {
   name: "boardCard",
-  mixins: [timeFormat],
+  mixins: [timeFormat, common],
   props: {
     board: {
       type: Object,
@@ -91,6 +92,7 @@ export default {
   },
   methods: {
     addCount() {
+      // 좋아요 카운트 증가
       if (this.isLikeOn) return;
 
       this.isLikeOn = true;

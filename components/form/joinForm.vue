@@ -174,26 +174,26 @@ export default {
 
     // 아이디 영역 유효성 검사
     checkJoinId() {
-      const { idCheck, idCheckTxt, idCheckResult } = this.checkId(this.joinId);
-      this.isIdCheck = idCheck;
+      const { isIdCheck, idCheckTxt, idCheckResult } = this.checkId(this.joinId);
+      this.isIdCheck = isIdCheck;
       this.idCheckTxt = idCheckTxt;
       this.idCheckResult = idCheckResult;
     },
 
     // 닉네임 영역 유효성 검사
     checkJoinNick() {
-      const { nickCheck, nickCheckTxt, nickCheckResult } = this.checkNick(
+      const { isNickCheck, nickCheckTxt, nickCheckResult } = this.checkNick(
         this.joinNick
       );
-      this.isNickCheck = nickCheck;
+      this.isNickCheck = isNickCheck;
       this.nickCheckTxt = nickCheckTxt;
       this.nickCheckResult = nickCheckResult;
     },
 
     // PW 영역 유효성 검사
     checkJoinPW() {
-      const { pwCheck, pwCheckTxt, pwCheckResult } = this.checkPw(this.joinPw);
-      this.isPwCheck = pwCheck;
+      const { isPwCheck, pwCheckTxt, pwCheckResult } = this.checkPw(this.joinPw);
+      this.isPwCheck = isPwCheck;
       this.pwCheckTxt = pwCheckTxt;
       this.pwCheckResult = pwCheckResult;
     },
