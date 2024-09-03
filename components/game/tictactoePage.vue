@@ -59,6 +59,8 @@ export default {
       winner: "",
       boardArray: [[], [], []],
       gameOver: false,
+
+      playingCount: 0, // 게임 횟수 카운트
     };
   },
   computed: {
@@ -124,9 +126,22 @@ export default {
         this.step = 4;
         winner = "";
       }
-
-      this.myInfo.tictactoe++;
+      this.updateGameResult();
+      this.playingCount++;
       return winner;
+    },
+    updateGameResult() {
+      // playingCount 값 세팅
+      _.isInteger(this.myInfo.tictactoeCount) == false
+        ? (this.playingCount = 0)
+        : (this.playingCount = this.myInfo.tictactoeCount);
+
+      this.playingCount++;
+      const userInfo = {
+        id: this.myInfo.id,
+        tictactoeCount: this.playingCount,
+      };
+      this.$store.commit("auth/updateUserInfo", userInfo);
     },
 
     setResult() {

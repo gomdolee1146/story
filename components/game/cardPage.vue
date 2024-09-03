@@ -40,11 +40,18 @@ export default {
       count: 60,
       timer: null,
       intervalId: "",
+
+      playingCount: 0,
     };
   },
   props: {
     isStopTimer: { type: Boolean, default: true },
     gameState: { type: String, default: "start" },
+  },
+  computed: {
+    myInfo() {
+      return this.$store.state.user;
+    },
   },
   methods: {
     getCardList() {
@@ -125,6 +132,19 @@ export default {
 
       this.$emit("controlGameState", this.control);
     },
+    updateGameResult() {
+      // playingCount 값 세팅
+      _.isInteger(this.myInfo.cardCount) == false
+        ? (this.playingCount = 0)
+        : (this.playingCount = this.myInfo.cardCount);
+
+      this.playingCount++;
+      const userInfo = {
+        id: this.myInfo.id,
+        cardCount: this.playingCount,
+      };
+      this.$store.commit("auth/updateUserInfo", userInfo);
+    },
   },
   mounted() {
     this.getCardList();
@@ -145,6 +165,7 @@ export default {
         } else {
           return;
         }
+        this.updateGameResult();
         this.control.value = true;
         this.$emit("controlGameState", this.control);
         this.$nextTick(() => {

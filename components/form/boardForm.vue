@@ -114,9 +114,25 @@ export default {
           },
         };
         this.$store.commit("board/saveBoardInfo", boardData);
+        this.countBoardInfo();
         this.$router.push("/");
       }
     },
+    countBoardInfo(){
+      let boardCount = 0;
+      _.isInteger(this.myInfo.boardCount) == false
+        ? (boardCount = 0)
+        : (boardCount = this.myInfo.boardCount);
+
+        boardCount++;
+
+      const userInfo = {
+        id: this.myInfo.id,
+        boardCount: boardCount,
+      };
+      this.$store.commit("auth/updateUserInfo", userInfo);
+    },
+
     hideConfirm(isShow) {
       this.isShowConfirm = isShow;
     },

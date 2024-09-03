@@ -72,32 +72,26 @@ export default {
     };
   },
   computed: {
-    myTictactoeInfo() {
-      return this.$store.state.user.tictactoe;
-    },
-    myMBTIInfo() {
-      return this.$store.state.user.mbti;
-    },
-    myCardInfo() {
-      return this.$store.state.user.game;
+    myInfo() {
+      return this.$store.state.user;
     },
   },
   methods: {
     goToPage(path) {
       this.$router.push(path);
     },
-    init() {
-      // 게임정보 초기화
-      this.gameData[0].result = this.myTictactoeInfo;
-      this.gameData[1].result = this.myCardInfo;
-      this.gameData[2].result = this.myMBTIInfo;
-    },
+    // init() {
+    //   // 게임정보 초기화
+    //   this.gameData[0].result = this.myTictactoeInfo;
+    //   this.gameData[1].result = this.myCardInfo;
+    //   this.gameData[2].result = this.myMBTIInfo;
+    // },
   },
   created() {
     this.init();
   },
   mounted(){
-    console.log(this.myTictactoeInfo);
+    console.log(this.myInfo.tictactoe);
   }
 };
 

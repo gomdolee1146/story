@@ -152,6 +152,20 @@ export default {
         });
       }
     },
+    countCommentInfo(){
+      let commentCount = 0;
+      _.isInteger(this.myInfo.commentCount) == false
+        ? (commentCount = 0)
+        : (commentCount = this.myInfo.commentCount);
+
+        commentCount++;
+
+      const userInfo = {
+        id: this.myInfo.id,
+        commentCount: commentCount,
+      };
+      this.$store.commit("auth/updateUserInfo", userInfo);
+    },
     deleteMyComment(idx) {
       const myCommentInfo = {
         boardId: this.id,

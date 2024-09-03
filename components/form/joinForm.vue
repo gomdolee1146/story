@@ -153,6 +153,11 @@ export default {
           2,
           "0"
         )}.png`),
+        boardCount: 0,
+        commentCount: 0,
+        tictactoeCount: 0,
+        cardCount: 0,
+        mbtiResult: "",
       };
 
       if (
@@ -174,7 +179,9 @@ export default {
 
     // 아이디 영역 유효성 검사
     checkJoinId() {
-      const { isIdCheck, idCheckTxt, idCheckResult } = this.checkId(this.joinId);
+      const { isIdCheck, idCheckTxt, idCheckResult } = this.checkId(
+        this.joinId
+      );
       this.isIdCheck = isIdCheck;
       this.idCheckTxt = idCheckTxt;
       this.idCheckResult = idCheckResult;
@@ -192,7 +199,9 @@ export default {
 
     // PW 영역 유효성 검사
     checkJoinPW() {
-      const { isPwCheck, pwCheckTxt, pwCheckResult } = this.checkPw(this.joinPw);
+      const { isPwCheck, pwCheckTxt, pwCheckResult } = this.checkPw(
+        this.joinPw
+      );
       this.isPwCheck = isPwCheck;
       this.pwCheckTxt = pwCheckTxt;
       this.pwCheckResult = pwCheckResult;

@@ -38,6 +38,7 @@ export default {
     },
     doneConfirm() {
       this.$store.commit("auth/removeUserInfo", this.myInfo);
+      this.$store.dispatch("LEAVESTORY");
       this.$store.state.user = {};
       this.$router.push("/");
     },

@@ -37,6 +37,11 @@ export default {
       progress: "",
     };
   },
+  computed: {
+    myInfo() {
+      return this.$store.state.user;
+    },
+  },
   methods: {
     setProgress() {
       this.progress =
@@ -77,8 +82,15 @@ export default {
       pjResult > 1 ? (result += "p") : (result += "j");
 
       this.$emit("showResult", result);
+      this.updateGameResult(result);
     },
-
+    updateGameResult(result) {
+      const userInfo = {
+        id: this.myInfo.id,
+        mbtiResult: result,
+      };
+      this.$store.commit("auth/updateUserInfo", userInfo);
+    },
     goToPrevAnswer() {
       this.questionNum--;
     },

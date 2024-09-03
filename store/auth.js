@@ -30,6 +30,11 @@ const storage = {
  * @param {string} password
  * @param {string} nickname
  * @param {object} photoList
+ * @param {number} boardCount
+ * @param {number} commentCount
+ * @param {number} tictactoeCount
+ * @param {number} cardCount
+ * @param {string} mbtiResult
  */
 export const state = () => ({
   userInfo: storage.userInfoFetch() || [],
@@ -58,10 +63,12 @@ export const mutations = {
   },
   updateUserInfo(state, userInfo) {
     let userList = _.cloneDeep(state.userInfo);
+
     let myIndex = _.findIndex(userList, (o) => {
       o.id === userInfo.id;
     });
-    userList[myIndex] = userInfo;
+    // userList[myIndex] = userInfo;
+    _.assign(userList[myIndex], userInfo);
 
     // 쿠키에 있는 내 정보도 동일하게 수정되어야 함.
     // this.$cookie.set('userInfo', userInfo);

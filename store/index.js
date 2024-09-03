@@ -34,4 +34,9 @@ export const actions = {
     commit("updateUserInfo", "");
     this.$cookies.remove("userInfo");
   },
+  LEAVESTORY({ commit }) {
+    commit("updateUserInfo", "");
+    this.$cookies.remove("userInfo");
+  },
+
 };
