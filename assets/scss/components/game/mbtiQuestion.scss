@@ -16,14 +16,14 @@
       width: 100%;
       height: 8px;
       border-radius: 8px;
-      background: $gray2;
+      background: $gray3;
     }
     &_bar {
       @include position-centerY;
       position: absolute;
       left: 0;
       height: 10px;
-      background: $primary6;
+      background: $mbti_secondary1;
       transition: all 0.2s ease;
     }
   }
@@ -37,7 +37,7 @@
     width: 100%;
     min-height: 70px;
     font-size: 18px;
-    color: $mbti2;
+    color: $mbti1;
     text-align: center;
   }
   &__btn_wrap {
@@ -51,8 +51,8 @@
       height: 52px;
       padding: 0 8px;
       margin-bottom: 16px;
-      border: 2px solid $mbti2;
-      border-radius: 6px;
+      border: 1px solid $mbti2;
+      border-radius: 12px;
       text-align: center;
       box-sizing: border-box;
 

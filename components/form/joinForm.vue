@@ -94,10 +94,9 @@ export default {
     },
     isActive() {
       if (
-        (this.nickCheckResult &&
-          this.pwCheckResult &&
-          this.pwCheckValidResult) ||
-        (this.editInfo.isEdit && this.pwCheckResult && this.pwCheckValidResult)
+        this.pwCheckResult &&
+        this.pwCheckValidResult &&
+        (this.nickCheckResult || this.editInfo.isEdit)
       ) {
         return true;
       } else {

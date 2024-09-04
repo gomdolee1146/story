@@ -91,11 +91,11 @@ export default {
         }
         this.checkNum++;
       }
-      if (this.checkNum >= 5) {
-        this.winner = this.checkResult(hNum, vNum);
-        if (this.winner) {
-          this.setResult();
-        }
+      this.winner = this.checkResult(hNum, vNum);
+      if (this.checkNum >= 5 && this.winner) {
+        this.setResult();
+      } else if (!this.winner && this.checkNum === 9) {
+        this.step = 4;
       }
       if (this.checkNum > 9) return;
     },
@@ -123,7 +123,6 @@ export default {
       ) {
         winner = this.boardArray[1][1] == "dog" ? "고먐미" : "댕댕이";
       } else {
-        this.step = 4;
         winner = "";
       }
       this.updateGameResult();

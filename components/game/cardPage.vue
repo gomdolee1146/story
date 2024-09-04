@@ -94,7 +94,7 @@ export default {
           this.checkedCard,
           this.checkedCard?.length - 2
         );
-      }, 10);
+      }, 200);
     },
     startTimer() {
       if (!this.isStopTimer) {

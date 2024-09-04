@@ -3,17 +3,18 @@
 
 .intro {
   @include flex-column(center, center);
-  gap: 60px;
+  gap: 90px;
   padding: 48px;
   box-sizing: border-box;
 
   &__wrap {
     @include flex-column(center, center);
+    position: relative;
     width: 100%;
     padding: 20px 32px;
-    border: 1px solid $primary4;
-    border-radius: 4px;
-    background: $primary2;
+    border: 1px solid $mbti_secondary1;
+    border-radius: 16px;
+    background: $mbti_secondary2;
     box-sizing: border-box;
   }
 
@@ -21,12 +22,11 @@
     text-align: center;
   }
   &__txt {
-    @include font_default(24px, 700, $mbti2);
+    @include font_default(24px, 700, $mbti1);
   }
   &__title_txt {
-    @include font_default(40px, 700, $mbti2);
+    @include font_default(40px, 700, $mbti1);
     margin-top: 4px;
-    text-decoration: underline;
   }
   &__box {
     width: 100%;
@@ -36,20 +36,75 @@
 
 .mbti__btn_wrap {
   @include flex-box(center, center);
-  gap: 4px;
+  gap: 8px;
 
   button {
-    @include font_default(13px, 500);
+    @include font_default(16px, 500);
     display: inline-block;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 8px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 12px;
     border-radius: 20px;
-    background: $primary2;
+    background: $mbti_secondary2;
 
     &:hover,
     &:active {
-      background: $primary3;
+      background: $mbti_secondary1;
+      color: $mbti2;
     }
+  }
+}
+
+.intro__ico {
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  animation: iconAni 4s linear infinite;
+
+  &:first-child {
+    top: 100%;
+    margin-top: 16px;
+    left: 0;
+  }
+  &:nth-child(2) {
+    top: 100%;
+    margin-top: 16px;
+    right: 0;
+    animation-delay: 1s;
+  }
+  &:nth-child(3) {
+    bottom: 100%;
+    margin-bottom: 16px;
+    right: 0;
+    animation-delay: 2s;
+  }
+  &:nth-child(4) {
+    bottom: 100%;
+    margin-bottom: 16px;
+    left: 0;
+    animation-delay: 3s;
+  }
+}
+
+@keyframes iconAni {
+  0%,
+  24%,
+  100% {
+    background: $mbti_secondary1 icon-img("dog", "%23e0f0e2") no-repeat center /
+      auto 36px;
+  }
+  25%,
+  49% {
+    background: $mbti2 icon-img("cat", "%235b4a43") no-repeat center / auto 36px;
+  }
+  50%,
+  74% {
+    background: $mbti_secondary2 icon-img("dog", "%23425240") no-repeat center / auto 36px;
+  }
+  75%,
+  99% {
+    background: $mbti1 icon-img("cat", "%23cca290") no-repeat center / auto 36px;
   }
 }

@@ -109,8 +109,8 @@ export default {
             writer: this.myInfo.nick,
             writerThumb: this.myInfo.photoList ? this.myInfo.photoList : "",
             commentList: this.boardInfo?.commentList || [],
-            likeCount: this.boardInfo.likeCount || 0,
-            likeUsers: this.boardInfo.likeUsers || [],
+            likeCount: this.boardInfo?.likeCount || 0,
+            likeUsers: this.boardInfo?.likeUsers || [],
           },
         };
         this.$store.commit("board/saveBoardInfo", boardData);

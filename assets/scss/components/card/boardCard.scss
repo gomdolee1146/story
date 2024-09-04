@@ -10,6 +10,9 @@
 
   &__content {
     margin-bottom: 12px;
+    &_box {
+      cursor: pointer;
+    }
   }
   &__photo {
     margin-bottom: 20px;

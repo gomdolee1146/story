@@ -42,6 +42,7 @@ export const mutations = {
     })
 
     board.likeCount = board.likeCount + 1;
+    console.log(board.likeCount)
     console.log('board', board)
     console.log('likeUserInfo', likeUserInfo)
     board.likeUsers.push(likeUserInfo);

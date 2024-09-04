@@ -30,7 +30,7 @@
             v-for="(likeLst, idx) in board.likeUsers"
             :key="idx"
           >
-            <img class="card__like_thumb" v-if="idx < 3" :src="likeLst.photoList[0]" />
+            <img class="card__like_thumb" v-if="idx < 3" :src="likeLst.photoList" />
           </li>
         </ul>
         <p class="card__like_txt" v-if="board.likeCount">

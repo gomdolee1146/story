@@ -16,10 +16,11 @@
     color: $gray8;
     text-align: center;
     z-index: 2;
-    
+
     span {
-      @include font_default(16px, 700, $gray1);
-      margin-bottom: 16px
+      @include font_default(24px, 700, $gray1);
+      display: block;
+      margin-bottom: 24px;
     }
     h4 {
       @include font_default(20px, 700, $gray1);
