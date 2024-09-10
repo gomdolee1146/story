@@ -16,7 +16,9 @@
             required
           />
           <label class="txt__label">아이디</label>
-          <span v-if="isIdCheck" class="txt__desc">{{ idCheckTxt }}</span>
+          <span v-if="idCheck.isCheck" class="txt__desc">
+            {{ idCheck.checkTxt }}
+          </span>
           <div v-if="editInfo.isEdit" class="input__blind"></div>
         </div>
         <div class="txt__box">
@@ -28,7 +30,9 @@
             required
           />
           <label class="txt__label">닉네임</label>
-          <span v-if="isNickCheck" class="txt__desc">{{ nickCheckTxt }}</span>
+          <span v-if="nickCheck.isCheck" class="txt__desc">
+            {{ nickCheck.checkTxt }}
+          </span>
         </div>
         <div class="txt__box">
           <input
@@ -39,7 +43,9 @@
             required
           />
           <label class="txt__label">비밀번호</label>
-          <span v-if="isPwCheck" class="txt__desc">{{ pwCheckTxt }}</span>
+          <span v-if="pwCheck.isCheck" class="txt__desc">
+            {{ pwCheck.checkTxt }}
+          </span>
         </div>
         <div class="txt__box">
           <input
@@ -50,8 +56,8 @@
             required
           />
           <label class="txt__label">비밀번호확인</label>
-          <span v-if="isPwValidateCheck" class="txt__desc">
-            {{ pwValidCheckTxt }}
+          <span v-if="pwValidCheck.isCheck" class="txt__desc">
+            {{ pwValidCheck.checkTxt }}
           </span>
         </div>
       </div>
@@ -93,15 +99,11 @@ export default {
       }
     },
     isActive() {
-      if (
-        this.pwCheckResult &&
-        this.pwCheckValidResult &&
-        (this.nickCheckResult || this.editInfo.isEdit)
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+      if (this.pwCheckResult === false) return false;
+      if (this.pwCheckValidResult === false) return false;
+      if (this.joinCheck === false) return false;
+      if (this.nickCheckResult || this.editInfo.isEdit) return true;
+      else false;
     },
   },
   data() {
@@ -113,21 +115,26 @@ export default {
       joinCheck: false,
       userInfo: {},
 
-      isIdCheck: false,
-      idCheckTxt: "",
-      idCheckResult: false,
-
-      isNickCheck: false,
-      nickCheckTxt: "",
-      nickCheckResult: false,
-
-      isPwCheck: false,
-      pwCheckTxt: "",
-      pwCheckResult: false,
-
-      isPwValidateCheck: false,
-      pwValidCheckTxt: "",
-      pwCheckValidResult: false,
+      idCheck: {
+        isCheck: false,
+        checkTxt: "",
+        checkResult: false,
+      },
+      nickCheck: {
+        isCheck: false,
+        checkTxt: "",
+        checkResult: false,
+      },
+      pwCheck: {
+        isCheck: false,
+        checkTxt: "",
+        checkResult: false,
+      },
+      pwValidCheck: {
+        isCheck: false,
+        checkTxt: "",
+        checkResult: false,
+      },
     };
   },
   methods: {
@@ -178,43 +185,28 @@ export default {
 
     // 아이디 영역 유효성 검사
     checkJoinId() {
-      const { isIdCheck, idCheckTxt, idCheckResult } = this.checkId(
-        this.joinId
-      );
-      this.isIdCheck = isIdCheck;
-      this.idCheckTxt = idCheckTxt;
-      this.idCheckResult = idCheckResult;
+      this.checkId = this.checkId(this.joinId);
     },
 
     // 닉네임 영역 유효성 검사
     checkJoinNick() {
-      const { isNickCheck, nickCheckTxt, nickCheckResult } = this.checkNick(
-        this.joinNick
-      );
-      this.isNickCheck = isNickCheck;
-      this.nickCheckTxt = nickCheckTxt;
-      this.nickCheckResult = nickCheckResult;
+      this.checkNick = this.checkNick(this.joinNick);
     },
 
     // PW 영역 유효성 검사
     checkJoinPW() {
-      const { isPwCheck, pwCheckTxt, pwCheckResult } = this.checkPw(
-        this.joinPw
-      );
-      this.isPwCheck = isPwCheck;
-      this.pwCheckTxt = pwCheckTxt;
-      this.pwCheckResult = pwCheckResult;
+      this.checkPw = this.checkPw(this.joinPw);
     },
 
     checkJoinPwValid() {
       if (this.joinPw !== this.joinPwCheck) {
-        this.isPwValidateCheck = true;
-        this.pwValidCheckTxt = "동일한 비밀번호를 입력해주세요.";
-        this.pwCheckValidResult = false;
+        this.pwValidCheck.isCheck = true;
+        this.pwValidCheck.checkTxt = "동일한 비밀번호를 입력해주세요.";
+        this.pwValidCheck.checkResult = false;
       } else {
-        this.isPwValidateCheck = false;
-        this.pwValidCheckTxt = "";
-        this.pwCheckValidResult = true;
+        this.pwValidCheck.isCheck = false;
+        this.pwValidCheck.checkTxt = "";
+        this.pwValidCheck.checkResult = true;
       }
     },
     getEditData() {

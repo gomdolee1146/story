@@ -4,7 +4,7 @@
       <div class="card__timer"><i></i>{{ count }}초</div>
       <div class="card__btn">
         <button @click="gamePause">일시정지</button>
-        <button @click="endGame">나가기</button>
+        <button @click="endGame">게임메인으로</button>
       </div>
     </div>
     <ul class="card_list">

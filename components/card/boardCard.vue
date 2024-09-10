@@ -27,14 +27,15 @@
         <ul class="card__like_list">
           <li
             class="card__like_lst"
-            v-for="(likeLst, idx) in board.likeUsers"
+            v-for="(likeLst, idx) in setLikeUsers(board.likeUsers)"
             :key="idx"
           >
-            <img class="card__like_thumb" v-if="idx < 3" :src="likeLst.photoList" />
+            <img class="card__like_thumb" :src="likeLst.photoList" />
           </li>
         </ul>
         <p class="card__like_txt" v-if="board.likeCount">
-          <span>{{ board.likeUsers[0].nick }}님</span> 외 {{ board.likeCount }}명이 좋아해요!
+          <span>{{ board.likeUsers[0].nick }}님</span> 외
+          {{ board.likeCount }}명이 좋아해요!
         </p>
         <p class="card__like_txt" v-else>첫번째 좋아요를 눌러보세요!</p>
       </div>
@@ -59,6 +60,12 @@
         </button>
       </template>
     </div>
+
+    <system-confirm
+      v-if="isShowConfirm"
+      :confirm="confirm"
+      @hideConfirm="hideConfirm"
+    />
   </div>
 </template>
 
@@ -83,11 +90,22 @@ export default {
     return {
       isLikeOn: false,
       likeList: [],
+
+      isShowConfirm: false,
+      confirm: {
+        text: "이미 좋아요를 누른 게시글입니다.",
+        cancelTxt: "확인",
+        isShowDoneBtn: false,
+        cancelClass: "confirm__btn-done",
+      },
     };
   },
   computed: {
     myInfo() {
       return this.$store.state.user;
+    },
+    likeModal() {
+      return this.$store.state.board.likeModal;
     },
   },
   methods: {
@@ -102,6 +120,7 @@ export default {
       };
 
       this.$store.commit("board/addLikeCount", likeInfo);
+      if (this.likeModal) this.isShowConfirm = true;
     },
     goToDetail(id) {
       if (this.isDetail) return;
@@ -124,6 +143,12 @@ export default {
     deleteBoardInfo() {
       this.$store.commit("board/deleteBoardInfo", this.board.id);
       this.$router.push("/");
+    },
+    setLikeUsers(likeList) {
+      return likeList.slice(0, 2);
+    },
+    hideConfirm(isShow) {
+      this.isShowConfirm = isShow;
     },
   },
 };

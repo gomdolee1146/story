@@ -179,6 +179,7 @@ export default {
         deleteNum: this.checkNum,
       };
       this.$store.commit("board/deleteCommentList", deleteList);
+      console.log(this.commentList);
       this.isShowEdit = false;
     },
     cancelEditComment() {

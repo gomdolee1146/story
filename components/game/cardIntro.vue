@@ -24,7 +24,7 @@
         @click="goToGame"
         v-if="gameState !== 'start'"
       >
-        <i></i>나가기
+        <i></i>게임메인으로
       </button>
     </div>
   </div>

@@ -6,31 +6,32 @@ export const authCheck = {
       const idResultObj = {};
 
       if (!result) {
-        idResultObj.isIdCheck = true;
-        idResultObj.idCheckTxt = "아이디를 정확하게 입력해주세요.";
-        idResultObj.idCheckResult = false;
+        idResultObj.isCheck = true;
+        idResultObj.checkTxt =
+          "아이디는 영문 + 숫자 4~8자리 조합으로 입력 가능합니다.";
+        idResultObj.checkResult = false;
       } else {
-        idResultObj.isIdCheck = false;
-        idResultObj.idCheckTxt = "";
-        idResultObj.idCheckResult = true;
+        idResultObj.isCheck = false;
+        idResultObj.checkTxt = "";
+        idResultObj.checkResult = true;
       }
       return idResultObj;
     },
     checkPw(pw) {
       const pwValCheck =
-         /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-~])(?=.*[0-9]).{8,15}$/;
+        /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-~])(?=.*[0-9]).{8,15}$/;
       // const pwValCheck = /^[0-9]*$/;
       const result = pwValCheck.test(pw);
       const pwResultObj = {};
 
       if (!result) {
-        pwResultObj.isPwCheck = true;
-        pwResultObj.pwCheckTxt = "영문,숫자,특문조합 8자리 이상 입력해주세요.";
-        pwResultObj.pwCheckResult = false;
+        pwResultObj.isCheck = true;
+        pwResultObj.checkTxt = "영문,숫자,특문조합 8자리 이상 입력해주세요.";
+        pwResultObj.checkResult = false;
       } else {
-        pwResultObj.isPwCheck = false;
-        pwResultObj.pwCheckTxt = "";
-        pwResultObj.pwCheckResult = true;
+        pwResultObj.isCheck = false;
+        pwResultObj.checkTxt = "";
+        pwResultObj.checkResult = true;
       }
       return pwResultObj;
     },
@@ -40,14 +41,14 @@ export const authCheck = {
       const nickResultObj = {};
 
       if (!result) {
-        nickResultObj.isNickCheck = true;
-        nickResultObj.nickCheckTxt =
+        nickResultObj.isCheck = true;
+        nickResultObj.checkTxt =
           "닉네임은 한글 + 숫자 조합으로 입력 가능합니다";
-        nickResultObj.nickCheckResult = false;
+        nickResultObj.checkResult = false;
       } else {
-        nickResultObj.isNickCheck = false;
-        nickResultObj.nickCheckTxt = "";
-        nickResultObj.nickCheckResult = true;
+        nickResultObj.isCheck = false;
+        nickResultObj.checkTxt = "";
+        nickResultObj.checkResult = true;
       }
       return nickResultObj;
     },

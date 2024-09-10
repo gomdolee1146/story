@@ -107,13 +107,15 @@ export default {
         this.boardArray[hNum][0] === this.boardArray[hNum][1] &&
         this.boardArray[hNum][0] === this.boardArray[hNum][2]
       ) {
-        winner = this.boardArray[hNum][0] === "dog" ? "고먐미" : "댕댕이";
+        // winner = this.boardArray[hNum][0] === "dog" ? "고먐미" : "댕댕이";
+        winner = this.nowPlaying;
       } else if (
         // 세로 값이 동일할 때
         this.boardArray[0][vNum] === this.boardArray[1][vNum] &&
         this.boardArray[0][vNum] === this.boardArray[2][vNum]
       ) {
-        winner = this.boardArray[0][vNum] === "dog" ? "고먐미" : "댕댕이";
+        // winner = this.boardArray[0][vNum] === "dog" ? "고먐미" : "댕댕이";
+        winner = this.nowPlaying;
       } else if (
         // 대각선 값이 동일할 때
         (this.boardArray[0][0] == this.boardArray[1][1] &&
@@ -121,7 +123,8 @@ export default {
         (this.boardArray[0][2] == this.boardArray[1][1] &&
           this.boardArray[2][0] == this.boardArray[1][1])
       ) {
-        winner = this.boardArray[1][1] == "dog" ? "고먐미" : "댕댕이";
+        // winner = this.boardArray[1][1] == "dog" ? "고먐미" : "댕댕이";
+        winner = this.nowPlaying;
       } else {
         winner = "";
       }
@@ -131,11 +134,12 @@ export default {
     },
     updateGameResult() {
       // playingCount 값 세팅
-      _.isInteger(this.myInfo.tictactoeCount) == false
-        ? (this.playingCount = 0)
-        : (this.playingCount = this.myInfo.tictactoeCount);
+      // _.isInteger(this.myInfo.tictactoeCount) == false
+      //   ? (this.playingCount = 0)
+      //   : (this.playingCount = this.myInfo.tictactoeCount);
 
-      this.playingCount++;
+      // this.playingCount++;
+      this.playingCount = _.get(this.myInfo, 'tictactoeCount', 0) + 1
       const userInfo = {
         id: this.myInfo.id,
         tictactoeCount: this.playingCount,

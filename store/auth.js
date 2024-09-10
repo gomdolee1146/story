@@ -1,9 +1,13 @@
 import nuxtStorage from "nuxt-storage";
-import userInfo from "@/data/user";
+import { userInfo } from "@/data/user";
 
 const storage = {
   userInfoFetch() {
     if (process.client) {
+      // 페이지 진입시 로컬스토리지 삭제
+      localStorage.clear();
+
+      // 로컬스토리지에 회원 리스트 불러오기
       let data = {};
       if (localStorage.length > 0) {
         data = JSON.parse(localStorage.getItem("userInfo"));

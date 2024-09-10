@@ -25,7 +25,7 @@
     </div>
     <div class="mbti__btn_wrap">
       <button @click="showMBTI">시작하기</button>
-      <button @click="endGame">나가기</button>
+      <button @click="endGame">게임메인으로</button>
     </div>
   </section>
 </template>

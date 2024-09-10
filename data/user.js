@@ -4,7 +4,7 @@ const userInfo = [
     userId: "test01",
     nick: "테스트계정01",
     password: "test_01",
-    photoList: `~/assets/imgs/profile/profile_05.png`,
+    photoList: require(`/assets/imgs/profile/profile_05.png`),
     boardCount: 0,
     commentCount: 0,
     tictactoeCount: 0,
@@ -16,7 +16,7 @@ const userInfo = [
     userId: "test02",
     nick: "테스트계정02",
     password: "test_02",
-    photoList: `~/assets/imgs/profile/profile_06.png`,
+    photoList: require(`/assets/imgs/profile/profile_06.png`),
     boardCount: 0,
     commentCount: 0,
     tictactoeCount: 0,
@@ -25,4 +25,4 @@ const userInfo = [
   },
 ];
 
-export default { userInfo };
+export { userInfo };
